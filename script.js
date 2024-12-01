@@ -41,13 +41,13 @@ function slika(tabela)
     for(let i = 0; i < 5; i++)
     {
         const slika = document.createElement("img");
-        slika.src = "slike/slika"+(i+1)+".png";
+        slika.src = "assets/slike/slika"+(i+1)+".png";
         tabela.rows[0].cells[vrednostSlike[i]].appendChild(slika);
     }
     for(let i = 0; i < 3; i++)
     {
         const suma = document.createElement("img");
-        suma.src = "slike/suma.png"; 
+        suma.src = "assets/slike/suma.png"; 
         tabela.rows[verdnostSume[i]].cells[0].appendChild(suma);
     }
 }
