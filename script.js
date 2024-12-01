@@ -42,6 +42,7 @@ function slika(tabela)
     {
         const slika = document.createElement("img");
         slika.src = "slike/slika"+(i+1)+".png";
+        slika.alt = "D";
         tabela.rows[0].cells[vrednostSlike[i]].appendChild(slika);
     }
     for(let i = 0; i < 3; i++)
