@@ -477,13 +477,12 @@ function proveraUnosa(celija)
             event.preventDefault();
     }); 
 
-    celija.addEventListener('input', function(event) {
+    celija.addEventListener('input', function() {
         let broj = celija.textContent.trim();
         if (broj[0] === '0' && broj.length > 1) 
             celija.textContent = '';
         
         else if (isNaN(broj) || parseInt(broj, 10) > 80) 
             celija.textContent = '';
-        
     });
 }
