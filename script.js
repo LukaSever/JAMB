@@ -475,9 +475,15 @@ function proveraUnosa(celija)
         const kljuc = event.key;
         if(!/^\d$/.test(kljuc)  && kljuc !== 'Backspace' && kljuc !== 'Delete')
             event.preventDefault();
-
-        const broj = parseInt(celija.textContent, 10);
-        if (isNaN(broj) || broj > 80 || (celija.textContent[0] === '0' && celija.textContent.length > 1))
-            celija.textContent = '';
     }); 
+
+    celija.addEventListener('input', function(event) {
+        let broj = celija.textContent.trim();
+        if (broj[0] === '0' && broj.length > 1) 
+            celija.textContent = '';
+        
+        else if (isNaN(broj) || parseInt(broj, 10) > 80) 
+            celija.textContent = '';
+        
+    });
 }
