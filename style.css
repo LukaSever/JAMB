@@ -1,0 +1,45 @@
+#tabela1, #tabela2, #tabela3
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#tabela1 th, #tabela1 td,
+#tabela2 th, #tabela2 td,
+#tabela3 th, #tabela3 td
+{
+    border: 1px solid black;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+}
+
+#red-0, #suma-1, #suma-2, #suma-3
+{
+    background-color: yellow;
+}
+
+th
+{
+    color:black;
+    font: 16px Arial, sans-serif;
+}
+
+#poeni
+{
+    background-color: black;
+    color: white;
+}
+
+#div 
+{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.oznacena 
+{
+    background-color: red; 
+    border: 2px solid red;
+}
