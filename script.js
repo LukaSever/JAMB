@@ -479,7 +479,5 @@ function proveraUnosa(celija)
         const broj = parseInt(celija.textContent, 10);
         if (isNaN(broj) || broj > 80 || (celija.textContent[0] === '0' && celija.textContent.length > 1))
             celija.textContent = '';
-    });
-
-    
+    }); 
 }
