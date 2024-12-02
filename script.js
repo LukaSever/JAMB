@@ -407,7 +407,6 @@ function suma4(tabela)
     poeni.textContent = (ukupno !== 0) ? ukupno : '';
 }
 
-
 document.body.addEventListener("blur", function (event) {
     const celija = event.target;
     const kolonaIndeks = celija.cellIndex;
@@ -422,7 +421,7 @@ document.body.addEventListener("blur", function (event) {
     const tabelaIndeks = Array.from(tabele).indexOf(tabela);
     if (kolonaIndeks === 4 && najava(celija)) 
     {
-        const sledecaTabela = tabele[(tabelaIndeks + 1) % tabele.length];
+        const sledecaTabela = tabele[(tabelaIndeks - 1 + tabele.length) % tabele.length];
         const redIndeks = celija.parentNode.rowIndex;
         const ciljanaCelija = sledecaTabela?.rows[redIndeks]?.cells[6];
         if (ciljanaCelija) 
@@ -432,7 +431,6 @@ document.body.addEventListener("blur", function (event) {
         if (celija.textContent.trim() !== "") 
             celija.classList.remove("oznacena");
 }, true);
-
 function najava(celija) 
 {
     let unos = parseInt(celija.textContent, 10);

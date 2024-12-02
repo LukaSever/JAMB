@@ -1,34 +1,18 @@
-#tabela1, #tabela2, #tabela3
+body
 {
-    border: 1px solid black;
-    border-collapse: collapse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;    
+    height: 100vh; 
+    margin: 0;
+    overflow: auto;  
 }
 
-#tabela1 th, #tabela1 td,
-#tabela2 th, #tabela2 td,
-#tabela3 th, #tabela3 td
+button
 {
-    border: 1px solid black;
-    text-align: center;
-    width: 30px;
-    height: 30px;
-}
-
-#red-0, #suma-1, #suma-2, #suma-3
-{
-    background-color: yellow;
-}
-
-th
-{
-    color:black;
-    font: 16px Arial, sans-serif;
-}
-
-#poeni
-{
-    background-color: black;
-    color: white;
+    margin: 10px;
+    font: 16px Arial, sans-serif, bold;
 }
 
 #div 
@@ -38,8 +22,47 @@ th
     flex-wrap: wrap;
 }
 
+table
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table th, table td
+{
+    border: 1px solid black;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font: 16px Arial, sans-serif;
+}
+
+@media (max-width: 480px) {
+    table 
+    {
+        width: 100%;
+        height: 100vh; 
+    }
+    table th, table td
+    {
+        height: calc(100% / 18);   
+    }
+}
+
+#red-0, #suma-1, #suma-2, #suma-3
+{
+    background-color: yellow;
+}
+
+#poeni
+{
+    background-color: black;
+    color: white;
+}
+
 .oznacena 
 {
     background-color: red; 
     border: 2px solid red;
 }
+
