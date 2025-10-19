@@ -1,60 +1,73 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
-    table-layout: fixed; /* važno da širine kolona rade */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
 }
 
-table th, table td {
+table{
     border: 1px solid black;
+    border-collapse: collapse;
+}
+
+button{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px Arial, sans-serif, bold;
+}
+
+table th, table td{
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
     text-align: center;
     font: 16px Arial, sans-serif;
-    overflow: hidden;
-    white-space: nowrap; /* sve u jednoj liniji */
-    text-overflow: ellipsis; /* ako ne stane, prikaže ... */
 }
 
-/* Širine kolona */
-table th:first-child,
-table td:first-child {
-    width: 80px; /* prva kolona šira */
+#red-0, #suma-1, #suma-2, #suma-3{
+    background-color: yellow;
 }
 
-table th:last-child,
-table td:last-child {
-    width: 80px; /* poslednja kolona šira */
+#poeni{
+    background-color: black;
+    color: white;
 }
 
-table th:not(:first-child):not(:last-child),
-table td:not(:first-child):not(:last-child) {
-    width: calc((100% - 160px) / 9); /* ostatak prostora podeljen proporcionalno */
-}
-
-/* Uniformna visina svih redova */
-table tr {
-    height: 50px;
-}
-
-/* Slike skalirane unutar ćelija */
-table img {
-    max-height: 100%;
-    width: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Mobilni ekrani */
 @media(max-width: 480px){
-    table tr {
-        height: 40px;
+    #igra {
+        width: 100%;
+        height: 100vh;      /* tabela zauzima ceo ekran */
+        overflow-y: auto;   /* skrol do dugmeta */
     }
-    table th:first-child,
-    table td:first-child,
-    table th:last-child,
-    table td:last-child {
-        width: 60px;
+
+    table {
+        width: 100%;
+        table-layout: fixed; /* za proporcionalne kolone */
     }
-    table th:not(:first-child):not(:last-child),
-    table td:not(:first-child):not(:last-child) {
-        width: calc((100% - 120px) / 9);
+
+    /* Visina svih ćelija ista */
+    table th, table td {
+        height: 50px;       /* možeš smanjiti po potrebi */
+        overflow: hidden;
+        white-space: nowrap; /* tekst u jednoj liniji */
+        text-overflow: ellipsis;
+        font-size: 14px;
+    }
+
+    /* Prva i poslednja kolona fiksne širine */
+    table tr th:first-child,
+    table tr td:first-child,
+    table tr th:last-child,
+    table tr td:last-child {
+        width: 80px; /* fiksna širina */
+    }
+
+    /* Ostale kolone proporcionalno iste */
+    table tr th:not(:first-child):not(:last-child),
+    table tr td:not(:first-child):not(:last-child) {
+        width: calc((100% - 160px)/9); /* 9 ostalih kolona */
     }
 }
