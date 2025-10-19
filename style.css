@@ -76,3 +76,4 @@ table th, table td{
     table tr td:not(:first-child):not(:last-child) {
         width: calc((100% - 90px)/9);
     }
+}
