@@ -1,70 +1,60 @@
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
-}
-
-table{
-    border: 1px solid black;
+table {
     border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed; /* važno da širine kolona rade */
 }
 
-button{
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px;
-}
-
-table th, table td{
+table th, table td {
     border: 1px solid black;
-    width: 30px;
-    height: 30px;
     text-align: center;
     font: 16px Arial, sans-serif;
+    overflow: hidden;
+    white-space: nowrap; /* sve u jednoj liniji */
+    text-overflow: ellipsis; /* ako ne stane, prikaže ... */
 }
 
-#red-0, #suma-1, #suma-2, #suma-3{
-    background-color: red;
+/* Širine kolona */
+table th:first-child,
+table td:first-child {
+    width: 80px; /* prva kolona šira */
 }
 
-#poeni{
-    background-color: black;
-    color: white;
+table th:last-child,
+table td:last-child {
+    width: 80px; /* poslednja kolona šira */
 }
 
+table th:not(:first-child):not(:last-child),
+table td:not(:first-child):not(:last-child) {
+    width: calc((100% - 160px) / 9); /* ostatak prostora podeljen proporcionalno */
+}
 
+/* Uniformna visina svih redova */
+table tr {
+    height: 50px;
+}
 
+/* Slike skalirane unutar ćelija */
+table img {
+    max-height: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
 
-
+/* Mobilni ekrani */
 @media(max-width: 480px){
-    body{
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        height: 100vh; /* telo zauzima ceo ekran */
+    table tr {
+        height: 40px;
     }
-
-    #igra{
-        flex: 1; /* zauzima sav preostali prostor */
-        width: 100%;
-        overflow-y: auto; /* da tabela skroluje ako je prevelika */
+    table th:first-child,
+    table td:first-child,
+    table th:last-child,
+    table td:last-child {
+        width: 60px;
     }
-
-    table{
-        width: 100%;
-        height: 100%; /* tabela puni div */
-        border-collapse: collapse;
-        table-layout: fixed;
-    }
-
-    table th, table td{
-        height: auto; /* da se prilagodi visina reda sadržaju */
-        font-size: 12px; /* možeš smanjiti font za mobilni */
-        text-align: center;
+    table th:not(:first-child):not(:last-child),
+    table td:not(:first-child):not(:last-child) {
+        width: calc((100% - 120px) / 9);
     }
 }
-
