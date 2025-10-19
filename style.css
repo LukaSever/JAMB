@@ -76,4 +76,13 @@ table th, table td{
     table tr td:not(:first-child):not(:last-child) {
         width: calc((100% - 90px)/9);
     }
+
+    table tr:first-child th {
+        font-weight: normal;   /* smanji bold */
+        padding: 0;            /* ukloni padding */
+        height: 100%;          /* da popuni red isto kao td */
+        box-sizing: border-box;
+        font-size: 14px;       /* isto kao td */
+        text-align: center;
+    }
 }
