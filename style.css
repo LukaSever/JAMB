@@ -50,7 +50,7 @@ table th, table td{
     }
 
     table tr {
-        height: calc(100% / 10); /* ako tabela ima 10 redova */
+        height: calc(100% / 18); /* ako tabela ima 10 redova */
     }
 
     table th, table td {
