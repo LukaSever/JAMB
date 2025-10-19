@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+button{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+table th, table td{
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font: 16px Arial, sans-serif;
+}
+
+#red-0, #suma-1, #suma-2, #suma-3{
+    background-color: yellow;
+}
+
+#poeni{
+    background-color: black;
+    color: white;
+}
+
+@media(max-width: 480px){
+    div{
+        table-layout: fixed;
+        width: 100%;
+        height: 100vh;
+    }
+    table th, table td{
+        height: calc(100% / 12);
+    }
+}
