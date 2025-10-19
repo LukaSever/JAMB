@@ -35,7 +35,6 @@ table th, table td{
     background-color: black;
     color: white;
 }
-
 @media(max-width: 480px){
     #igra {
         width: 100%;
@@ -45,18 +44,23 @@ table th, table td{
 
     table {
         width: 100%;
-        table-layout: fixed; /* za proporcionalne kolone */
+        height: 100%;       /* tabela zauzima visinu #igra */
+        table-layout: fixed;
         border-collapse: collapse;
     }
 
-    /* Visina svih ćelija proporcionalna visini ekrana */
+    table tr {
+        height: calc(100% / 10); /* ako tabela ima 10 redova */
+    }
+
     table th, table td {
-        height: calc(100vh / 10); /* npr. ako tabela ima 10 redova */
+        height: 100%;       /* ćelije popunjavaju red */
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         font-size: 14px;
         text-align: center;
+        box-sizing: border-box; /* za padding i border */
     }
 
     /* Prva i poslednja kolona fiksne širine */
@@ -64,12 +68,11 @@ table th, table td{
     table tr td:first-child,
     table tr th:last-child,
     table tr td:last-child {
-        width: 45px; /* fiksna širina */
+        width: 45px;
     }
 
     /* Ostale kolone proporcionalno iste */
     table tr th:not(:first-child):not(:last-child),
     table tr td:not(:first-child):not(:last-child) {
-        width: calc((100% - 90px)/9); /* 9 ostalih kolona */
+        width: calc((100% - 90px)/9);
     }
-}
