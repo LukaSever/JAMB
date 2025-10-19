@@ -46,15 +46,17 @@ table th, table td{
     table {
         width: 100%;
         table-layout: fixed; /* za proporcionalne kolone */
+        border-collapse: collapse;
     }
 
-    /* Visina svih ćelija ista */
+    /* Visina svih ćelija proporcionalna visini ekrana */
     table th, table td {
-        height: 50px;       /* možeš smanjiti po potrebi */
+        height: calc(100vh / 10); /* npr. ako tabela ima 10 redova */
         overflow: hidden;
-        white-space: nowrap; /* tekst u jednoj liniji */
+        white-space: nowrap;
         text-overflow: ellipsis;
         font-size: 14px;
+        text-align: center;
     }
 
     /* Prva i poslednja kolona fiksne širine */
@@ -62,12 +64,12 @@ table th, table td{
     table tr td:first-child,
     table tr th:last-child,
     table tr td:last-child {
-        width: 80px; /* fiksna širina */
+        width: 45px; /* fiksna širina */
     }
 
     /* Ostale kolone proporcionalno iste */
     table tr th:not(:first-child):not(:last-child),
     table tr td:not(:first-child):not(:last-child) {
-        width: calc((100% - 160px)/9); /* 9 ostalih kolona */
+        width: calc((100% - 90px)/9); /* 9 ostalih kolona */
     }
 }
