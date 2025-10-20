@@ -15,8 +15,8 @@ table{
 button{
     display: block;
     margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 16px Arial, sans-serif, bold;
+    padding: 15px;
+    font-size: 16px Arial, sans-serif;
 }
 
 table th, table td{
@@ -37,76 +37,48 @@ table th, table td{
 }
 
 
-
-
-
-
-
-
-
 @media(max-width: 480px){
-
-    /* Wrapper da centrira tabelu i dugme */
-    #cela-igra {
+    #cela-igra{
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
-        height: 100vh;
-        padding-top: 1px; /* offset za status bar / navigacionu traku */
-        box-sizing: border-box;
+        min-height: 100vh;
     }
 
-    /* Tabela */
-    #igra {
+    #igra{
         width: 100%;
-        height: calc(100% - 1px); /* ceo prostor minus padding-top */
+        height: 100vh;
     }
 
-    table {
+    table{
         width: 100%;
         height: 100%;
         table-layout: fixed;
         border-collapse: collapse;
     }
 
-    /* Svi redovi (uključujući zaglavlje) */
-    table tr {
-        height: calc(100% / 18); /* 18 redova ukupno */
+    table tr{
+        height: calc(100% / 18);
     }
 
-    /* Ćelije */
     table th{
         overflow: hidden;
-        white-space: nowrap;
         text-overflow: ellipsis;
-        font-size: 12px;
+        white-space: nowrap;
+        font: 12px Arial, sans-serif;
         text-align: center;
         box-sizing: border-box;
-        padding: 0;       /* uklanja višak visine */
-    }
-
-    /* Fiksna širina prve i poslednje kolone */
-    table tr th:first-child,
-    table tr td:first-child,
-    table tr th:last-child,
-    table tr td:last-child {
-        width: 50px;
-        min-width: 50px;
-        max-width: 50px;
-    }
-
-    /* Ostale kolone proporcionalno */
-    table tr th:not(:first-child):not(:last-child),
-    table tr td:not(:first-child):not(:last-child) {
-        width: calc((100% - 100px)/9); /* 9 ostalih kolona */
-    }
-
-    /* Zaglavlje */
-    table tr:first-child th {
-        font-weight: normal;
-        font-size: 14px;
-        text-align: center;
         padding: 0;
+    }
+
+    table tr th:first-child,
+    table tr th:last-child{
+        width: 50px;
+    }
+
+    table tr:first-child th,
+    table tr:last-child th{
+        font-size: 16px;
     }
 }

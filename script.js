@@ -383,7 +383,7 @@ function dodavanjeBrojeva(event)
 function dodajOkvir(tabela, redIndeks, kolonaIndeks, ivica) 
 {
     const celija = tabela.rows[redIndeks].cells[kolonaIndeks];
-    celija.style[ivica] = `3px solid black`;
+    celija.style[ivica] = `4px solid black`;
 }
 function proveraUnosa(celija)
 {
