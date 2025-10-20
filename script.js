@@ -284,7 +284,7 @@ function m(tabela)
             for (let j = 1; j < broj - 2; j++) 
             {
                 let trenutniBroj = parseInt(novRed.cells[j].textContent, 10);
-                if (!isNaN(trenutniBroj) && trenutniBroj < min)
+                if (!isNaN(trenutniBroj) && trenutniBroj < min && trenutniBroj !== 0)
                 {
                     min = trenutniBroj; 
                     promena = true;
