@@ -14,7 +14,7 @@ table{
 
 button{
     display: block;
-    margin: 20px auto 0;
+    margin: 0 auto;
     padding: 15px;
     font-size: 16px Arial, sans-serif;
 }
@@ -73,4 +73,10 @@ table th, table td{
     table tr:last-child th{
         font-size: 16px;
     }
+
+    table tr th:not(:first-child):not(:last-child),
+    table tr td:not(:last-child){
+        width: calc((100% - 100px) / 10);
+    }
+
 }
