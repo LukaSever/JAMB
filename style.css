@@ -45,9 +45,22 @@ table th, table td{
 
 
 @media(max-width: 480px){
-    #igra {
+
+    /* Wrapper da centrira tabelu i dugme */
+    #cela-igra {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
         height: 100vh;
+        padding-top: 40px; /* offset za status bar / navigacionu traku */
+        box-sizing: border-box;
+    }
+
+    /* Tabela */
+    #igra {
+        width: 100%;
+        height: calc(100% - 40px); /* ceo prostor minus padding-top */
     }
 
     table {
@@ -59,7 +72,7 @@ table th, table td{
 
     /* Svi redovi (uključujući zaglavlje) */
     table tr {
-        height: calc( 90vh / 18); /* 18 redova ukupno */
+        height: calc(100% / 18); /* 18 redova ukupno */
     }
 
     /* Ćelije */
@@ -70,7 +83,7 @@ table th, table td{
         font-size: 14px;
         text-align: center;
         box-sizing: border-box;
-        padding: 0;       /* važno! */
+        padding: 0;       /* uklanja višak visine */
     }
 
     /* Fiksna širina prve i poslednje kolone */
@@ -86,7 +99,7 @@ table th, table td{
     /* Ostale kolone proporcionalno */
     table tr th:not(:first-child):not(:last-child),
     table tr td:not(:first-child):not(:last-child) {
-        width: calc((100% - 90px)/9);
+        width: calc((100% - 90px)/9); /* 9 ostalih kolona */
     }
 
     /* Zaglavlje */
@@ -96,11 +109,4 @@ table th, table td{
         text-align: center;
         padding: 0;
     }
-
-    #cela-igra {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
-
 }
