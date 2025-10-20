@@ -59,7 +59,7 @@ table th, table td{
 
     /* Svi redovi (uključujući zaglavlje) */
     table tr {
-        height: calc((100vh-40px) / 18); /* 18 redova ukupno */
+        height: calc( 90vh / 18); /* 18 redova ukupno */
     }
 
     /* Ćelije */
