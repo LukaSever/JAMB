@@ -9,18 +9,6 @@
 <body>
   <audio id="zvukNajave" src="static/mp3/najava.mp3" preload="auto"></audio>
   <div id="igra"></div>
-
   <script src="script.js"></script>
-
-  <script>
-    function resizeTable() {
-        const vh = window.innerHeight; // stvarna visina vidljivog ekrana, tab uračunat
-        const igra = document.getElementById('igra');
-        igra.style.height = vh + 'px';
-    }
-    window.addEventListener('resize', resizeTable);
-    window.addEventListener('orientationchange', resizeTable);
-    resizeTable();
-  </script>
 </body>
 </html>
