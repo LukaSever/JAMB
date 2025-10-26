@@ -22,11 +22,13 @@ function podnozje(tabela)
     const novRed = tabela.insertRow();
     novRed.id = `red-16`;
 
-    const ukupno = document.createElement("th");
-    ukupno.id = "ukupno";
-    ukupno.setAttribute("colspan", 9);
-    ukupno.textContent = "Ukupno";
-    novRed.appendChild(ukupno);
+    const th = document.createElement("th");
+    th.setAttribute("colspan", 9);
+    const dugme = document.createElement("button");
+    dugme.textContent = "Nova partija";
+    dugme.onclick = novaPartija;
+    th.appendChild(dugme);
+    novRed.appendChild(th);
 
     const poeni = document.createElement("th");
     poeni.id = "poeni";
