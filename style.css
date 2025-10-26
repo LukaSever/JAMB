@@ -36,14 +36,13 @@ table th, table td{
 
 @media(max-width: 480px){
     #igra{
-        overflow-y: hidden;
         width: 100%;
-        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
     }
 
     table{
         width: 100%;
-        height: 93vh;
+        height: 100%;
         table-layout: fixed;
         border-collapse: collapse;
     }
