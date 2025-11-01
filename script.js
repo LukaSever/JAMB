@@ -434,14 +434,10 @@ function novaPartija(){
             tabela.rows[i].cells[j].textContent = "";
 }
 
-
-function setHeight() {
-    const vh = window.innerHeight; // uzima stvarnu visinu vidljivog dela ekrana
-    document.getElementById('igra').style.height = `${vh}px`;
+function setHight(){
+    const vh = window.innerHeight;
+    document.getElementById('igra').style.height = `${vh}.px`;
 }
-
-// pozovi odmah pri učitavanju stranice
 setHeight();
-
-// osveži visinu kad korisnik promeni veličinu ekrana / Google tab se sakrije/prikazuje
 window.addEventListener('resize', setHeight);
+
