@@ -339,6 +339,7 @@ function dodavanjeBrojeva(event)
     const celija = event.target;
     celija.setAttribute("staraVrednost", celija.textContent);
     celija.setAttribute("contenteditable", "true");
+    celija.setAttribute("inputmode", "numeric");
     celija.focus();
 
     proveraUnosa(celija);
