@@ -433,3 +433,20 @@ function novaPartija(){
         for (let j = 1; j < tabela.rows[i].cells.length; j++)
             tabela.rows[i].cells[j].textContent = "";
 }
+
+
+if ('serviceWorker' in navigator) {
+  const swCode = `
+    self.addEventListener('install', () => self.skipWaiting());
+    self.addEventListener('activate', () => self.clients.claim());
+    self.addEventListener('fetch', () => {});
+  `;
+
+  // Napravi "virtuelni" blob fajl od koda service workera
+  const blob = new Blob([swCode], { type: 'text/javascript' });
+  const swURL = URL.createObjectURL(blob);
+
+  navigator.serviceWorker.register(swURL)
+    .then(() => console.log('Service Worker aktiviran ✅'))
+    .catch(err => console.error('Greška pri registraciji SW:', err));
+}
