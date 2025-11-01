@@ -339,7 +339,7 @@ function dodavanjeBrojeva(event)
     const celija = event.target;
     celija.setAttribute("staraVrednost", celija.textContent);
     celija.setAttribute("contenteditable", "true");
-    celija.setAttribute("inputmode", "numeric");
+    //celija.setAttribute("inputmode", "numeric");
     celija.focus();
 
     proveraUnosa(celija);
@@ -435,7 +435,7 @@ function novaPartija(){
             tabela.rows[i].cells[j].textContent = "";
 }
 
-function setHieght(){
+function setHeight(){
     const vh = window.innerHeight;
     document.getElementById('igra').style.height = `${vh}px`;
 }
