@@ -436,8 +436,7 @@ function novaPartija(){
 
 function setHight(){
     const vh = window.innerHeight;
-    document.getElementById('igra').style.height = `${vh}.px`;
+    document.getElementById('igra').style.height = `${vh}px`;
 }
 setHeight();
 window.addEventListener('resize', setHeight);
-
