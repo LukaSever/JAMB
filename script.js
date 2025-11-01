@@ -435,18 +435,13 @@ function novaPartija(){
 }
 
 
-if ('serviceWorker' in navigator) {
-  const swCode = `
-    self.addEventListener('install', () => self.skipWaiting());
-    self.addEventListener('activate', () => self.clients.claim());
-    self.addEventListener('fetch', () => {});
-  `;
-
-  // Napravi "virtuelni" blob fajl od koda service workera
-  const blob = new Blob([swCode], { type: 'text/javascript' });
-  const swURL = URL.createObjectURL(blob);
-
-  navigator.serviceWorker.register(swURL)
-    .then(() => console.log('Service Worker aktiviran ✅'))
-    .catch(err => console.error('Greška pri registraciji SW:', err));
+function setHeight() {
+    const vh = window.innerHeight; // uzima stvarnu visinu vidljivog dela ekrana
+    document.getElementById('igra').style.height = `${vh}px`;
 }
+
+// pozovi odmah pri učitavanju stranice
+setHeight();
+
+// osveži visinu kad korisnik promeni veličinu ekrana / Google tab se sakrije/prikazuje
+window.addEventListener('resize', setHeight);
