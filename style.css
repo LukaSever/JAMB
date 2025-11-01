@@ -78,6 +78,11 @@ table tr th:last-child{
         font-size: 16px;
     }
 
+    table th, table td{
+        width: 30px;
+        height: 30px;
+    }
+
     button{
         font-size: 16px;
     }
