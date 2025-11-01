@@ -435,9 +435,9 @@ function novaPartija(){
             tabela.rows[i].cells[j].textContent = "";
 }
 
-function setHeight(){
-    const vh = window.innerHeight;
-    document.getElementById('igra').style.height = `${vh}px`;
+function setVh() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
-setHeight();
-window.addEventListener('resize', setHeight);
+setVh();
+window.addEventListener('resize', setVh);
