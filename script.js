@@ -434,3 +434,10 @@ function novaPartija(){
         for (let j = 1; j < tabela.rows[i].cells.length; j++)
             tabela.rows[i].cells[j].textContent = "";
 }
+
+function setHeight(){
+    const vh = window.innerHeight;
+    document.getElementById('igra').style.height = `${vh}px`;
+}
+setHeight();
+window.addEventListener('resize', setHeight);
