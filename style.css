@@ -20,15 +20,15 @@ button{
 
 table th, table td{
     border: 1px solid black;
-    width: 42px;
-    height: 42px;
+    width: 43px;
+    height: 43px;
     text-align: center;
     font: 20px Arial, sans-serif;
 }
 
 table tr th:first-child,
 table tr th:last-child{
-    width: 93px;
+    width: 90px;
 }
 
 #red-0, #suma-1, #suma-2, #suma-3{
