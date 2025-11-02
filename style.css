@@ -40,7 +40,7 @@ table tr th:last-child{
     color: white;
 }
 
-@media(max-width: 640px){
+@media(max-width: 580px){
     html, body{
         margin: 0;
         padding: 0;
@@ -76,6 +76,11 @@ table tr th:last-child{
 
     table td{
         font-size: 16px;
+    }
+
+    table th, table td{
+        width: 25px;
+        height: 25px;
     }
 
     button{
