@@ -56,8 +56,6 @@ table tr th:last-child{
 
 #suma-1 td, #suma-2 td, #suma-3 td{
     text-align: center;
-    padding: 0;
-    background-color: red;
 }
 
 #red-0, #suma-1, #suma-2, #suma-3{
