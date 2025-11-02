@@ -1,0 +1,31 @@
+const JAMB_CACHE = 'jamb-cache-v1';
+const urlsToCache = [
+    '/',
+    '/index.html',
+    '/style.css',
+    '/script.js',
+    '/manifest.json',
+    '/static/images/iccon.png',
+    '/static/images/image0.png',
+    '/static/images/image1.png',
+    '/static/images/image2.png',
+    '/static/images/image3.png',
+    '/static/images/image4.png',
+    '/static/images/image5.png',
+    '/static/images/sum.png',
+    '/mp3/images/najava.mp3'
+];
+
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(JAMB_CACHE)
+            .then(cache => cache.addAll(urlsToCache))
+    );
+});
+
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => response || fetch(event.request))
+    );
+});

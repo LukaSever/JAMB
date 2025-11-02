@@ -440,7 +440,6 @@ function ucitajCelije(tabela){
         }
     }
 }
-
 function novaPartija(){
     potvrdi(function(obrisi){
         if(!obrisi)
@@ -467,4 +466,12 @@ function potvrdi(odgovor){
     document.body.appendChild(pozadina_prozora);
     pozadina_prozora.querySelector('#obrisi_sve').onclick = () => { pozadina_prozora.remove(); odgovor(true); };
     pozadina_prozora.querySelector('#vrati_se').onclick = () => { pozadina_prozora.remove(); odgovor(false); };
+}
+
+if('serviceWorker' in navigator){
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('Service Worker registered.', reg))
+        .catch(err => console.log('Service WOrker registration failed:', err));
+    });
 }
