@@ -5,7 +5,7 @@ const urlsToCache = [
     '/style.css',
     '/script.js',
     '/manifest.json',
-    '/static/images/iccon.png',
+    '/static/images/icon.png',
     '/static/images/image0.png',
     '/static/images/image1.png',
     '/static/images/image2.png',
@@ -13,7 +13,7 @@ const urlsToCache = [
     '/static/images/image4.png',
     '/static/images/image5.png',
     '/static/images/sum.png',
-    '/mp3/images/najava.mp3'
+    '/mp3/najava.mp3'
 ];
 
 self.addEventListener('install', (event) => {
