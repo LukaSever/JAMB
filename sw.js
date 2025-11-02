@@ -13,7 +13,7 @@ const urlsToCache = [
     '/static/images/image4.png',
     '/static/images/image5.png',
     '/static/images/sum.png',
-    '/mp3/najava.mp3'
+    '/static/mp3/najava.mp3'
 ];
 
 self.addEventListener('install', (event) => {
