@@ -426,12 +426,31 @@ function ucitajCelije(tabela){
         }
     }
 }
+
 function novaPartija(){
-    if (!confirm("Sve ce biti obrisano!!!"))
-        return;
+    potvrdi(function(obrisi){
+        if(!obrisi)
+            return;
     localStorage.removeItem("jambBaza");
     const tabela = document.querySelector("table");
     for (let i = 1; i < tabela.rows.length; i++)
         for (let j = 1; j < tabela.rows[i].cells.length; j++)
             tabela.rows[i].cells[j].textContent = "";
+    });
+}
+function potvrdi(odgovor){
+    const pozadina_prozora = document.createElement("div");
+    pozadina_prozora.id = "pozadina_prozora";
+    const prozor = document.createElement("div");
+    prozor.id = "prozor";
+
+    prozor. innerHTML = `
+        <button id='obrisi_sve'>Obriši sve</button>
+        <button id='vrati_se'>Vrati se</button>
+    `;
+
+    pozadina_prozora.appendChild(prozor);
+    document.body.appendChild(pozadina_prozora);
+    pozadina_prozora.querySelector('#obrisi_sve').onclick = () => { pozadina_prozora.remove(); odgovor(true); };
+    pozadina_prozora.querySelector('#vrati_se').onclick = () => { pozadina_prozora.remove(); odgovor(false); };
 }
