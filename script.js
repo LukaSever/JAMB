@@ -440,7 +440,7 @@ function setHeight(){
     const vh = window.innerHeight;
     const ig = document.getElementById('igra');
 
-    if(window.innerHeight <= 640)
+    if(window.innerWidth <= 640)
         ig.style.height = `${vh}px`;
     else
         ig.style.height = "";
