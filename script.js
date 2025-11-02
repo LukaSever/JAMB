@@ -15,6 +15,7 @@ function sume(celija)
 {
     const sume = document.createElement("th");
     sume.textContent = "";
+    sume.classList.add("celije-suma");
     celija.replaceWith(sume);
 }
 function podnozje(tabela)
