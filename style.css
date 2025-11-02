@@ -28,7 +28,7 @@ table th, table td{
 
 table tr th:first-child,
 table tr th:last-child{
-    width: 95px;
+    width: 93px;
 }
 
 #red-0, #suma-1, #suma-2, #suma-3{
