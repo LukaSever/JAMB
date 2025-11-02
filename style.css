@@ -28,7 +28,7 @@ table th, table td{
 
 table tr th:first-child,
 table tr th:last-child{
-    width: 90px;
+    width: 85px;
 }
 
 #red-0, #suma-1, #suma-2, #suma-3{
@@ -40,7 +40,7 @@ table tr th:last-child{
     color: white;
 }
 
-@media(max-width: 580px){
+@media(max-width: 480px){
     html, body{
         margin: 0;
         padding: 0;
@@ -87,18 +87,6 @@ table tr th:last-child{
         font-size: 16px;
     }
     
-    table tr th:first-child,
-    table tr th:last-child{
-        width: 75px;
-    }
-
-    table tr th:not(:first-child):not(:last-child),
-    table tr td:not(:last-child){
-        width: calc((100% - 150px) / 10);
-    }
-}
-
-@media(max-width: 480px){
     table tr th:first-child,
     table tr th:last-child{
         width: 50px;
