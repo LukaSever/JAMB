@@ -59,10 +59,6 @@ table tr th:last-child{
         border-collapse: collapse;
     }
 
-    table tr{
-        height: calc(100% / 18);
-    }
-
     table th{
         overflow: hidden;
         text-overflow: ellipsis;

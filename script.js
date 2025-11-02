@@ -441,7 +441,8 @@ function setHeight() {
     const tabela = ig.querySelector('table');
 
     if (window.innerWidth <= 640) {
-        const vh = window.innerHeight; // vidljivi deo ekrana
+        // koristi visualViewport.height ako postoji
+        const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
         ig.style.height = `${vh}px`;
 
         if (tabela) {
@@ -451,7 +452,6 @@ function setHeight() {
             }
         }
     } else {
-        // na širem ekranu ukloni visine koje smo dodali
         ig.style.height = "";
         if (tabela) {
             for (let i = 0; i < tabela.rows.length; i++) {
