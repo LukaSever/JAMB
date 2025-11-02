@@ -16,10 +16,12 @@ const urlsToCache = [
     './static/mp3/najava.mp3'
 ];
 
+
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(JAMB_CACHE)
             .then(cache => cache.addAll(urlsToCache))
+            .catch(err => console.error('Cache failed:', err))
     );
 });
 
