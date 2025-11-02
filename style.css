@@ -25,9 +25,7 @@ table th, table td{
     height: 40px;
     text-align: center;
     font: 20px Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-sizing: border-box;
 }
 
 table tr th:first-child,
