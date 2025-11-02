@@ -13,15 +13,16 @@ const urlsToCache = [
     './static/images/image4.png',
     './static/images/image5.png',
     './static/images/sum.png',
-    './static/mp3/najava.mp3'
+    '/static/mp3/najava.mp3'
 ];
+
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(JAMB_CACHE)
             .then(cache => cache.addAll(urlsToCache))
-            .catch(err => console.error('Cache failed:', err))
     );
 });
+
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request)
