@@ -90,8 +90,10 @@ table tr th:last-child{
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        text-align: center;
         font: 12px Arial, sans-serif;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 1;
     }
 
     table tr:last-child th:last-child,
