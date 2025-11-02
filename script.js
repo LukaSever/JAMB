@@ -160,8 +160,8 @@ function div2(tabela)
             novaCelija.addEventListener("click", dodavanjeBrojeva);
         }
     }
-    dodajOkvir(tabela, 8, 7, 'borderBottom'); 
-    dodajOkvir(tabela, 9, 7, 'borderTop'); 
+    dodajOkvir(tabela, 8, 7, 'borderMAX'); 
+    dodajOkvir(tabela, 9, 7, 'borderMIN'); 
 }
 function suma2(tabela) 
 {
@@ -387,7 +387,20 @@ function dodavanjeBrojeva(event)
 function dodajOkvir(tabela, redIndeks, kolonaIndeks, ivica) 
 {
     const celija = tabela.rows[redIndeks].cells[kolonaIndeks];
-    celija.style[ivica] = `4px solid black`;
+    switch(ivica){
+        case 'borderTop':
+            celija.style.boxShadow = 'inset 0 4px 0 0 black';
+            break;
+        case 'borderMAX':
+            celija.style.boxShadow = 'inset 0 -2px 0 0 black';
+            break;
+        case 'borderMIN':
+            celija.style.boxShadow = 'inset 0 2px 0 0 black';
+            break;
+        case 'borderBottom':
+            celija.style.boxShadow = 'inset 0 -4px 0 0 black';
+            break;
+    }
 }
 function proveraUnosa(celija)
 {
