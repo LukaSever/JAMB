@@ -1,7 +1,7 @@
 {
     "name": "JAMB",
     "short_name": "JAMB",
-    "start_url": "./index.html",
+    "start_url": "/index.html",
     "display": "standalone",
     "icons": [
         {
