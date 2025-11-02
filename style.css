@@ -41,11 +41,10 @@ table tr th:last-child{
 }
 
 @media(max-width: 640px){
-    html, body{
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
+    body {
+        justify-content: flex-start; /* umesto center */
+        align-items: center; /* ostaje horizontalno centrirano */
+        height: auto; /* visina će se podešavati JS-om */
     }
 
     #igra{
