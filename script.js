@@ -435,30 +435,3 @@ function novaPartija(){
         for (let j = 1; j < tabela.rows[i].cells.length; j++)
             tabela.rows[i].cells[j].textContent = "";
 }
-
-function setHeight() {
-    const ig = document.getElementById('igra');
-    const tabela = ig.querySelector('table');
-
-    if (window.innerWidth <= 640) {
-        // koristi visualViewport.height ako postoji
-        const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-        ig.style.height = `${vh}px`;
-
-        if (tabela) {
-            const redovi = tabela.rows.length;
-            for (let i = 0; i < redovi; i++) {
-                tabela.rows[i].style.height = `${vh / redovi}px`;
-            }
-        }
-    } else {
-        ig.style.height = "";
-        if (tabela) {
-            for (let i = 0; i < tabela.rows.length; i++) {
-                tabela.rows[i].style.height = "";
-            }
-        }
-    }
-}
-setHeight();
-window.addEventListener('resize', setHeight);

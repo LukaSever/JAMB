@@ -41,14 +41,16 @@ table tr th:last-child{
 }
 
 @media(max-width: 640px){
-    body {
-        justify-content: flex-start; /* umesto center */
-        align-items: center; /* ostaje horizontalno centrirano */
-        height: auto; /* visina će se podešavati JS-om */
+    html, body{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
     }
 
     #igra{
         width: 100%;
+        height: 100%;
     }
 
     table{
@@ -56,6 +58,10 @@ table tr th:last-child{
         height: 100%;
         table-layout: fixed;
         border-collapse: collapse;
+    }
+
+    table tr{
+        height: calc(100% / 18);
     }
 
     table th{
@@ -70,6 +76,11 @@ table tr th:last-child{
 
     table td{
         font-size: 16px;
+    }
+
+    table th, table td{
+        width: 30px;
+        height: 30px;
     }
 
     button{
