@@ -56,7 +56,6 @@ table tr th:last-child{
 
 #red-0, #suma-1, #suma-2, #suma-3{
     background-color: yellow;
-    text-align: center;
 }
 #poeni{
     background-color: black;
@@ -91,10 +90,8 @@ table tr th:last-child{
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        font: 12px Arial, sans-serif;
         text-align: center;
-        box-sizing: border-box;
-        padding: 0;
+        font: 12px Arial, sans-serif;
     }
 
     table tr:last-child th:last-child,
