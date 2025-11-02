@@ -436,15 +436,29 @@ function novaPartija(){
             tabela.rows[i].cells[j].textContent = "";
 }
 
-function setHeight(){
-    const vh = window.innerHeight;
+function setHeight() {
     const ig = document.getElementById('igra');
+    const tabela = ig.querySelector('table');
 
-    if(window.innerWidth <= 640)
+    if (window.innerWidth <= 640) {
+        const vh = window.innerHeight; // vidljivi deo ekrana
         ig.style.height = `${vh}px`;
-    else
+
+        if (tabela) {
+            const redovi = tabela.rows.length;
+            for (let i = 0; i < redovi; i++) {
+                tabela.rows[i].style.height = `${vh / redovi}px`;
+            }
+        }
+    } else {
+        // na širem ekranu ukloni visine koje smo dodali
         ig.style.height = "";
-    
+        if (tabela) {
+            for (let i = 0; i < tabela.rows.length; i++) {
+                tabela.rows[i].style.height = "";
+            }
+        }
+    }
 }
 setHeight();
 window.addEventListener('resize', setHeight);
