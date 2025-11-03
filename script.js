@@ -371,7 +371,7 @@ function dodavanjeBrojeva(event)
                 if (celija.cellIndex === 4 && celija.textContent !== staraVrednost){
                     const zvuk = document.getElementById("zvukNajave");
                     if (zvuk)
-                        zvuk.play();
+                        zvuk.play().catch(err => console.log('Greška pri puštanju zvuka:', err));
                 }
                 sacuvajCeliju(red.id, celija.cellIndex, unos);
             }
@@ -444,11 +444,17 @@ function novaPartija(){
     potvrdi(function(obrisi){
         if(!obrisi)
             return;
-    localStorage.removeItem("jambBaza");
-    const tabela = document.querySelector("table");
-    for (let i = 1; i < tabela.rows.length; i++)
-        for (let j = 1; j < tabela.rows[i].cells.length; j++)
-            tabela.rows[i].cells[j].textContent = "";
+        localStorage.removeItem("jambBaza");
+        const tabela = document.querySelector("table");
+        for (let i = 1; i < tabela.rows.length; i++)
+            for (let j = 1; j < tabela.rows[i].cells.length; j++)
+                tabela.rows[i].cells[j].textContent = "";
+
+        const zvuk = document.getElementById("zvukNajave");
+        zvuk.play().then(() => {
+            zvuk.pause();
+            zvuk.currentTime = 0;
+        }).catch(() => {});
     });
 }
 function potvrdi(odgovor){
