@@ -26,7 +26,9 @@ table th, table td{
     text-align: center;
     font: 20px Arial, sans-serif;
 }
-
+.sveCelije{
+    line-height: 2em; 
+}
 
 table tr th:first-child,
 table tr th:last-child{
@@ -111,6 +113,9 @@ table tr th:last-child{
         width: auto;
         height: auto;
         box-sizing: border-box;
+    }
+    .sveCelije{
+        line-height: 3em; 
     }
     
     table tr th:first-child,

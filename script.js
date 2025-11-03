@@ -15,7 +15,6 @@ function sume(celija)
 {
     const sume = document.createElement("th");
     sume.textContent = "";
-    sume.classList.add("celije-suma");
     celija.replaceWith(sume);
 }
 function podnozje(tabela)
@@ -91,7 +90,7 @@ function div1(tabela)
             if (j === 10) 
                 novaCelija.style.pointerEvents = "none";
             
-            novaCelija.classList.add(`celijaDiv1-` + j);
+            novaCelija.classList.add(`celijaDiv1-` + j, 'sveCelije');
             novaCelija.addEventListener("click", dodavanjeBrojeva);
         }
     }
@@ -157,7 +156,7 @@ function div2(tabela)
             if (j === 10) 
                 novaCelija.style.pointerEvents = "none";
 
-            novaCelija.classList.add(`celijaDiv2-` + i + j);
+            novaCelija.classList.add(`celijaDiv2-` + i + j, 'sveCelije');
             novaCelija.addEventListener("click", dodavanjeBrojeva);
         }
     }
@@ -230,7 +229,7 @@ function div3(tabela)
             if (j === 10) 
                 novaCelija.style.pointerEvents = "none";
 
-            novaCelija.classList.add(`celijaDiv3-` + j);
+            novaCelija.classList.add(`celijaDiv3-` + j, 'sveCelije');
             novaCelija.addEventListener("click", dodavanjeBrojeva);
         }
     }
