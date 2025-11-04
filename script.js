@@ -9,8 +9,10 @@ function zaglavlje1(tabela)
         const zaglavlje = document.createElement("th");
         zaglavlje.textContent = zaglavlja[i];
         novRed.appendChild(zaglavlje);
-        if (i === 4 || i === 7)
+        if (i === 5){
             zaglavlje.style.borderLeft = '2px solid black';
+            zaglavlje.style.borderRight = '2px solid black';
+        }
     }
 }
 function podnozje(tabela)
@@ -55,8 +57,10 @@ function manipulacijaKolonama(i, j, novaCelija){
         novaCelija.replaceWith(zaglavlje);
         return;
     }
-    else if (j === 4 || j === 7)
+    else if (j === 5){
         novaCelija.style.borderLeft = '2px solid black';
+        novaCelija.style.borderRight = '2px solid black';
+    }
     else if (j === 10) 
          novaCelija.style.pointerEvents = "none";
     
@@ -76,8 +80,10 @@ function manipulacijaSumama(tabela, naziv){
                 sume.textContent = "";
                 novaCelija.replaceWith(sume);
             }
-            else if (i === 4 || i === 7)
+            else if (i === 5){
                 novaCelija.style.borderLeft = '2px solid black';
+                novaCelija.style.borderRight = '2px solid black';
+            }
         }
     }
     return suma;
