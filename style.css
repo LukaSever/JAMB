@@ -33,7 +33,7 @@ table th, table td{
 
 table tr th:first-child,
 table tr th:last-child{
-    width: 80px;
+    width: 100px;
 }
 
 #pozadina_prozora{
