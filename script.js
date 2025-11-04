@@ -426,6 +426,13 @@ function novaPartija(){
             zvuk.pause();
             zvuk.currentTime = 0;
         }).catch(() => {});
+
+        if ('serviceWorker' in navigator){
+            navigator.serviceWorker.getRegistration().then(reg => {
+                if(reg)
+                    reg.update();
+            })
+        }
     });
 }
 function potvrdi(odgovor){
