@@ -9,7 +9,7 @@ function zaglavlje1(tabela)
         const zaglavlje = document.createElement("th");
         zaglavlje.textContent = zaglavlja[i];
         novRed.appendChild(zaglavlje);
-        if(i === 4 || i === 7)
+        if (i === 4 || i === 7)
             zaglavlje.style.borderLeft = '2px solid black';
     }
 }
@@ -76,7 +76,7 @@ function manipulacijaSumama(tabela, naziv){
                 sume.textContent = "";
                 novaCelija.replaceWith(sume);
             }
-            else if(i === 4 || i === 7)
+            else if (i === 4 || i === 7)
                 novaCelija.style.borderLeft = '2px solid black';
         }
     }
@@ -413,7 +413,7 @@ function ucitajCelije(tabela){
 }
 function novaPartija(){
     potvrdi(function(obrisi){
-        if(!obrisi)
+        if (!obrisi)
             return;
         localStorage.removeItem("jambBaza");
         const tabela = document.querySelector("table");
@@ -429,8 +429,11 @@ function novaPartija(){
 
         if ('serviceWorker' in navigator){
             navigator.serviceWorker.getRegistration().then(reg => {
-                if(reg)
-                    reg.update();
+                if (reg){
+                    reg.update().then(() => {
+                        window.location.reload();
+                    });
+                }
             })
         }
     });
@@ -452,7 +455,6 @@ function potvrdi(odgovor){
     pozadina_prozora.querySelector('#vrati_se').onclick = () => { pozadina_prozora.remove(); odgovor(false); };
 }
 
-if('serviceWorker' in navigator){
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')});
+if ('serviceWorker' in navigator){
+        navigator.serviceWorker.register('./sw.js');
 }
