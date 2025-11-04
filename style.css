@@ -29,7 +29,6 @@ table th, table td{
 }
 .sveCelije{
     line-height: 2rem; 
-    background-color: red;
 }
 
 table tr th:first-child,
