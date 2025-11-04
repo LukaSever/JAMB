@@ -3,7 +3,6 @@
     "short_name": "JAMB",
     "start_url": "./index.html",
     "display": "standalone",
-    "orientation": "portrait",
     "icons": [
         {
         "src": "./static/images/icon.png",
