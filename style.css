@@ -25,6 +25,7 @@ table th, table td{
     height: 40px;
     text-align: center;
     font: 20px Arial, sans-serif;
+    box-sizing: border-box;
 }
 .sveCelije{
     line-height: 2em; 
@@ -107,7 +108,6 @@ table tr th:last-child{
     button {
         font-size: 16px;
     }
-
 
     table th, table td{
         width: auto;

@@ -9,13 +9,9 @@ function zaglavlje1(tabela)
         const zaglavlje = document.createElement("th");
         zaglavlje.textContent = zaglavlja[i];
         novRed.appendChild(zaglavlje);
+        if(i === 4 || i === 7)
+            zaglavlje.style.borderLeft = '2px solid black';
     }
-}
-function sume(celija)
-{
-    const sume = document.createElement("th");
-    sume.textContent = "";
-    celija.replaceWith(sume);
 }
 function podnozje(tabela)
 {
@@ -35,6 +31,56 @@ function podnozje(tabela)
     poeni.setAttribute("colspan", 3);
     poeni.textContent = "";
     novRed.appendChild(poeni);
+}
+function manipulacijaKolonama(i, j, novaCelija){
+    const imena = {
+        1: "1",
+        2: "2",
+        3: "3",
+        4: "4",
+        5: "5",
+        6: "6",
+        8: "MAX",
+        9: "MIN",
+        11: "KENTA",
+        12: "TRILING",
+        13: "FUL",
+        14: "POKER",
+        15: "JAMB"
+    };
+    if (j === 0) 
+    {
+        const zaglavlje = document.createElement("th");
+        zaglavlje.textContent = imena[i];
+        novaCelija.replaceWith(zaglavlje);
+        return;
+    }
+    else if (j === 4 || j === 7)
+        novaCelija.style.borderLeft = '2px solid black';
+    else if (j === 10) 
+         novaCelija.style.pointerEvents = "none";
+    
+    novaCelija.addEventListener("click", dodavanjeBrojeva);
+}
+function manipulacijaSumama(tabela, naziv){
+    let suma = tabela.querySelector(`#${naziv}`);
+    if (!suma) 
+    {
+        suma = tabela.insertRow();
+        suma.id = naziv;
+        for (let i = 0; i < broj; i++) 
+        {
+            const novaCelija = suma.insertCell();
+            if (i == 0){
+                const sume = document.createElement("th");
+                sume.textContent = "";
+                novaCelija.replaceWith(sume);
+            }
+            else if(i === 4 || i === 7)
+                novaCelija.style.borderLeft = '2px solid black';
+        }
+    }
+    return suma;
 }
 function slika(tabela)
 {
@@ -80,18 +126,8 @@ function div1(tabela)
         for (let j = 0; j < broj - 1; j++)
         {
             const novaCelija = novRed.insertCell();
-            if (j === 0) 
-            {
-                const zaglavlje = document.createElement("th");
-                zaglavlje.textContent = i;
-                novaCelija.replaceWith(zaglavlje);
-                continue;
-            }
-            if (j === 10) 
-                novaCelija.style.pointerEvents = "none";
-            
+            manipulacijaKolonama(i, j, novaCelija);
             novaCelija.classList.add(`celijaDiv1-` + j, 'sveCelije');
-            novaCelija.addEventListener("click", dodavanjeBrojeva);
         }
     }
     dodajOkvir(tabela, 1, 1, 'borderTop'); 
@@ -99,18 +135,7 @@ function div1(tabela)
 }
 function suma1(tabela) 
 {
-    let suma = tabela.querySelector("#suma-1");
-    if (!suma) 
-    {
-        suma = tabela.insertRow();
-        suma.id = "suma-1";
-        for (let i = 0; i < broj; i++) 
-        {
-            const novaCelija = suma.insertCell();
-            if (i === 0)
-                sume(novaCelija);
-        }
-    }
+    let suma = manipulacijaSumama(tabela, "suma-1");
 
     for (let i = 1; i < broj; i++) 
     {
@@ -135,10 +160,6 @@ function suma1(tabela)
 }
 function div2(tabela)
 {
-    const zaglavlja = {
-        8: "MAX",
-        9: "MIN"
-    };
     for (let i = 8; i <= 9; i++) 
     {
         const novRed = tabela.insertRow(); 
@@ -146,18 +167,8 @@ function div2(tabela)
         for (let j = 0; j < broj - 1; j++)
         {
             const novaCelija = novRed.insertCell();
-            if ( zaglavlja[i] && j === 0 )
-            {
-                const zaglavlje = document.createElement("th");
-                zaglavlje.textContent = zaglavlja[i];
-                novaCelija.replaceWith(zaglavlje);
-                continue;
-            }
-            if (j === 10) 
-                novaCelija.style.pointerEvents = "none";
-
+            manipulacijaKolonama(i, j, novaCelija);
             novaCelija.classList.add(`celijaDiv2-` + i + j, 'sveCelije');
-            novaCelija.addEventListener("click", dodavanjeBrojeva);
         }
     }
     dodajOkvir(tabela, 8, 7, 'borderMAX'); 
@@ -165,18 +176,7 @@ function div2(tabela)
 }
 function suma2(tabela) 
 {
-    let suma = tabela.querySelector("#suma-2");
-    if (!suma) 
-    {
-        suma = tabela.insertRow();
-        suma.id = "suma-2";
-        for (let i = 0; i < broj; i++) 
-        {
-            const novaCelija = suma.insertCell();
-            if (i === 0)
-                sume(novaCelija);
-        }
-    }
+    let suma = manipulacijaSumama(tabela, "suma-2");
 
     const prviRed = tabela.querySelector("#red-1");
     for (let i = 1; i < broj; i++) 
@@ -205,13 +205,6 @@ function suma2(tabela)
 }
 function div3(tabela)
 {
-    const zaglavlja = {
-        11: "KENTA",
-        12: "TRILING",
-        13: "FUL",
-        14: "POKER",
-        15: "JAMB",
-    };
     for (let i = 11; i <= 15; i++) 
     {
         const novRed = tabela.insertRow(); 
@@ -219,18 +212,8 @@ function div3(tabela)
         for (let j = 0; j < broj - 1; j++)
         {
             const novaCelija = novRed.insertCell();
-            if (zaglavlja[i] && j === 0)
-            {
-                const zaglavlje = document.createElement("th");
-                zaglavlje.textContent = zaglavlja[i];
-                novaCelija.replaceWith(zaglavlje);
-                continue;
-            }
-            if (j === 10) 
-                novaCelija.style.pointerEvents = "none";
-
+            manipulacijaKolonama(i, j, novaCelija);
             novaCelija.classList.add(`celijaDiv3-` + j, 'sveCelije');
-            novaCelija.addEventListener("click", dodavanjeBrojeva);
         }
     }
     dodajOkvir(tabela, 15, 3, 'borderBottom'); 
@@ -238,18 +221,7 @@ function div3(tabela)
 }
 function suma3(tabela) 
 {
-    let suma = tabela.querySelector("#suma-3");
-    if (!suma) 
-    {
-        suma = tabela.insertRow();
-        suma.id = "suma-3";
-        for (let i = 0; i < broj; i++) 
-        {
-            const novaCelija = suma.insertCell();
-            if (i == 0)
-                sume(novaCelija);
-        }
-    }
+    let suma = manipulacijaSumama(tabela, "suma-3");
 
     for (let i = 1; i < broj; i++) 
     {
