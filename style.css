@@ -28,7 +28,8 @@ table th, table td{
     box-sizing: border-box;
 }
 .sveCelije{
-    line-height: 40px; 
+    line-height: 2rem; 
+    background-color: red;
 }
 
 table tr th:first-child,

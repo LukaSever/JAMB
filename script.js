@@ -336,8 +336,10 @@ function dodavanjeBrojeva(event)
                 (red.id === "red-12" && (![0, 33, 36, 39, 42, 45, 48].includes(unos))) || 
                 (red.id === "red-13" && (((unos !== 0 && unos < 37) || unos > 58 || isNaN(unos)))) ||
                 (red.id === "red-14" && (![0, 44, 48, 52, 56, 60, 64].includes(unos))) || 
-                (red.id === "red-15" && (![0, 55, 60, 65, 70, 75, 80].includes(unos))))
+                (red.id === "red-15" && (![0, 55, 60, 65, 70, 75, 80].includes(unos)))){
                     celija.textContent = "";
+                    sacuvajCeliju(red.id, celija.cellIndex, "");
+            }
             else{
                 if (celija.cellIndex === 4 && celija.textContent !== staraVrednost){
                     const zvuk = document.getElementById("zvukNajave");
