@@ -317,7 +317,13 @@ function proveraUnosa(celija){
     });
 }
 function obradaUnosa(celija, unos, red, staraVrednost, tabela){
-    if ((red.id === "red-1" && (![0, 1, 2, 3, 4, 5].includes(unos))) ||
+    if(unos === "" || isNaN(unos)) {
+        celija.style.backgroundColor = "white";
+        celija.setAttribute("contenteditable", "false");
+        return;
+    }
+
+    if (((red.id === "red-1" && (![0, 1, 2, 3, 4, 5].includes(unos))) ||
         (red.id === "red-2" && (![0, 2, 4, 6, 8, 10].includes(unos))) || 
         (red.id === "red-3" && (![0, 3, 6, 9, 12, 15].includes(unos))) ||
         (red.id === "red-4" && (![0, 4, 8, 12, 16, 20].includes(unos))) || 
@@ -328,8 +334,9 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela){
         (red.id === "red-12" && (![0, 33, 36, 39, 42, 45, 48].includes(unos))) || 
         (red.id === "red-13" && (((unos !== 0 && unos < 37) || unos > 58 || isNaN(unos)))) ||
         (red.id === "red-14" && (![0, 44, 48, 52, 56, 60, 64].includes(unos))) || 
-        (red.id === "red-15" && (![0, 55, 60, 65, 70, 75, 80].includes(unos)))){
+        (red.id === "red-15" && (![0, 55, 60, 65, 70, 75, 80].includes(unos))))){
             celija.textContent = "";
+            celija.style.backgroundColor = "red";
             sacuvajCeliju(red.id, celija.cellIndex, "");
     }
     else{
@@ -338,6 +345,7 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela){
             if (zvuk)
                 zvuk.play().catch(err => console.log('Greška pri puštanju zvuka:', err));
         }
+        celija.style.backgroundColor = "white";
         sacuvajCeliju(red.id, celija.cellIndex, unos);
     }
     celija.setAttribute("contenteditable", "false");
@@ -380,8 +388,9 @@ function dodajOkvir(tabela, redIndeks, kolonaIndeks, ivica){
 
 function sacuvajCeliju(redID, kolona, vrednost){
     let podaci = JSON.parse(localStorage.getItem("jambBaza")) || {};
-    if (!podaci[redID])
+    if (!podaci[redID]) {
         podaci[redID] = {};
+    }
     podaci[redID][kolona] = vrednost;
     localStorage.setItem("jambBaza", JSON.stringify(podaci));
 }
