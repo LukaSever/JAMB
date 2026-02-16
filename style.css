@@ -62,7 +62,11 @@ table tr th:last-child{
     padding: 0;
 }
 
-#red-0, #suma-1, #suma-2, #suma-3{
+#suma-1, #suma-2, #suma-3{
+    background-color: yellow;
+}
+
+#red-0{
     background-color: yellow;
 }
 
