@@ -18,7 +18,7 @@ function podnozje(tabela){
     novRed.id = `red-16`;
 
     const th = document.createElement("th");
-    th.setAttribute("colspan", 9);
+    th.setAttribute("colspan", "9");
     const dugme = document.createElement("button");
     dugme.textContent = "Nova partija";
     dugme.onclick = novaPartija;
@@ -27,7 +27,7 @@ function podnozje(tabela){
 
     const poeni = document.createElement("th");
     poeni.id = "poeni";
-    poeni.setAttribute("colspan", 3);
+    poeni.setAttribute("colspan", "3");
     poeni.textContent = "";
     novRed.appendChild(poeni);
 }
@@ -69,7 +69,7 @@ function manipulacijaSumama(tabela, naziv){
         suma.id = naziv;
         for (let i = 0; i < broj; i++){
             const novaCelija = suma.insertCell();
-            if (i == 0){
+            if (i === 0){
                 const sume = document.createElement("th");
                 sume.textContent = "";
                 novaCelija.replaceWith(sume);
@@ -135,9 +135,9 @@ function suma1(tabela){
         if (!imaUnosa)
             suma.cells[i].textContent = '';
         else if (rezultat >= 60) 
-            suma.cells[i].textContent = (rezultat + 30);
+            suma.cells[i].textContent = (rezultat + 30).toString();
         else
-            suma.cells[i].textContent = rezultat;
+            suma.cells[i].textContent = rezultat.toString();
     }
 }
 function div2(tabela){
@@ -168,8 +168,7 @@ function suma2(tabela){
             if (!isNaN(brojMIN) && !isNaN(brojMAX) && !isNaN(brojPrvogReda)){
                 rezultat = (brojMAX - brojMIN) * brojPrvogReda;
                 suma.cells[i].textContent = rezultat;
-                continue;
-            } 
+            }
             else 
                 suma.cells[i].textContent = '';
         } 
@@ -269,6 +268,10 @@ function suma4(tabela){
 
 function dodavanjeBrojeva(event){
     const celija = event.target;
+    const red = celija.parentNode;
+    if (!proveraPravilaRedosleda(red, celija))
+        return;
+
     celija.setAttribute("staraVrednost", celija.textContent);
     celija.setAttribute("contenteditable", "true");
     celija.setAttribute("inputmode", "numeric");
@@ -300,6 +303,47 @@ function dodavanjeBrojeva(event){
         });
     }
 }
+function proveraPravilaRedosleda(red, celija){
+    const kolona = celija.cellIndex;
+    const tabela = red.closest("table");
+    const redID = parseInt(red.id.split("-")[1]);
+
+    if (kolona === 1)
+        return redID === 1 || pravilaRedosleda(tabela, kolona, 1, redID - 1);
+
+    if (kolona === 3)
+        return redID === 15 || pravilaRedosleda(tabela, kolona, 15, redID + 1);
+
+    if (kolona === 7){
+        if (redID <= 8) return redID === 8 || pravilaRedosleda(tabela, kolona, redID + 1, 8);
+        if (redID >= 9) return redID === 9 || pravilaRedosleda(tabela, kolona, 9, redID - 1);
+        return false;
+    }
+
+    if (kolona === 8){
+        if (redID >= 1 && redID <= 8) return redID === 1 || pravilaRedosleda(tabela, kolona, 1, redID - 1);
+        if (redID >= 9 && redID <= 15) return redID === 15 || pravilaRedosleda(tabela, kolona, 15, redID + 1);
+        return false;
+    }
+
+    if (kolona === 9){
+        for (let j = 1; j < kolona; j++)
+            if (!pravilaRedosleda(tabela, j, 1, tabela.rows.length - 2))
+                return false;
+        return redID === 1 || pravilaRedosleda(tabela, kolona, 1, redID - 1);
+    }
+    return true;
+}
+function pravilaRedosleda(tabela, kolona, pocetak, kraj) {
+    const korak = pocetak < kraj ? 1 : -1;
+    for (let i = pocetak; korak > 0 ? i <= kraj : i >= kraj; i += korak) {
+        if (i === 7 || i === 10 || i === 16)
+            continue;
+        if (tabela.rows[i].cells[kolona].textContent.trim() === "")
+            return false;
+    }
+    return true;
+}
 function proveraUnosa(celija){
     celija.addEventListener('keydown', function(event){
         const kljuc = event.key;
@@ -308,14 +352,14 @@ function proveraUnosa(celija){
     });
 
     celija.addEventListener('beforeinput', function (e){
-       if(e.data && /\D/.test(e.data)){
+       if (e.data && /\D/.test(e.data)){
            e.preventDefault();
        }
     });
 
     celija.addEventListener('input', function(){
         let novi = celija.textContent.replace(/\D+/g, '');
-        if(novi !== celija.textContent){
+        if (novi !== celija.textContent){
             celija.textContent = novi;
             const  selekcija = window.getSelection();
             const opseg = document.createRange();
@@ -329,12 +373,12 @@ function proveraUnosa(celija){
         let broj = celija.textContent.trim();
         if (broj.startsWith('0') && broj.length > 1)
             celija.textContent = '';
-        else if (broj!=='' && parseInt(broj, 10) > 80)
+        else if (broj !== '' && parseInt(broj, 10) > 80)
             celija.textContent = '';
     });
 }
 function obradaUnosa(celija, unos, red, staraVrednost, tabela){
-    if(unos === "" || isNaN(unos)) {
+    if (unos === "" || isNaN(unos)) {
         celija.style.backgroundColor = "white";
         celija.setAttribute("contenteditable", "false");
         return;
@@ -387,7 +431,7 @@ function daLiImaUnosa(novaCelija){
 }
 function dodajOkvir(tabela, redIndeks, kolonaIndeks, ivica){
     const celija = tabela.rows[redIndeks].cells[kolonaIndeks];
-    switch(ivica){
+    switch (ivica){
         case 'borderTop':
             celija.style.boxShadow = 'inset 0 4px 0 0 black';
             break;
@@ -475,5 +519,5 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja){
 }
 
 if ('serviceWorker' in navigator){
-        navigator.serviceWorker.register('./sw.js');
+        void navigator.serviceWorker.register('./sw.js');
 }
