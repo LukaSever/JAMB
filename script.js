@@ -5,7 +5,18 @@ function zaglavlje1(tabela){
     novRed.id = `red-0`;
     for (let i = 0; i < broj; i++){
         const zaglavlje = document.createElement("th");
-        zaglavlje.textContent = zaglavlja[i];
+
+        if (zaglavlja[i] === "YAMB"){
+            const dugme = document.createElement("button");
+            dugme.id = "YAMB"
+            dugme.textContent = "YAMB";
+            dugme.style.backgroundColor = "yellow";
+            dugme.onclick = objasnjenjeYamba;
+            zaglavlje.appendChild(dugme);
+        }
+        else
+            zaglavlje.textContent = zaglavlja[i];
+
         novRed.appendChild(zaglavlje);
         if (i === 5){
             zaglavlje.style.borderLeft = '2px solid black';
@@ -20,6 +31,7 @@ function podnozje(tabela){
     const th = document.createElement("th");
     th.setAttribute("colspan", "9");
     const dugme = document.createElement("button");
+    dugme.id = "novaPartija"
     dugme.textContent = "Nova partija";
     dugme.onclick = novaPartija;
     th.appendChild(dugme);
@@ -381,6 +393,12 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela){
     if (unos === "" || isNaN(unos)) {
         celija.style.backgroundColor = "white";
         celija.setAttribute("contenteditable", "false");
+        sacuvajCeliju(red.id, celija.cellIndex, "");
+        m(tabela);
+        suma1(tabela);
+        suma2(tabela);
+        suma3(tabela);
+        suma4(tabela);
         return;
     }
 
@@ -516,6 +534,9 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja){
     prozor.append(dugme1, dugme2);
     pozadina_prozora.appendChild(prozor);
     document.body.appendChild(pozadina_prozora)
+}
+function objasnjenjeYamba() {
+    alert("YAMB");
 }
 
 if ('serviceWorker' in navigator){
