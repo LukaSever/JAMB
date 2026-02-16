@@ -322,7 +322,7 @@ function proveraUnosa(celija){
             opseg.selectNodeContents(celija);
             opseg.collapse(false);
             selekcija.removeAllRanges();
-            selekcija.addRange(range);
+            selekcija.addRange(opseg);
         }
 
         let broj = celija.textContent.trim();
