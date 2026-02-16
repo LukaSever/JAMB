@@ -305,14 +305,21 @@ function proveraUnosa(celija){
         const kljuc = event.key;
         if (!/^\d$/.test(kljuc) && kljuc !== 'Backspace' && kljuc !== 'Delete')
             event.preventDefault();
-    }); 
+    });
+
+    celija.addEventListener('beforeinput', function (e){
+       if(e.data && /\D/.test(e.data)){
+           e.preventDefault();
+       }
+    });
 
     celija.addEventListener('input', function(){
-        let broj = celija.textContent.trim();
-        if (broj[0] === '0' && broj.length > 1) 
+        celija.textContent = celija.textContent.replace(/\D+/g, '');
+        let broj = celija.textContent;
+        if (broj.startsWith('0') && broj.length > 1)
             celija.textContent = '';
         
-        else if (isNaN(broj) || parseInt(broj, 10) > 80) 
+        else if (broj!=='' && parseInt(broj, 10) > 80)
             celija.textContent = '';
     });
 }
