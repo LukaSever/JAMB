@@ -65,11 +65,6 @@ table tr th:last-child{
 #red-0, #suma-1, #suma-2, #suma-3{
     background-color: yellow;
 }
-
-#red-0{
-    background-color: deepskyblue;
-}
-
 #poeni{
     background-color: black;
     color: white;
