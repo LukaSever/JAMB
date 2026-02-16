@@ -314,11 +314,20 @@ function proveraUnosa(celija){
     });
 
     celija.addEventListener('input', function(){
-        celija.textContent = celija.textContent.replace(/\D+/g, '');
-        let broj = celija.textContent;
+        let novi = celija.textContent.replace(/\D+/g, '');
+        if(novi !== celija.textContent){
+            celija.textContent = novi;
+            const  selekcija = window.getSelection();
+            const opseg = document.createRange();
+            opseg.selectNodeContents(celija);
+            opseg.collapse(false);
+            selekcija.removeAllRanges();
+            selekcija.addRange(range);
+        }
+
+        let broj = celija.textContent.trim();
         if (broj.startsWith('0') && broj.length > 1)
             celija.textContent = '';
-        
         else if (broj!=='' && parseInt(broj, 10) > 80)
             celija.textContent = '';
     });
@@ -446,18 +455,22 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja){
     const prozor = document.createElement("div");
     prozor.id = "prozor";
 
-    prozor. innerHTML = `
-        <button id='dugem1'>${tekstDugmeta1}</button>
-        <button id='dugem2'>${tekstDugmeta2}</button>
-    `;
+    const dugme1 = document.createElement("button");
+    dugme1.id = "dugme1";
+    dugme1.textContent = tekstDugmeta1;
+    dugme1.style.backgroundColor = boja;
 
+    const dugme2 = document.createElement("button");
+    dugme2.id = "dugme2";
+    dugme2.textContent = tekstDugmeta2;
+    dugme2.style.backgroundColor = "green";
+
+    dugme1.onclick = () => {pozadina_prozora.remove(); odgovor(true);};
+    dugme2.onclick = () => {pozadina_prozora.remove(); odgovor(false);};
+
+    prozor.append(dugme1, dugme2);
     pozadina_prozora.appendChild(prozor);
-    document.body.appendChild(pozadina_prozora);
-
-    pozadina_prozora.querySelector('#dugem1').style.backgroundColor = boja;
-    pozadina_prozora.querySelector('#dugem2').style.backgroundColor = "green";
-    pozadina_prozora.querySelector('#dugem1').onclick = () => { pozadina_prozora.remove(); odgovor(true); };
-    pozadina_prozora.querySelector('#dugem2').onclick = () => { pozadina_prozora.remove(); odgovor(false); };
+    document.body.appendChild(pozadina_prozora)
 }
 
 if ('serviceWorker' in navigator){
