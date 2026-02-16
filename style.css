@@ -64,7 +64,21 @@ table tr th:last-child{
     padding: 0;
 }
 
+#red-0{
+    background-color: yellow;
+}
 
+#suma-1{
+    background-color: yellow;
+}
+
+#suma-2{
+    background-color: yellow;
+}
+
+#suma-3{
+    background-color: yellow;
+}
 
 #poeni{
     background-color: black;
