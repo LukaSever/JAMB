@@ -324,6 +324,7 @@ function proveraUnosa(celija){
             selekcija.removeAllRanges();
             selekcija.addRange(opseg);
         }
+        
 
         let broj = celija.textContent.trim();
         if (broj.startsWith('0') && broj.length > 1)
