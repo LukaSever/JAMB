@@ -72,7 +72,7 @@ table tr th:last-child{
 }
 
 #red-0, #suma-1, #suma-2, #suma-3{
-    background-color: red;
+    background-color: yellow;
 }
 
 #poeni{
@@ -90,7 +90,7 @@ table tr th:last-child{
 
     #igra{
         width: 100%;
-        min-height: 100svh;
+        height: 100vh;
     }
 
     table{
