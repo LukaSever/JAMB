@@ -740,13 +740,24 @@ document.addEventListener("DOMContentLoaded", () => {
             slika.src = "";
         });
     }
-    function resetBodyIgraVisine() {
+    function postaviVisinuPrvogEkrana() {
         const bodyIgra = document.getElementById('body_igra');
-        bodyIgra.style.height = '';
-        requestAnimationFrame(() => {
-            bodyIgra.style.height = window.innerHeight + 'px';
-        })
+        const igra = document.getElementById('igra');
+        const visina = window.innerHeight + 'px';
+        bodyIgra.style.height = visina;
+        igra.style.height = visina;
     }
+
+// pozovi na load i resize
+    window.addEventListener('load', postaviVisinuPrvogEkrana);
+    window.addEventListener('resize', postaviVisinuPrvogEkrana);
+
+// kada se zatvori pravila
+    const dugmeIzlaz = document.getElementById('izlaz');
+    dugmeIzlaz.addEventListener('click', () => {
+        document.getElementById('box_pravila').classList.add('hidden');
+        postaviVisinuPrvogEkrana(); // osigurava punu visinu tabele
+    });
 });
 
 if ('serviceWorker' in navigator) {
