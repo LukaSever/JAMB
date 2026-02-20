@@ -75,6 +75,10 @@ table tr th:last-child{
     background-color: yellow;
 }
 
+#red-0{
+    background-color: blue;
+}
+
 #poeni{
     background-color: black;
     color: white;
