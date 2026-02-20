@@ -740,23 +740,25 @@ document.addEventListener("DOMContentLoaded", () => {
             slika.src = "";
         });
     }
-});
 
-function resetBodyIgraHeight() {
-    const bodyIgra = document.getElementById('body_igra');
-    // ukloni inline style, da vrati default vh
-    bodyIgra.style.height = '';
-    // mali timeout da mobilni browser prerenderuje visinu
-    setTimeout(() => {
-        bodyIgra.style.height = window.innerHeight + 'px';
-    }, 50);
-}
+    function resetBodyIgraHeight() {
+        const bodyIgra = document.getElementById('body_igra');
+        // ukloni inline style, da vrati default vh
+        bodyIgra.style.height = '';
+        // mali timeout da mobilni browser prerenderuje visinu
+        setTimeout(() => {
+            bodyIgra.style.height = window.innerHeight + 'px';
+        }, 50);
+    }
 
-
-const dN = document.getElementById('izlaz');
-dN.addEventListener('click', () => {
-    document.getElementById('box_pravila').classList.add('hidden');
-    resetBodyIgraHeight();
+    const dugmeNazad = document.getElementById('izlaz');
+    if (dugmeNazad) { // provera da element postoji
+        dugmeNazad.addEventListener('click', () => {
+            const boxPravila = document.getElementById('box_pravila');
+            if (boxPravila) boxPravila.classList.add('hidden');
+            resetBodyIgraHeight();
+        });
+    }
 });
 
 if ('serviceWorker' in navigator) {
