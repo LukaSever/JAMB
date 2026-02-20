@@ -750,12 +750,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     window.addEventListener('load', restartVisineBodyIgra);
     window.addEventListener('resize', restartVisineBodyIgra);
-
-    const dugmeIzlaz = document.getElementById('izlaz');
-    dugmeIzlaz.addEventListener('click', () => {
-       document.getElementById('box_pravila').classList.add('hidden');
-       restartVisineBodyIgra();
-    });
 });
 
 if ('serviceWorker' in navigator) {
