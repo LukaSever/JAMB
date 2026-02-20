@@ -752,9 +752,9 @@ function resetBodyIgraHeight() {
     }, 50);
 }
 
-// kada se zatvore pravila
-const dugmeNazad = document.getElementById('izlaz');
-dugmeNazad.addEventListener('click', () => {
+
+const dN = document.getElementById('izlaz');
+dN.addEventListener('click', () => {
     document.getElementById('box_pravila').classList.add('hidden');
     resetBodyIgraHeight();
 });
