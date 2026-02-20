@@ -1,4 +1,4 @@
-body{
+#body_igra{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,12 +25,19 @@ table th, table td{
     line-height: 2rem; 
 }
 
-button{
+.slika_celija{
+    display: block;
+    margin: auto;
+}
+
+.dugme_tabela{
     width: 100%;
     height: 100%;
     font-size: 25px;
     border: none;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 table tr th:first-child,
@@ -53,7 +60,7 @@ table tr th:last-child{
     background-color: white;
     padding: 20px;
 }
-#prozor button{
+#prozor .dugme_tabela{
     margin: 10px 0;
     padding: 10px;
     border: none;
@@ -74,7 +81,7 @@ table tr th:last-child{
 }
 
 @media(max-width: 580px){
-    html, body{
+    html, #body_igra{
         margin: 0;
         padding: 0;
         height: 100%;
@@ -108,7 +115,7 @@ table tr th:last-child{
 
     table tr:last-child th:last-child,
     table td,
-    button {
+    .dugme_tabela {
         font-size: 16px;
     }
 
@@ -142,7 +149,7 @@ table tr th:last-child{
 }
 
 @media(max-width: 360px){
-    html, body{
+    html, #body_igra{
         overflow: auto;
     }
 
@@ -161,4 +168,98 @@ table tr th:last-child{
     table tr{
         height: 35px;
     }
+}
+
+
+#body_pravila{
+    background-color: #0088ff;
+}
+
+#pravila,
+#box_pravila,
+#box_objasnjenje{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+h2{
+    color: white;
+    word-spacing: -10px;
+    letter-spacing: 1px;
+    font: bold 30px Courier New, monospace;
+    text-align: center;
+}
+
+#box_objasnjenje{
+    width: 90vw;
+}
+
+.opis{
+    background-color: white;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    max-height: 60vh;
+    overflow: auto;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.uvuceno{
+    display: inline-block;
+    padding-left: 2em;
+}
+
+.stavka,
+.uvuceno{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.button_pravila{
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font: 20px Courier New, monospace;
+    width: 260px;
+}
+
+#box_pravila.hidden {
+    display: none !important;
+}
+
+.linkovanaSlika{
+    color: #0088ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.fullscreen-preklapanje{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgb(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.fullscreen-preklapanje img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.fullscreen-preklapanje .zatvori{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

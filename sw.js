@@ -1,7 +1,8 @@
-const JAMB_CACHE = 'jamb-cache-v2';
+const JAMB_CACHE = 'jamb-cache-v1';
 const urlsToCache = [
     './',
     './index.html',
+    './pravila.html',
     './style.css',
     './script.js',
     './manifest.json',
@@ -13,6 +14,9 @@ const urlsToCache = [
     './static/images/image4.png',
     './static/images/image5.png',
     './static/images/sum.png',
+    './static/images/setting.png',
+    './static/images/YAMB1.png',
+    './static/images/YAMB2.png',
     './static/mp3/najava.mp3'
 ];
 
