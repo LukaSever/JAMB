@@ -740,24 +740,12 @@ document.addEventListener("DOMContentLoaded", () => {
             slika.src = "";
         });
     }
-
-    function resetBodyIgraHeight() {
+    function resetBodyIgraVisine() {
         const bodyIgra = document.getElementById('body_igra');
-        // ukloni inline style, da vrati default vh
         bodyIgra.style.height = '';
-        // mali timeout da mobilni browser prerenderuje visinu
-        setTimeout(() => {
+        requestAnimationFrame(() => {
             bodyIgra.style.height = window.innerHeight + 'px';
-        }, 50);
-    }
-
-    const dugmeNazad = document.getElementById('izlaz');
-    if (dugmeNazad) { // provera da element postoji
-        dugmeNazad.addEventListener('click', () => {
-            const boxPravila = document.getElementById('box_pravila');
-            if (boxPravila) boxPravila.classList.add('hidden');
-            resetBodyIgraHeight();
-        });
+        })
     }
 });
 
