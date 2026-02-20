@@ -742,6 +742,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+function resetBodyIgraHeight() {
+    const bodyIgra = document.getElementById('body_igra');
+    bodyIgra.style.height = window.innerHeight + 'px';
+}
+
+// primer kada zatvoriš pravila
+const boxPravila = document.getElementById('box_pravila');
+const dugmeNazad = document.getElementById('dugme_nazad'); // ili tvoj dugme
+dugmeNazad.addEventListener('click', () => {
+    boxPravila.classList.add('hidden'); // sakrij pravila
+    resetBodyIgraHeight(); // forsiraj punu visinu prvog body
+});
+
 if ('serviceWorker' in navigator) {
     void navigator.serviceWorker.register('./sw.js');
 }
