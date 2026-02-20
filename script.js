@@ -119,18 +119,43 @@ function slika(tabela) {
 document.addEventListener("DOMContentLoaded", function () {
     const div = document.getElementById("igra")
     const tabela = document.createElement("table");
-    div.appendChild(tabela);
-    zaglavlje1(tabela);
-    div1(tabela);
-    suma1(tabela);
-    div2(tabela);
-    suma2(tabela);
-    div3(tabela);
-    suma3(tabela);
-    podnozje(tabela);
-    suma4(tabela);
-    slika(tabela);
-    ucitajCelije(tabela);
+    if(div) {
+        div.appendChild(tabela);
+        zaglavlje1(tabela);
+        div1(tabela);
+        suma1(tabela);
+        div2(tabela);
+        suma2(tabela);
+        div3(tabela);
+        suma3(tabela);
+        podnozje(tabela);
+        suma4(tabela);
+        slika(tabela);
+        ucitajCelije(tabela);
+    }
+
+    const dugmeZatvori = document.querySelector(".fullscreen-preklapanje .zatvori");
+    const preklapanje = document.getElementById("fullscreenPreklapanje");
+    const slikaTabela = document.getElementById("fullscreenSlika");
+
+    if (dugmeZatvori && preklapanje && slikaTabela){
+        dugmeZatvori.addEventListener("click", () => {
+            preklapanje.style.display = "none";
+            slikaTabela.src = "";
+        });
+    }
+
+    function restartVisineBodyIgra(){
+        const bodyIgra = document.getElementById('body_igra');
+        const igra = document.getElementById('igra');
+        if(!bodyIgra || !igra)
+            return
+        const visina = window.innerHeight + 'px';
+        bodyIgra.style.height = visina;
+        igra.style.height = visina;
+    }
+    window.addEventListener('load', restartVisineBodyIgra);
+    window.addEventListener('resize', restartVisineBodyIgra);
 });
 
 function div1(tabela) {
@@ -728,28 +753,6 @@ document.querySelectorAll(".button_pravila").forEach(button => {
        });
        boxObjasnjenje.appendChild(dugmeIzlaz);
    });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const dugmeZatvori = document.querySelector(".fullscreen-preklapanje .zatvori");
-    const preklapanje = document.getElementById("fullscreenPreklapanje");
-    const slika = document.getElementById("fullscreenSlika");
-
-    if (dugmeZatvori && preklapanje && slika){
-        dugmeZatvori.addEventListener("click", () => {
-            preklapanje.style.display = "none";
-            slika.src = "";
-        });
-    }
-
-    function restartVisineBodyIgra(){
-        const bodyIgra = document.getElementById('body_igra');
-        const igra = document.getElementById('igra');
-        const visina = window.innerHeight + 'px';
-        bodyIgra.style.height = visina;
-        igra.style.height = visina;
-    }
-    window.addEventListener('load', restartVisineBodyIgra);
-    window.addEventListener('resize', restartVisineBodyIgra);
 });
 
 if ('serviceWorker' in navigator) {
