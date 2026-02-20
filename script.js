@@ -744,15 +744,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function resetBodyIgraHeight() {
     const bodyIgra = document.getElementById('body_igra');
-    bodyIgra.style.height = window.innerHeight + 'px';
+    // ukloni inline style, da vrati default vh
+    bodyIgra.style.height = '';
+    // mali timeout da mobilni browser prerenderuje visinu
+    setTimeout(() => {
+        bodyIgra.style.height = window.innerHeight + 'px';
+    }, 50);
 }
 
-// primer kada zatvoriš pravila
-const boxPravila = document.getElementById('box_pravila');
-const dugmeNazad = document.getElementById('dugme_nazad'); // ili tvoj dugme
+// kada se zatvore pravila
+const dugmeNazad = document.getElementById('izlaz');
 dugmeNazad.addEventListener('click', () => {
-    boxPravila.classList.add('hidden'); // sakrij pravila
-    resetBodyIgraHeight(); // forsiraj punu visinu prvog body
+    document.getElementById('box_pravila').classList.add('hidden');
+    resetBodyIgraHeight();
 });
 
 if ('serviceWorker' in navigator) {
