@@ -7,9 +7,18 @@
     margin: 0;
 }
 
+#igra{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 table{
     border: 1px solid black;
     border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
 }
 
 table th, table td{
@@ -22,7 +31,7 @@ table th, table td{
     box-sizing: border-box;
 }
 .sveCelije{
-    line-height: 2rem; 
+    line-height: 2rem;
 }
 
 .slika_celija{
@@ -72,7 +81,7 @@ table tr th:last-child{
 }
 
 #red-0, #suma-1, #suma-2, #suma-3{
-    background-color: blue;
+    background-color: yellow;
 }
 
 #poeni{
