@@ -729,11 +729,17 @@ document.querySelectorAll(".button_pravila").forEach(button => {
        boxObjasnjenje.appendChild(dugmeIzlaz);
    });
 });
-document.querySelector(".fullscreen-preklapanje .zatvori").addEventListener("click",() => {
-   const preklapanje = document.getElementById("fullscreenPreklapanje");
-   const slika = document.getElementById("fullscreenSlika");
-   preklapanje.style.display = "none";
-   slika.src = "";
+document.addEventListener("DOMContentLoaded", () => {
+    const dugmeZatvori = document.querySelector(".fullscreen-preklapanje .zatvori");
+    const preklapanje = document.getElementById("fullscreenPreklapanje");
+    const slika = document.getElementById("fullscreenSlika");
+
+    if (dugmeZatvori && preklapanje && slika){
+        dugmeZatvori.addEventListener("click", () => {
+            preklapanje.style.display = "none";
+            slika.src = "";
+        });
+    }
 });
 
 if ('serviceWorker' in navigator) {
