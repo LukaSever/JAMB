@@ -15,7 +15,7 @@ function zaglavlje1(tabela) {
             slika.src = "static/images/setting.png";
             dugme.appendChild(slika);
             dugme.style.backgroundColor = "yellow";
-            dugme.onclick = () => location.href = "pravila.html";
+            dugme.onclick = () => location.href = "podesavanja.html";
             zaglavlje.appendChild(dugme);
         } else
             zaglavlje.textContent = zaglavlja[i];
@@ -585,6 +585,44 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
     document.body.appendChild(pozadina_prozora)
 }
 
+const boxPodesavanja = document.getElementById("box_podesavanja");
+const dugmePravila = document.getElementById("pravila");
+const dugmeJezici = document.getElementById("jezici");
+const dugmeIzlaz = document.getElementById("izlaz");
+
+const boxPravila = document.getElementById("box_pravila");
+const boxObjasnjenje = document.getElementById("box_objasnjenje");
+const h2Pravila = document.getElementById("h2_pravila");
+const boxJezici = document.getElementById("box_jezici");
+
+dugmePravila.addEventListener("click", () => {
+    boxPodesavanja.classList.add("hidden");
+    boxPravila.classList.remove("hidden");
+    boxObjasnjenje.classList.remove("hidden");
+    h2Pravila.classList.remove("hidden");
+});
+
+dugmeJezici.addEventListener("click", () => {
+    boxPodesavanja.classList.add("hidden");
+    boxJezici.classList.remove("hidden");
+
+});
+
+dugmeIzlaz.addEventListener("click", () => {
+    window.history.back();
+});
+
+const dugmeNazadNaPodesavanja = document.querySelectorAll(".nazad_na_podesavanja");
+dugmeNazadNaPodesavanja.forEach(dugme => {
+    dugme.addEventListener("click", () => {
+        boxPodesavanja.classList.remove("hidden");
+        boxJezici.classList.add("hidden");
+        boxPravila.classList.add("hidden");
+        boxObjasnjenje.classList.add("hidden");
+        h2Pravila.classList.add("hidden");
+    });
+});
+
 const pravilaTekst = {
     "opsta": {
         title: "OPŠTA PRAVILA",
@@ -692,20 +730,11 @@ const pravilaTekst = {
     },
 };
 
-const boxPravila = document.getElementById("box_pravila");
-const boxObjasnjenje = document.getElementById("box_objasnjenje");
-const h2Pravila = document.getElementById("h2_pravila");
-
 document.querySelectorAll(".button_pravila").forEach(button => {
    button.addEventListener("click", () => {
        const id = button.id;
-       if (id === "izlaz") {
-           window.history.back();
-           return;
-       }
 
        boxPravila.classList.add("hidden");
-       h2Pravila.classList.add("hidden");
        boxObjasnjenje.textContent = "";
 
        const pravilo = pravilaTekst[id];
@@ -743,8 +772,7 @@ document.querySelectorAll(".button_pravila").forEach(button => {
        boxObjasnjenje.appendChild(p);
        const dugmeNazad = document.createElement("button");
        dugmeNazad.textContent = "Nazad";
-       dugmeNazad.className = "button_pravila";
-       dugmeNazad.className = "klasa_pravila"
+       dugmeNazad.className = "button_pravila button_nazad";
        dugmeNazad.addEventListener("click", () => {
            boxObjasnjenje.textContent = "";
            boxPravila.classList.remove("hidden");
@@ -753,11 +781,11 @@ document.querySelectorAll(".button_pravila").forEach(button => {
        });
        boxObjasnjenje.appendChild(dugmeNazad);
 
-       const duzmeIzlaz = document.createElement("button");
-       duzmeIzlaz.textContent = "x";
-       duzmeIzlaz.className = "zatvori";
-       boxObjasnjenje.appendChild(duzmeIzlaz);
-       duzmeIzlaz.addEventListener("click", () => {
+       const duzmeZatvori = document.createElement("button");
+       duzmeZatvori.textContent = "x";
+       duzmeZatvori.className = "zatvori";
+       boxObjasnjenje.appendChild(duzmeZatvori);
+       duzmeZatvori.addEventListener("click", () => {
            window.history.back();
        })
    });

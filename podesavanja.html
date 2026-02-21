@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podešavanja</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="static/images/icon.png">
+    <link rel="apple-touch-icon"  href="static/images/icon.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body id="body_podesavanja">
+<div id="podesavanja">
+    <div id="box_podesavanja">
+        <h2 id="h2_podesavanja">PODEŠAVANJA</h2>
+        <button id="pravila" class="button_podesavanja">Pravila</button>
+        <button id="jezici" class="button_podesavanja">Jezici</button>
+        <button id="izlaz" class="button_podesavanja">Izlaz</button>
+    </div>
+    <div id="box_pravila" class="hidden">
+        <h2 id="h2_pravila" class="hidden">PRAVILA IGRE</h2>
+        <button id="opsta" class="button_pravila">Opšta</button>
+        <button id="objasnjenja_kolona" class="button_pravila">Objašnjenja kolona</button>
+        <button id="nacin_racunanja" class="button_pravila">Način računanja</button>
+        <button id="smer_popunjavanja" class="button_pravila">Smer popunjavanja</button>
+        <button id="dozvoljene_vrednosti" class="button_pravila">Dozvoljene vrednosti</button>
+        <button id="funkcionalnosti" class="button_pravila">Funkcionalnosti</button>
+        <button class="nazad_na_podesavanja button_pravila">Nazad</button>
+    </div>
+    <div id="box_objasnjenje" class="hidden"></div>
+    <div id="box_jezici" class="hidden">
+        <h2 id="h2_jezici">JEZICI</h2>
+        <div id="box_zastave">
+            <button id="srpski" class="button_jezici">
+                <img src="static/images/flags/Srbija.png" alt="srpski" class="slika_zastava">
+            </button>
+            <button id="engleski" class="button_jezici">
+                <img src="static/images/flags/Ujedinjeno_Kraljevstvo.png" alt="engleski" class="slika_zastava">
+            </button>
+            <button id="hrvatski" class="button_jezici">
+                <img src="static/images/flags/Hrvatska.png" alt="hrvatski" class="slika_zastava">
+            </button>
+            <button id="bosanski" class="button_jezici">
+                <img src="static/images/flags/Bosna_i_Hercegovina.png" alt="bosanski" class="slika_zastava">
+            </button>
+            <button id="makedonski" class="button_jezici">
+                <img src="static/images/flags/Severna_Makedonija.png" alt="makedonski" class="slika_zastava">
+            </button>
+            <button id="slovenacki" class="button_jezici">
+                <img src="static/images/flags/Slovenija.png" alt="slovenački" class="slika_zastava">
+            </button>
+            <button id="crnogorski" class="button_jezici">
+                <img src="static/images/flags/Crna_Gora.png" alt="crnogorski" class="slika_zastava">
+            </button>
+        </div>
+        <button class="nazad_na_podesavanja button_pravila">Nazad</button>
+    </div>
+</div>
+<div id="id_fullscreen_preklapanje" class="class_fullscreen_preklapanje">
+    <button class="zatvori">x</button>
+    <img id="fullscreen_slika" src="" alt="slika">
+</div>
+<script src="script.js"></script>
+</body>
+</html>
