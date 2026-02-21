@@ -35,7 +35,6 @@ function podnozje(tabela) {
     const th = document.createElement("th");
     th.setAttribute("colspan", "9");
     const dugme = document.createElement("button");
-    dugme.id = "novaPartija"
     dugme.className = "dugme_tabela";
     dugme.textContent = "Nova partija";
     dugme.onclick = novaPartija;
@@ -134,12 +133,12 @@ document.addEventListener("DOMContentLoaded", function () {
         ucitajCelije(tabela);
     }
 
-    const dugmeZatvori = document.querySelector(".fullscreen-preklapanje .zatvori");
-    const preklapanje = document.getElementById("fullscreenPreklapanje");
-    const slikaTabela = document.getElementById("fullscreenSlika");
+    const dugmeZatvoriSliku = document.querySelector(".class_fullscreen_preklapanje .zatvori");
+    const preklapanje = document.getElementById("id_fullscreen_preklapanje");
+    const slikaTabela = document.getElementById("fullscreen_slika");
 
-    if (dugmeZatvori && preklapanje && slikaTabela){
-        dugmeZatvori.addEventListener("click", () => {
+    if (dugmeZatvoriSliku && preklapanje && slikaTabela) {
+        dugmeZatvoriSliku.addEventListener("click", () => {
             preklapanje.style.display = "none";
             slikaTabela.src = "";
         });
@@ -165,7 +164,7 @@ function div1(tabela) {
         for (let j = 0; j < broj - 1; j++) {
             const novaCelija = novRed.insertCell();
             manipulacijaKolonama(i, j, novaCelija);
-            novaCelija.classList.add(`celijaDiv1-` + j, 'sveCelije');
+            novaCelija.classList.add(`celijaDiv1-` + j, 'sve_celije');
         }
     }
     dodajOkvir(tabela, 1, 1, 'borderTop');
@@ -193,7 +192,7 @@ function div2(tabela) {
         for (let j = 0; j < broj - 1; j++) {
             const novaCelija = novRed.insertCell();
             manipulacijaKolonama(i, j, novaCelija);
-            novaCelija.classList.add(`celijaDiv2-` + i + j, 'sveCelije');
+            novaCelija.classList.add(`celijaDiv2-` + i + j, 'sve_celije');
         }
     }
     dodajOkvir(tabela, 8, 7, 'borderMAX');
@@ -229,7 +228,7 @@ function div3(tabela) {
         for (let j = 0; j < broj - 1; j++) {
             const novaCelija = novRed.insertCell();
             manipulacijaKolonama(i, j, novaCelija);
-            novaCelija.classList.add(`celijaDiv3-` + j, 'sveCelije');
+            novaCelija.classList.add(`celijaDiv3-` + j, 'sve_celije');
         }
     }
     dodajOkvir(tabela, 15, 3, 'borderBottom');
@@ -457,7 +456,7 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela) {
         sacuvajCeliju(red.id, celija.cellIndex, "");
     } else {
         if (celija.cellIndex === 4 && celija.textContent !== staraVrednost) {
-            const zvuk = document.getElementById("zvukNajave");
+            const zvuk = document.getElementById("zvuk_najave");
             if (zvuk)
                 zvuk.play().catch(err => console.log('Greška pri puštanju zvuka:', err));
         }
@@ -535,7 +534,7 @@ function novaPartija() {
             for (let j = 1; j < tabela.rows[i].cells.length; j++)
                 tabela.rows[i].cells[j].textContent = "";
 
-        const zvuk = document.getElementById("zvukNajave");
+        const zvuk = document.getElementById("zvuk_najave");
         zvuk.play().then(() => {
             zvuk.pause();
             zvuk.currentTime = 0;
@@ -700,7 +699,7 @@ const h2Pravila = document.getElementById("h2_pravila");
 document.querySelectorAll(".button_pravila").forEach(button => {
    button.addEventListener("click", () => {
        const id = button.id;
-       if (id === "izlaz"){
+       if (id === "izlaz") {
            window.history.back();
            return;
        }
@@ -726,14 +725,14 @@ document.querySelectorAll(".button_pravila").forEach(button => {
                p.appendChild(span);
                p.appendChild(document.createElement("br"));
            }
-           else if (item.link){
+           else if (item.link) {
                const span = document.createElement("span");
-               span.className = "linkovanaSlika";
+               span.className = "linkovana_slika";
                span.textContent = item.link.text;
 
                span.addEventListener("click", () => {
-                  const preklapanje = document.getElementById("fullscreenPreklapanje");
-                  const slika = document.getElementById("fullscreenSlika");
+                  const preklapanje = document.getElementById("id_fullscreen_preklapanje");
+                  const slika = document.getElementById("fullscreen_slika");
                   slika.src = item.link.href;
                   preklapanje.style.display = "flex";
                });
@@ -742,16 +741,25 @@ document.querySelectorAll(".button_pravila").forEach(button => {
            }
        });
        boxObjasnjenje.appendChild(p);
-       const dugmeIzlaz = document.createElement("button");
-       dugmeIzlaz.textContent = "Izlaz";
-       dugmeIzlaz.className = "button_pravila";
-       dugmeIzlaz.addEventListener("click", () => {
+       const dugmeNazad = document.createElement("button");
+       dugmeNazad.textContent = "Nazad";
+       dugmeNazad.className = "button_pravila";
+       dugmeNazad.className = "klasa_pravila"
+       dugmeNazad.addEventListener("click", () => {
            boxObjasnjenje.textContent = "";
            boxPravila.classList.remove("hidden");
            h2Pravila.classList.remove("hidden");
            boxPravila.scrollIntoView({behavior: "smooth"});
        });
-       boxObjasnjenje.appendChild(dugmeIzlaz);
+       boxObjasnjenje.appendChild(dugmeNazad);
+
+       const duzmeIzlaz = document.createElement("button");
+       duzmeIzlaz.textContent = "x";
+       duzmeIzlaz.className = "zatvori";
+       boxObjasnjenje.appendChild(duzmeIzlaz);
+       duzmeIzlaz.addEventListener("click", () => {
+           window.history.back();
+       })
    });
 });
 

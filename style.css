@@ -28,7 +28,7 @@ table th, table td{
     font: 20px Arial, sans-serif;
     box-sizing: border-box;
 }
-.sveCelije{
+.sve_celije{
     line-height: 2rem;
 }
 
@@ -68,6 +68,7 @@ table tr th:last-child{
     padding: 20px;
 }
 #prozor .dugme_tabela{
+    width: 180px;
     margin: 10px 0;
     padding: 10px;
     border: none;
@@ -86,6 +87,7 @@ table tr th:last-child{
     background-color: black;
     color: white;
 }
+
 
 @media(max-width: 580px){
     html, #body_igra{
@@ -179,7 +181,6 @@ table tr th:last-child{
     }
 }
 
-
 #body_pravila{
     background-color: #0088ff;
 }
@@ -190,6 +191,7 @@ table tr th:last-child{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
     gap: 20px;
 }
 
@@ -233,20 +235,29 @@ h2{
     border: none;
     border-radius: 5px;
     font: 20px Courier New, monospace;
-    width: 260px;
+    width: 270px;
 }
+
+.klasa_pravila{
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font: 20px Courier New, monospace;
+    width: 150px;
+}
+
 
 #box_pravila.hidden {
     display: none !important;
 }
 
-.linkovanaSlika{
+.linkovana_slika{
     color: #0088ff;
     text-decoration: underline;
     cursor: pointer;
 }
 
-.fullscreen-preklapanje{
+.class_fullscreen_preklapanje{
     display: none;
     position: fixed;
     inset: 0;
@@ -256,16 +267,16 @@ h2{
     z-index: 2;
 }
 
-.fullscreen-preklapanje img{
+.class_fullscreen_preklapanje img{
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
-.fullscreen-preklapanje .zatvori{
-    position: absolute;
-    top: 20px;
-    right: 30px;
+.zatvori{
+    position: fixed;
+    top: 0.5%;
+    left: 91%;
     font-size: 2rem;
     color: white;
     background-color: transparent;
