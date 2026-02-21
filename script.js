@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ucitajCelije(tabela);
     }
 
-    const dugmeZatvoriSliku = document.querySelector(".class_fullscreen_preklapanje .zatvori");
+    const dugmeZatvoriSliku = document.querySelector(".class_fullscreen_preklapanje .zatvori_sliku");
     const preklapanje = document.getElementById("id_fullscreen_preklapanje");
     const slikaTabela = document.getElementById("fullscreen_slika");
 
@@ -610,6 +610,13 @@ dugmeJezici.addEventListener("click", () => {
 
 dugmeIzlaz.addEventListener("click", () => {
     window.history.back();
+});
+
+const duzmeZatvori = document.querySelectorAll(".zatvori");
+duzmeZatvori.forEach(dugme => {
+    dugme.addEventListener("click", () => {
+        window.history.back();
+    });
 });
 
 const dugmeNazadNaPodesavanja = document.querySelectorAll(".nazad_na_podesavanja");

@@ -267,6 +267,7 @@ h2{
     margin-bottom: 5px;
 }
 
+.zatvori_sliku,
 .zatvori{
     position: fixed;
     top: 0.5%;
