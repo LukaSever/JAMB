@@ -1,8 +1,8 @@
-const JAMB_CACHE = 'jamb-cache-v1';
+const JAMB_CACHE = 'jamb-cache-v3';
 const urlsToCache = [
     './',
     './index.html',
-    './pravila.html',
+    './podesavanja.html',
     './style.css',
     './script.js',
     './manifest.json',
@@ -17,6 +17,13 @@ const urlsToCache = [
     './static/images/setting.png',
     './static/images/YAMB1.png',
     './static/images/YAMB2.png',
+    './static/images/flags/Srbija.png',
+    './static/images/flags/Ujedinjeno_Kraljevstvo.png',
+    './static/images/flags/Hrvatska.png',
+    './static/images/flags/Bosna_i_Hercegovina.png',
+    './static/images/flags/Severna_Makedonija.png',
+    './static/images/flags/Slovenija.png',
+    './static/images/flags/Crna_Gora.png',
     './static/mp3/najava.mp3'
 ];
 
