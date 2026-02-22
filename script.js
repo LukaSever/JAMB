@@ -42,7 +42,6 @@ function podnozje(tabela) {
     dugme.onclick = novaPartija;
     th.appendChild(dugme);
     novRed.appendChild(th);
-    tabela.appendChild(novRed);
     postaviJezik(trenutniJezik);
 
     const poeni = document.createElement("th");
