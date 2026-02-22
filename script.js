@@ -159,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     window.addEventListener('load', restartVisineBodyIgra);
     window.addEventListener('resize', restartVisineBodyIgra);
+    postaviJezik(trenutniJezik);
 });
 
 function div1(tabela) {
@@ -828,7 +829,6 @@ function postaviJezik(jezik) {
         element.textContent = tekst;
     });
 }
-
 document.querySelectorAll(".button_jezici").forEach(dugme => {
     dugme.addEventListener("click", () => {
         let jezik;
@@ -843,8 +843,8 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         }
         if (jezik) {
             localStorage.setItem("jezik", jezik);
-            const urlSaVerzijom = "index.html?v=" + new Date().getTie();
-            window.location.replace(urlSaVerzijom);
+            postaviJezik(jezik);
+            window.history.back();
         }
     });
 });
