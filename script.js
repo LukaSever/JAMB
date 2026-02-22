@@ -42,8 +42,8 @@ function podnozje(tabela) {
     dugme.onclick = novaPartija;
     th.appendChild(dugme);
     novRed.appendChild(th);
-    setTimeout(() => postaviJezik(trenutniJezik), 0);
 
+    setTimeout(() => postaviJezik(trenutniJezik), 0);
     const poeni = document.createElement("th");
     poeni.id = "poeni";
     poeni.setAttribute("colspan", "3");
@@ -592,8 +592,8 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
     prozor.append(dugme1, dugme2);
     pozadina_prozora.appendChild(prozor);
     document.body.appendChild(pozadina_prozora)
-
     setTimeout(() => postaviJezik(trenutniJezik), 0);
+
 }
 
 const boxPodesavanja = document.getElementById("box_podesavanja");
@@ -805,8 +805,8 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
             boxPravila.scrollIntoView({behavior: "smooth"});
         });
         boxObjasnjenje.appendChild(dugmeNazad);
-        setTimeout(() => postaviJezik(trenutniJezik), 0);
 
+        setTimeout(() => postaviJezik(trenutniJezik), 0);
         const duzmeZatvori = document.createElement("button");
         duzmeZatvori.textContent = "x";
         duzmeZatvori.className = "zatvori";
