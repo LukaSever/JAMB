@@ -1,8 +1,7 @@
-
+let trenutniJezik = localStorage.getItem("jezik") || "sr";
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
-let trenutniJezik = localStorage.getItem("jezik") || "sr";
-postaviJezik(trenutniJezik);
+
 function zaglavlje1(tabela) {
     const novRed = tabela.insertRow();
     novRed.id = `red-0`;
@@ -136,6 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
         slika(tabela);
         ucitajCelije(tabela);
     }
+
+    let trenutniJezik = localStorage.getItem("jezik") || "sr";
 
     const dugmeZatvoriSliku = document.querySelector(".class_fullscreen_preklapanje .zatvori_sliku");
     const preklapanje = document.getElementById("id_fullscreen_preklapanje");
@@ -543,18 +544,8 @@ function novaPartija() {
         zvuk.play().then(() => {
             zvuk.pause();
             zvuk.currentTime = 0;
-        }).catch(() => {
         });
 
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistration().then(reg => {
-                if (reg) {
-                    reg.update().then(() => {
-                        window.location.reload();
-                    });
-                }
-            })
-        }
     }, "Obriši sve", "Vrati se", "red");
 }
 
@@ -842,8 +833,9 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
             case "crnogorski": jezik = "me"; break;
         }
         if (jezik) {
+            trenutniJezik = jezik;
             localStorage.setItem("jezik", jezik);
-            postaviJezik(jezik);
+            postaviJezik(trenutniJezik);
             window.history.back();
         }
     });
