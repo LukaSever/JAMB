@@ -158,7 +158,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     window.addEventListener('load', restartVisineBodyIgra);
     window.addEventListener('resize', restartVisineBodyIgra);
-    postaviJezik(trenutniJezik);
+
+    setTimeout(() => {
+        console.log("Pokrećem inicijalni prevod...");
+        postaviJezik(trenutniJezik);
+    }, 150);
 });
 
 function div1(tabela) {
@@ -819,6 +823,11 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
 });
 
 function postaviJezik(jezik) {
+    if (typeof prevodOsnovnogTeksta === 'undefined') {
+        setTimeout(() => postaviJezik(jezik), 100);
+        return;
+    }
+
     document.querySelectorAll("[data-i18n]").forEach(element => {
         const kljuc = element.dataset.i18n.split(".");
         let tekst = prevodOsnovnogTeksta[jezik];
@@ -843,7 +852,6 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         }
         if (jezik) {
             localStorage.setItem("jezik", jezik);
-
             window.history.back();
         }
     });
