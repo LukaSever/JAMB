@@ -1,6 +1,5 @@
-
-const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 let trenutniJezik = localStorage.getItem("jezik") || "sr";
+const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
 
 function zaglavlje1(tabela) {
