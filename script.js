@@ -1,6 +1,5 @@
 let trenutniJezik = localStorage.getItem("jezik") || "sr";
 postaviJezik(trenutniJezik);
-
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
 
