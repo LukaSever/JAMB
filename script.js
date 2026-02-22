@@ -9,13 +9,10 @@ function kreirajDugme(tekstKljuc, onClick, roditelj) {
     dugme.dataset.i18n = tekstKljuc;
     dugme.onclick = onClick;
     roditelj.appendChild(dugme);
-
-    // odmah prevedi dugme prema trenutnom jeziku
     const kljuc = dugme.dataset.i18n.split(".");
     let tekst = prevodOsnovnogTeksta[trenutniJezik];
     kljuc.forEach(k => tekst = tekst[k]);
     dugme.textContent = tekst;
-
     return dugme;
 }
 
