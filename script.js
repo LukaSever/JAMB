@@ -42,8 +42,8 @@ function podnozje(tabela) {
     dugme.onclick = novaPartija;
     th.appendChild(dugme);
     novRed.appendChild(th);
+    postaviJezik(trenutniJezik);
 
-    setTimeout(() => postaviJezik(trenutniJezik), 0);
     const poeni = document.createElement("th");
     poeni.id = "poeni";
     poeni.setAttribute("colspan", "3");
@@ -592,8 +592,8 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
     prozor.append(dugme1, dugme2);
     pozadina_prozora.appendChild(prozor);
     document.body.appendChild(pozadina_prozora)
-    setTimeout(() => postaviJezik(trenutniJezik), 0);
 
+    postaviJezik(trenutniJezik);
 }
 
 const boxPodesavanja = document.getElementById("box_podesavanja");
@@ -805,8 +805,8 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
             boxPravila.scrollIntoView({behavior: "smooth"});
         });
         boxObjasnjenje.appendChild(dugmeNazad);
+        postaviJezik(trenutniJezik);
 
-        setTimeout(() => postaviJezik(trenutniJezik), 0);
         const duzmeZatvori = document.createElement("button");
         duzmeZatvori.textContent = "x";
         duzmeZatvori.className = "zatvori";
@@ -816,17 +816,39 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
         })
     });
 });
-
-function postaviJezik(jezik) {
-    document.querySelectorAll("[data-i18n]").forEach(element => {
-        const kljuc = element.dataset.i18n.split(".");
-        let tekst = prevodOsnovnogTeksta[jezik];
-        kljuc.forEach(k => {
-            tekst = tekst[k];
-        });
-        element.textContent = tekst;
-    });
+// 1. Funkcija za prevod jednog elementa
+function prevediElement(element, jezik) {
+    if (!element.dataset.i18n) return;
+    const kljuc = element.dataset.i18n.split(".");
+    let tekst = prevodOsnovnogTeksta[jezik];
+    kljuc.forEach(k => { tekst = tekst[k]; });
+    element.textContent = tekst;
 }
+
+// 2. MutationObserver koji prati sve nove elemente sa data-i18n
+const observer = new MutationObserver(mutations => {
+    mutations.forEach(m => {
+        m.addedNodes.forEach(novo => {
+            if (novo.nodeType === 1) { // element node
+                if (novo.dataset && novo.dataset.i18n) {
+                    prevediElement(novo, trenutniJezik);
+                }
+                // takođe proveri sve decu
+                novo.querySelectorAll && novo.querySelectorAll("[data-i18n]").forEach(child => {
+                    prevediElement(child, trenutniJezik);
+                });
+            }
+        });
+    });
+});
+
+// 3. Startujemo observer na celom body
+observer.observe(document.body, { childList: true, subtree: true });
+function postaviJezik(jezik) {
+    document.querySelectorAll("[data-i18n]").forEach(el => prevediElement(el, jezik));
+}
+
+// 5. Dugmad za promenu jezika
 document.querySelectorAll(".button_jezici").forEach(dugme => {
     dugme.addEventListener("click", () => {
         let jezik;
