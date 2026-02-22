@@ -1,8 +1,8 @@
-let trenutniJezik = localStorage.getItem("jezik") || "sr";
-postaviJezik(trenutniJezik);
+
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
-
+let trenutniJezik = localStorage.getItem("jezik") || "sr";
+postaviJezik(trenutniJezik);
 function zaglavlje1(tabela) {
     const novRed = tabela.insertRow();
     novRed.id = `red-0`;
