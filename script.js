@@ -2,20 +2,6 @@ let trenutniJezik = localStorage.getItem("jezik") || "sr";
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
 
-
-function kreirajDugme(tekstKljuc, onClick, roditelj) {
-    const dugme = document.createElement("button");
-    dugme.className = "dugme_tabela";
-    dugme.dataset.i18n = tekstKljuc;  // postavlja ključ za prevod
-    dugme.onclick = onClick;
-    roditelj.appendChild(dugme);
-
-    // odmah prevedi dugme prema trenutnom jeziku
-    postaviJezik(trenutniJezik);
-
-    return dugme;
-}
-
 function zaglavlje1(tabela) {
     const novRed = tabela.insertRow();
     novRed.id = `red-0`;
@@ -50,7 +36,11 @@ function podnozje(tabela) {
     const th = document.createElement("th");
     th.setAttribute("colspan", "9");
     const dugme = document.createElement("button");
-    kreirajDugme("ui.nova_partija", novaPartija, th);
+    dugme.className = "dugme_tabela";
+    //dugme.textContent = "Nova partija";
+    dugme.dataset.i18n = "ui.nova_partija";
+    dugme.onclick = novaPartija;
+    th.appendChild(dugme);
     novRed.appendChild(th);
     postaviJezik(trenutniJezik);
 
@@ -145,6 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
         slika(tabela);
         ucitajCelije(tabela);
     }
+
+    let trenutniJezik = localStorage.getItem("jezik") || "sr";
 
     const dugmeZatvoriSliku = document.querySelector(".class_fullscreen_preklapanje .zatvori_sliku");
     const preklapanje = document.getElementById("id_fullscreen_preklapanje");
@@ -857,6 +849,8 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
     });
 });
 
+/*
 if ('serviceWorker' in navigator) {
     void navigator.serviceWorker.register('./sw.js');
 }
+ */
