@@ -6,13 +6,13 @@ const broj = zaglavlja.length;
 function kreirajDugme(tekstKljuc, onClick, roditelj) {
     const dugme = document.createElement("button");
     dugme.className = "dugme_tabela";
-    dugme.dataset.i18n = tekstKljuc;
+    dugme.dataset.i18n = tekstKljuc;  // postavlja ključ za prevod
     dugme.onclick = onClick;
     roditelj.appendChild(dugme);
-    const kljuc = dugme.dataset.i18n.split(".");
-    let tekst = prevodOsnovnogTeksta[trenutniJezik];
-    kljuc.forEach(k => tekst = tekst[k]);
-    dugme.textContent = tekst;
+
+    // odmah prevedi dugme prema trenutnom jeziku
+    postaviJezik(trenutniJezik);
+
     return dugme;
 }
 
