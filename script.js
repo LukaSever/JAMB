@@ -1,11 +1,3 @@
-console.log("Trenutni jezik iz localStorage:", localStorage.getItem("jezik"));
-if (typeof prevodOsnovnogTeksta === 'undefined') {
-    console.error("GREŠKA: Fajl prevod.js nije učitao objekat prevodOsnovnogTeksta!");
-} else {
-    console.log("Objekat sa prevodima je uspešno učitan.");
-}
-
-let trenutniJezik = localStorage.getItem("jezik") || "sr";
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
 
@@ -126,6 +118,7 @@ function slika(tabela) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    let trenutniJezik = localStorage.getItem("jezik") || "sr";
     const div = document.getElementById("igra")
     const tabela = document.createElement("table");
     if (div) {
@@ -166,11 +159,19 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('load', restartVisineBodyIgra);
     window.addEventListener('resize', restartVisineBodyIgra);
 
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            postaviJezik(trenutniJezik);
-        });
+    const posmatrac = new MutationObserver(() => {
+        postaviJezik(trenutniJezik);
     });
+
+    // Reci posmatraču da gleda celu tabelu i sve njene redove
+    if (div) {
+        posmatrac.observe(div, { childList: true, subtree: true });
+    }
+
+    // 3. Inicijalni poziv sa malim odlaganjem za svaki slučaj
+    setTimeout(() => {
+        postaviJezik(trenutniJezik);
+    }, 50);
 });
 
 function div1(tabela) {

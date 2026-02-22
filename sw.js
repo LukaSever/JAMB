@@ -1,4 +1,4 @@
-const JAMB_CACHE = 'jamb-cache-v4';
+const JAMB_CACHE = 'jamb-cache-v1';
 const urlsToCache = [
     './',
     './index.html',
@@ -47,27 +47,9 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-/*
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request)
             .then(response => response || fetch(event.request))
-    );
-});
-*/
-
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.open(JAMB_CACHE).then((cache) => {
-            return cache.match(event.request).then((response) => {
-                const fetchPromise = fetch(event.request).then((networkResponse) => {
-                    // Svaki put kada povuče fajl, on ga u pozadini osveži u kešu
-                    cache.put(event.request, networkResponse.clone());
-                    return networkResponse;
-                });
-                // Vrati ono što imaš u kešu, ali u pozadini uzmi novo sa mreže za sledeći put
-                return response || fetchPromise;
-            });
-        })
     );
 });
