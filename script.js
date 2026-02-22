@@ -828,6 +828,7 @@ function postaviJezik(jezik) {
         element.textContent = tekst;
     });
 }
+
 document.querySelectorAll(".button_jezici").forEach(dugme => {
     dugme.addEventListener("click", () => {
         let jezik;
@@ -842,7 +843,11 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         }
         if (jezik) {
             localStorage.setItem("jezik", jezik);
-            window.history.back();
+            boxPodesavanja.classList.remove("hidden");
+            boxJezici.classList.add("hidden");
+            boxPravila.classList.add("hidden");
+            boxObjasnjenje.classList.add("hidden");
+            h2Pravila.classList.add("hidden");
         }
     });
 });
