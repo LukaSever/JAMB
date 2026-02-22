@@ -844,9 +844,19 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         if (jezik) {
             trenutniJezik = jezik;
             localStorage.setItem("jezik", jezik);
-            window.location.reload();
+            postaviJezik(trenutniJezik);
+            window.history.back();
         }
     });
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+    if ((window.location.pathname === "/" || window.location.pathname.endsWith("index.html"))
+        && !sessionStorage.getItem("reloaded")) {
+
+        sessionStorage.setItem("reloaded", "true");
+        window.location.reload();
+    }
 });
 
 if ('serviceWorker' in navigator) {
