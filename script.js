@@ -1,5 +1,4 @@
 let trenutniJezik = localStorage.getItem("jezik") || "sr";
-postaviJezik(trenutniJezik);
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
 
@@ -159,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     window.addEventListener('load', restartVisineBodyIgra);
     window.addEventListener('resize', restartVisineBodyIgra);
+    postaviJezik(trenutniJezik);
 });
 
 function div1(tabela) {
@@ -843,11 +843,7 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         }
         if (jezik) {
             localStorage.setItem("jezik", jezik);
-            boxPodesavanja.classList.remove("hidden");
-            boxJezici.classList.add("hidden");
-            boxPravila.classList.add("hidden");
-            boxObjasnjenje.classList.add("hidden");
-            h2Pravila.classList.add("hidden");
+            window.history.back();
         }
     });
 });
