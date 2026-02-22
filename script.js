@@ -843,6 +843,7 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         }
         if (jezik) {
             localStorage.setItem("jezik", jezik);
+
             window.history.back();
         }
     });
