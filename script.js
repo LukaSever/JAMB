@@ -842,7 +842,7 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
             case "crnogorski": jezik = "me"; break;
         }
         if (jezik) {
-            localStorage.setItem("sr", jezik);
+            localStorage.setItem("jezik", jezik);
             postaviJezik(jezik);
             window.history.back();
         }
