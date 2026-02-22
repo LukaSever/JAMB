@@ -1,3 +1,10 @@
+console.log("Trenutni jezik iz localStorage:", localStorage.getItem("jezik"));
+if (typeof prevodOsnovnogTeksta === 'undefined') {
+    console.error("GREŠKA: Fajl prevod.js nije učitao objekat prevodOsnovnogTeksta!");
+} else {
+    console.log("Objekat sa prevodima je uspešno učitan.");
+}
+
 let trenutniJezik = localStorage.getItem("jezik") || "sr";
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
@@ -159,10 +166,11 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('load', restartVisineBodyIgra);
     window.addEventListener('resize', restartVisineBodyIgra);
 
-    setTimeout(() => {
-        console.log("Pokrećem inicijalni prevod...");
-        postaviJezik(trenutniJezik);
-    }, 150);
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            postaviJezik(trenutniJezik);
+        });
+    });
 });
 
 function div1(tabela) {
@@ -823,11 +831,6 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
 });
 
 function postaviJezik(jezik) {
-    if (typeof prevodOsnovnogTeksta === 'undefined') {
-        setTimeout(() => postaviJezik(jezik), 100);
-        return;
-    }
-
     document.querySelectorAll("[data-i18n]").forEach(element => {
         const kljuc = element.dataset.i18n.split(".");
         let tekst = prevodOsnovnogTeksta[jezik];
