@@ -607,22 +607,27 @@ const boxObjasnjenje = document.getElementById("box_objasnjenje");
 const h2Pravila = document.getElementById("h2_pravila");
 const boxJezici = document.getElementById("box_jezici");
 
-dugmePravila.addEventListener("click", () => {
-    boxPodesavanja.classList.add("hidden");
-    boxPravila.classList.remove("hidden");
-    boxObjasnjenje.classList.remove("hidden");
-    h2Pravila.classList.remove("hidden");
-});
+if (dugmePravila) {
+    dugmePravila.addEventListener("click", () => {
+        boxPodesavanja.classList.add("hidden");
+        boxPravila.classList.remove("hidden");
+        boxObjasnjenje.classList.remove("hidden");
+        h2Pravila.classList.remove("hidden");
+    });
+}
 
-dugmeJezici.addEventListener("click", () => {
-    boxPodesavanja.classList.add("hidden");
-    boxJezici.classList.remove("hidden");
+if (dugmeJezici) {
+    dugmeJezici.addEventListener("click", () => {
+        boxPodesavanja.classList.add("hidden");
+        boxJezici.classList.remove("hidden");
+    });
+}
 
-});
-
-dugmeIzlaz.addEventListener("click", () => {
-    window.history.back();
-});
+if (dugmeIzlaz) {
+    dugmeIzlaz.addEventListener("click", () => {
+        window.history.back();
+    });
+}
 
 const duzmeZatvori = document.querySelectorAll(".zatvori");
 duzmeZatvori.forEach(dugme => {
@@ -836,7 +841,6 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
             case "crnogorski": jezik = "me"; break;
         }
         if (jezik) {
-            postaviJezik(jezik);
             localStorage.setItem("jezik", jezik);
             window.history.back();
         }
