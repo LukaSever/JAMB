@@ -865,7 +865,6 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
             trenutniJezik = jezik;
             localStorage.setItem("jezik", jezik);
             postaviJezik(trenutniJezik);
-
         }
     });
 });
