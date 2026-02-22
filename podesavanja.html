@@ -12,26 +12,26 @@
 <body id="body_podesavanja">
 <div id="podesavanja">
     <div id="box_podesavanja">
-        <h2 id="h2_podesavanja">PODEŠAVANJA</h2>
-        <button id="pravila" class="button_podesavanja">Pravila</button>
-        <button id="jezici" class="button_podesavanja">Jezici</button>
-        <button id="izlaz" class="button_podesavanja">Izlaz</button>
+        <h2 id="h2_podesavanja" data-i18n="ui.podesavanja"></h2>
+        <button id="pravila" class="button_podesavanja" data-i18n="ui.pravila"></button>
+        <button id="jezici" class="button_podesavanja" data-i18n="ui.jezici"></button>
+        <button id="izlaz" class="button_podesavanja" data-i18n="ui.izlaz"></button>
     </div>
     <div id="box_pravila" class="hidden">
         <button class="zatvori">x</button>
-        <h2 id="h2_pravila" class="hidden">PRAVILA IGRE</h2>
+        <h2 id="h2_pravila" class="hidden" data-i18n="ui.pravila_igre"></h2>
         <button id="opsta" class="button_pravila">Opšta</button>
         <button id="objasnjenja_kolona" class="button_pravila">Objašnjenja kolona</button>
         <button id="nacin_racunanja" class="button_pravila">Način računanja</button>
         <button id="smer_popunjavanja" class="button_pravila">Smer popunjavanja</button>
         <button id="dozvoljene_vrednosti" class="button_pravila">Dozvoljene vrednosti</button>
         <button id="funkcionalnosti" class="button_pravila">Funkcionalnosti</button>
-        <button class="nazad_na_podesavanja button_pravila">Nazad</button>
+        <button class="nazad_na_podesavanja button_pravila" data-i18n="ui.nazad"></button>
     </div>
     <div id="box_objasnjenje" class="hidden"></div>
     <div id="box_jezici" class="hidden">
         <button class="zatvori">x</button>
-        <h2 id="h2_jezici">JEZICI</h2>
+        <h2 id="h2_jezici" class="velika_slova" data-i18n="ui.jezici"></h2>
         <div id="box_zastave">
             <button id="srpski" class="button_jezici">
                 <img src="static/images/flags/Srbija.png" alt="srpski" class="slika_zastava">
@@ -55,13 +55,14 @@
                 <img src="static/images/flags/Crna_Gora.png" alt="crnogorski" class="slika_zastava">
             </button>
         </div>
-        <button class="nazad_na_podesavanja button_pravila">Nazad</button>
+        <button class="nazad_na_podesavanja button_pravila"  data-i18n="ui.nazad"></button>
     </div>
 </div>
 <div id="id_fullscreen_preklapanje" class="class_fullscreen_preklapanje">
     <button class="zatvori_sliku">x</button>
     <img id="fullscreen_slika" src="" alt="slika">
 </div>
+<script src="prevod.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

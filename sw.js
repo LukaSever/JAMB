@@ -1,10 +1,11 @@
-const JAMB_CACHE = 'jamb-cache-v1';
+const JAMB_CACHE = 'jamb-cache-v2';
 const urlsToCache = [
     './',
     './index.html',
     './podesavanja.html',
     './style.css',
     './script.js',
+    './prevod.js',
     './manifest.json',
     './static/images/icon.png',
     './static/images/image0.png',

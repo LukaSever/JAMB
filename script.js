@@ -1,3 +1,5 @@
+let trenutniJezik = localStorage.getItem("jezik") || "sr";
+postaviJezik(trenutniJezik);
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
 
@@ -36,10 +38,12 @@ function podnozje(tabela) {
     th.setAttribute("colspan", "9");
     const dugme = document.createElement("button");
     dugme.className = "dugme_tabela";
-    dugme.textContent = "Nova partija";
+    //dugme.textContent = "Nova partija";
+    dugme.dataset.i18n = "ui.nova_partija";
     dugme.onclick = novaPartija;
     th.appendChild(dugme);
     novRed.appendChild(th);
+    postaviJezik(trenutniJezik);
 
     const poeni = document.createElement("th");
     poeni.id = "poeni";
@@ -118,7 +122,7 @@ function slika(tabela) {
 document.addEventListener("DOMContentLoaded", function () {
     const div = document.getElementById("igra")
     const tabela = document.createElement("table");
-    if(div) {
+    if (div) {
         div.appendChild(tabela);
         zaglavlje1(tabela);
         div1(tabela);
@@ -144,10 +148,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function restartVisineBodyIgra(){
+    function restartVisineBodyIgra() {
         const bodyIgra = document.getElementById('body_igra');
         const igra = document.getElementById('igra');
-        if(!bodyIgra || !igra)
+        if (!bodyIgra || !igra)
             return
         const visina = window.innerHeight + 'px';
         bodyIgra.style.height = visina;
@@ -562,13 +566,19 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
     const dugme1 = document.createElement("button");
     dugme1.id = "dugme1";
     dugme1.className = "dugme_tabela";
-    dugme1.textContent = tekstDugmeta1;
+    //dugme1.textContent = tekstDugmeta1;
+    if (tekstDugmeta1 === "Obriši sve")
+        dugme1.dataset.i18n = "ui.obrisi_sve";
+    else if (tekstDugmeta1 === "Zameni broj")
+        dugme1.dataset.i18n = "ui.zameni_broj";
     dugme1.style.backgroundColor = boja;
 
     const dugme2 = document.createElement("button");
     dugme2.id = "dugme2";
     dugme2.className = "dugme_tabela";
-    dugme2.textContent = tekstDugmeta2;
+    //dugme2.textContent = tekstDugmeta2;
+    if (tekstDugmeta2 === "Vrati se")
+        dugme2.dataset.i18n = "ui.vrati_se";
     dugme2.style.backgroundColor = "green";
 
     dugme1.onclick = () => {
@@ -583,6 +593,8 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
     prozor.append(dugme1, dugme2);
     pozadina_prozora.appendChild(prozor);
     document.body.appendChild(pozadina_prozora)
+
+    postaviJezik(trenutniJezik);
 }
 
 const boxPodesavanja = document.getElementById("box_podesavanja");
@@ -737,65 +749,98 @@ const pravilaTekst = {
     },
 };
 
-document.querySelectorAll(".button_pravila").forEach(button => {
-   button.addEventListener("click", () => {
-       const id = button.id;
+document.querySelectorAll(".button_pravila").forEach(dugme => {
+    dugme.addEventListener("click", () => {
 
-       boxPravila.classList.add("hidden");
-       boxObjasnjenje.textContent = "";
+        const id = dugme.id;
 
-       const pravilo = pravilaTekst[id];
-       if (!pravilo)
-           return;
+        boxPravila.classList.add("hidden");
+        boxObjasnjenje.textContent = "";
 
-       const naslov = document.createElement("h2");
-       naslov.textContent = pravilo.title;
-       boxObjasnjenje.appendChild(naslov);
-       const p = document.createElement("p");
-       p.className = "opis";
-       pravilo.box.forEach(item => {
-           if (typeof item === "string") {
-               const span = document.createElement("span");
-               span.className = item.startsWith("\u00A0") ? "uvuceno" : "stavka";
-               span.textContent = item.trim();
-               p.appendChild(span);
-               p.appendChild(document.createElement("br"));
-           }
-           else if (item.link) {
-               const span = document.createElement("span");
-               span.className = "linkovana_slika";
-               span.textContent = item.link.text;
+        const pravilo = pravilaTekst[id];
+        if (!pravilo)
+            return;
 
-               span.addEventListener("click", () => {
-                  const preklapanje = document.getElementById("id_fullscreen_preklapanje");
-                  const slika = document.getElementById("fullscreen_slika");
-                  slika.src = item.link.href;
-                  preklapanje.style.display = "flex";
-               });
-               p.appendChild(span);
-               p.appendChild(document.createElement("br"));
-           }
-       });
-       boxObjasnjenje.appendChild(p);
-       const dugmeNazad = document.createElement("button");
-       dugmeNazad.textContent = "Nazad";
-       dugmeNazad.className = "button_pravila button_nazad";
-       dugmeNazad.addEventListener("click", () => {
-           boxObjasnjenje.textContent = "";
-           boxPravila.classList.remove("hidden");
-           h2Pravila.classList.remove("hidden");
-           boxPravila.scrollIntoView({behavior: "smooth"});
-       });
-       boxObjasnjenje.appendChild(dugmeNazad);
+        const naslov = document.createElement("h2");
+        naslov.textContent = pravilo.title;
+        boxObjasnjenje.appendChild(naslov);
+        const p = document.createElement("p");
+        p.className = "opis";
+        pravilo.box.forEach(item => {
+            if (typeof item === "string") {
+                const span = document.createElement("span");
+                span.className = item.startsWith("\u00A0") ? "uvuceno" : "stavka";
+                span.textContent = item.trim();
+                p.appendChild(span);
+                p.appendChild(document.createElement("br"));
+            }
+            else if (item.link) {
+                const span = document.createElement("span");
+                span.className = "linkovana_slika";
+                span.textContent = item.link.text;
 
-       const duzmeZatvori = document.createElement("button");
-       duzmeZatvori.textContent = "x";
-       duzmeZatvori.className = "zatvori";
-       boxObjasnjenje.appendChild(duzmeZatvori);
-       duzmeZatvori.addEventListener("click", () => {
-           window.history.back();
-       })
-   });
+                span.addEventListener("click", () => {
+                   const preklapanje = document.getElementById("id_fullscreen_preklapanje");
+                   const slika = document.getElementById("fullscreen_slika");
+                   slika.src = item.link.href;
+                   preklapanje.style.display = "flex";
+                });
+                p.appendChild(span);
+                p.appendChild(document.createElement("br"));
+            }
+        });
+        boxObjasnjenje.appendChild(p);
+        const dugmeNazad = document.createElement("button");
+        //dugmeNazad.textContent = "Nazad";
+        dugmeNazad.dataset.i18n = "ui.nazad";
+        dugmeNazad.className = "button_pravila button_nazad";
+        dugmeNazad.addEventListener("click", () => {
+            boxObjasnjenje.textContent = "";
+            boxPravila.classList.remove("hidden");
+            h2Pravila.classList.remove("hidden");
+            boxPravila.scrollIntoView({behavior: "smooth"});
+        });
+        boxObjasnjenje.appendChild(dugmeNazad);
+        postaviJezik(trenutniJezik);
+
+        const duzmeZatvori = document.createElement("button");
+        duzmeZatvori.textContent = "x";
+        duzmeZatvori.className = "zatvori";
+        boxObjasnjenje.appendChild(duzmeZatvori);
+        duzmeZatvori.addEventListener("click", () => {
+            window.history.back();
+        })
+    });
+});
+
+function postaviJezik(jezik) {
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const kljuc = element.dataset.i18n.split(".");
+        let tekst = prevodOsnovnogTeksta[jezik];
+        kljuc.forEach(k => {
+            tekst = tekst[k];
+        });
+        element.textContent = tekst;
+    });
+}
+document.querySelectorAll(".button_jezici").forEach(dugme => {
+    dugme.addEventListener("click", () => {
+        let jezik;
+        switch (dugme.id) {
+            case "srpski": jezik = "sr"; break;
+            case "engleski": jezik = "en"; break;
+            case "hrvatski": jezik = "hr"; break;
+            case "bosanski": jezik = "ba"; break;
+            case "makedonski": jezik = "mk"; break;
+            case "slovenacki": jezik = "si"; break;
+            case "crnogorski": jezik = "me"; break;
+        }
+        if (jezik) {
+            postaviJezik(jezik);
+            localStorage.setItem("jezik", jezik);
+            window.history.back();
+        }
+    });
 });
 
 if ('serviceWorker' in navigator) {
