@@ -42,13 +42,8 @@ function podnozje(tabela) {
     dugme.onclick = novaPartija;
     th.appendChild(dugme);
     novRed.appendChild(th);
-
-    const interval = setInterval(() => {
-        if (document.body.contains(dugme)) {
-            clearInterval(interval);
-            postaviJezik(trenutniJezik); // prevod tek kad dugme postoji
-        }
-    }, 10);
+    tabela.appendChild(novRed);
+    postaviJezik(trenutniJezik);
 
     const poeni = document.createElement("th");
     poeni.id = "poeni";
