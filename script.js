@@ -42,7 +42,7 @@ function podnozje(tabela) {
     dugme.onclick = novaPartija;
     th.appendChild(dugme);
     novRed.appendChild(th);
-    postaviJezik(trenutniJezik);
+    setTimeout(() => postaviJezik(trenutniJezik), 0);
 
     const poeni = document.createElement("th");
     poeni.id = "poeni";
@@ -135,8 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
         slika(tabela);
         ucitajCelije(tabela);
     }
-
-    let trenutniJezik = localStorage.getItem("jezik") || "sr";
 
     const dugmeZatvoriSliku = document.querySelector(".class_fullscreen_preklapanje .zatvori_sliku");
     const preklapanje = document.getElementById("id_fullscreen_preklapanje");
@@ -546,6 +544,15 @@ function novaPartija() {
             zvuk.currentTime = 0;
         });
 
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistration().then(reg => {
+                if (reg) {
+                    reg.update().then(() => {
+                        window.location.reload();
+                    });
+                }
+            })
+        }
     }, "Obriši sve", "Vrati se", "red");
 }
 
