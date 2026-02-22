@@ -593,7 +593,7 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
     pozadina_prozora.appendChild(prozor);
     document.body.appendChild(pozadina_prozora)
 
-    postaviJezik(trenutniJezik);
+    setTimeout(() => postaviJezik(trenutniJezik), 0);
 }
 
 const boxPodesavanja = document.getElementById("box_podesavanja");
@@ -805,7 +805,7 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
             boxPravila.scrollIntoView({behavior: "smooth"});
         });
         boxObjasnjenje.appendChild(dugmeNazad);
-        postaviJezik(trenutniJezik);
+        setTimeout(() => postaviJezik(trenutniJezik), 0);
 
         const duzmeZatvori = document.createElement("button");
         duzmeZatvori.textContent = "x";
