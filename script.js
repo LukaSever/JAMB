@@ -1,4 +1,5 @@
 let trenutniJezik = localStorage.getItem("jezik") || "sr";
+postaviJezik(trenutniJezik);
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
 
@@ -42,6 +43,7 @@ function podnozje(tabela) {
     dugme.onclick = novaPartija;
     th.appendChild(dugme);
     novRed.appendChild(th);
+    postaviJezik(trenutniJezik);
 
     const poeni = document.createElement("th");
     poeni.id = "poeni";
@@ -157,17 +159,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     window.addEventListener('load', restartVisineBodyIgra);
     window.addEventListener('resize', restartVisineBodyIgra);
-
-    const posmatrac = new MutationObserver(() => {
-        postaviJezik(trenutniJezik);
-    });
-
-    if (div) {
-        posmatrac.observe(div, { childList: true, subtree: true });
-    }
-
-    // Inicijalni poziv nakon 100ms za svaki slučaj
-    setTimeout(() => postaviJezik(trenutniJezik), 100);
 });
 
 function div1(tabela) {
@@ -602,6 +593,8 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
     prozor.append(dugme1, dugme2);
     pozadina_prozora.appendChild(prozor);
     document.body.appendChild(pozadina_prozora)
+
+    postaviJezik(trenutniJezik);
 }
 
 const boxPodesavanja = document.getElementById("box_podesavanja");
@@ -813,6 +806,7 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
             boxPravila.scrollIntoView({behavior: "smooth"});
         });
         boxObjasnjenje.appendChild(dugmeNazad);
+        postaviJezik(trenutniJezik);
 
         const duzmeZatvori = document.createElement("button");
         duzmeZatvori.textContent = "x";
@@ -825,18 +819,13 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
 });
 
 function postaviJezik(jezik) {
-    if (typeof prevodOsnovnogTeksta === 'undefined')
-        return;
     document.querySelectorAll("[data-i18n]").forEach(element => {
         const kljuc = element.dataset.i18n.split(".");
         let tekst = prevodOsnovnogTeksta[jezik];
         kljuc.forEach(k => {
-            if (tekst)
-                tekst = tekst[k];
+            tekst = tekst[k];
         });
-        if (tekst && element.textContent !== tekst){
-            element.textContent = tekst;
-        }
+        element.textContent = tekst;
     });
 }
 
@@ -854,7 +843,8 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         }
         if (jezik) {
             localStorage.setItem("jezik", jezik);
-            window.history.back();
+            const urlSaVerzijom = "index.html?v=" + new Date().getTie();
+            window.location.replace(urlSaVerzijom);
         }
     });
 });
