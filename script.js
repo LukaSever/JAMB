@@ -1,3 +1,4 @@
+let trenutniJezik = localStorage.getItem("jezik") || "sr";
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
 
@@ -41,7 +42,6 @@ function podnozje(tabela) {
     dugme.onclick = novaPartija;
     th.appendChild(dugme);
     novRed.appendChild(th);
-    postaviJezik(trenutniJezik);
 
     const poeni = document.createElement("th");
     poeni.id = "poeni";
@@ -118,7 +118,6 @@ function slika(tabela) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    let trenutniJezik = localStorage.getItem("jezik") || "sr";
     const div = document.getElementById("igra")
     const tabela = document.createElement("table");
     if (div) {
@@ -163,15 +162,12 @@ document.addEventListener("DOMContentLoaded", function () {
         postaviJezik(trenutniJezik);
     });
 
-    // Reci posmatraču da gleda celu tabelu i sve njene redove
     if (div) {
         posmatrac.observe(div, { childList: true, subtree: true });
     }
 
-    // 3. Inicijalni poziv sa malim odlaganjem za svaki slučaj
-    setTimeout(() => {
-        postaviJezik(trenutniJezik);
-    }, 50);
+    // Inicijalni poziv nakon 100ms za svaki slučaj
+    setTimeout(() => postaviJezik(trenutniJezik), 100);
 });
 
 function div1(tabela) {
@@ -606,8 +602,6 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
     prozor.append(dugme1, dugme2);
     pozadina_prozora.appendChild(prozor);
     document.body.appendChild(pozadina_prozora)
-
-    postaviJezik(trenutniJezik);
 }
 
 const boxPodesavanja = document.getElementById("box_podesavanja");
@@ -819,7 +813,6 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
             boxPravila.scrollIntoView({behavior: "smooth"});
         });
         boxObjasnjenje.appendChild(dugmeNazad);
-        postaviJezik(trenutniJezik);
 
         const duzmeZatvori = document.createElement("button");
         duzmeZatvori.textContent = "x";
@@ -832,13 +825,18 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
 });
 
 function postaviJezik(jezik) {
+    if (typeof prevodOsnovnogTeksta === 'undefined')
+        return;
     document.querySelectorAll("[data-i18n]").forEach(element => {
         const kljuc = element.dataset.i18n.split(".");
         let tekst = prevodOsnovnogTeksta[jezik];
         kljuc.forEach(k => {
-            tekst = tekst[k];
+            if (tekst)
+                tekst = tekst[k];
         });
-        element.textContent = tekst;
+        if (tekst && element.textContent !== tekst){
+            element.textContent = tekst;
+        }
     });
 }
 
