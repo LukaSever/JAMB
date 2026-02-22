@@ -849,8 +849,6 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
     });
 });
 
-/*
 if ('serviceWorker' in navigator) {
     void navigator.serviceWorker.register('./sw.js');
 }
- */
