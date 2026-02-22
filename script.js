@@ -844,7 +844,7 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         if (jezik) {
             trenutniJezik = jezik;
             localStorage.setItem("jezik", jezik);
-            postaviJezik(trenutniJezik);
+            window.location.reload();
         }
     });
 });
