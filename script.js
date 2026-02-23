@@ -844,19 +844,29 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         if (jezik) {
             trenutniJezik = jezik;
             localStorage.setItem("jezik", jezik);
-            window.location.reload();
+            postaviJezik(trenutniJezik);
+            window.history.back();
         }
     });
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-    // Pri učitavanju stranice postavi sačuvani jezik
-    const sacuvanJezik = localStorage.getItem("jezik");
-    if (sacuvanJezik) {
-        trenutniJezik = sacuvanJezik;
-        postaviJezik(trenutniJezik);
+function reloadOnce() {
+    // Ako stranica nije fresh (first load ili history navigation), reloaduj
+    if (!sessionStorage.getItem("reloaded_on_this_visit")) {
+        sessionStorage.setItem("reloaded_on_this_visit", "true");
+        window.location.reload();
     }
+}
+
+// Kada se stranica prikaže
+window.addEventListener("pageshow", (event) => {
+    // Ako je došlo sa back/forward dugmeta, ili prvi dolazak
+    if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        sessionStorage.removeItem("reloaded_on_this_visit"); // resetuj reload flag
+    }
+    reloadOnce();
 });
+
 if ('serviceWorker' in navigator) {
     void navigator.serviceWorker.register('./sw.js');
 }
