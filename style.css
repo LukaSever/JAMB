@@ -68,7 +68,7 @@ table tr th:last-child {
     padding: 20px;
 }
 #prozor .dugme_tabela {
-    width: 180px;
+    width: 250px;
     margin: 10px 0;
     padding: 10px;
     border: none;
@@ -144,6 +144,10 @@ table tr th:last-child {
     table tr th:not(:first-child):not(:last-child),
     table tr td:not(:last-child) {
         width: calc((100% - 140px) / 10);
+    }
+
+    #prozor .dugme_tabela {
+        width: 180px;
     }
 }
 
@@ -249,7 +253,7 @@ h2 {
     padding: 10px;
     width: 80%;
     max-width: 400px;
-    max-height: 70vh;
+    max-height: 60vh;
     overflow: auto;
     border-radius: 5px;
     box-sizing: border-box;
@@ -305,6 +309,14 @@ h2 {
     object-fit: contain;
 }
 
-.velika_slova{
+.velika_slova {
     text-transform: uppercase;
+}
+
+.pravila {
+    text-transform: lowercase;
+}
+
+.pravila::first-letter {
+    text-transform: capitalize;
 }

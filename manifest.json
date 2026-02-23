@@ -1,6 +1,6 @@
 {
-    "name": "JAMB",
-    "short_name": "JAMB",
+    "name": "YAMB",
+    "short_name": "YAMB",
     "start_url": "./index.html",
     "display": "standalone",
     "icons": [

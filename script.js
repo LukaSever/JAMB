@@ -13,7 +13,7 @@ function zaglavlje1(tabela) {
             dugme.className = "dugme_tabela";
             const slika = document.createElement("img");
             slika.className = "slika_celija";
-            slika.src = "static/images/setting.png";
+            slika.src = "static/images/cells/setting.png";
             dugme.appendChild(slika);
             dugme.style.backgroundColor = "yellow";
             dugme.onclick = () => location.href = "podesavanja.html";
@@ -107,13 +107,13 @@ function slika(tabela) {
     for (let i = 0; i < 5; i++) {
         const slika = document.createElement("img");
         slika.className = "slika_celija";
-        slika.src = "static/images/image" + (i + 1) + ".png";
+        slika.src = "static/images/cells/image" + (i + 1) + ".png";
         tabela.rows[0].cells[vrednostSlike[i]].appendChild(slika);
     }
     for (let i = 0; i < 3; i++) {
         const suma = document.createElement("img");
         suma.className = "slika_celija";
-        suma.src = "static/images/sum.png";
+        suma.src = "static/images/cells/sum.png";
         tabela.rows[verdnostSume[i]].cells[0].appendChild(suma);
     }
 }
@@ -648,113 +648,6 @@ dugmeNazadNaPodesavanja.forEach(dugme => {
     });
 });
 
-const pravilaTekst = {
-    "opsta": {
-        title: "OPŠTA PRAVILA",
-        box: [
-        "Za igru je potrebno 6 kockica.",
-        "Igrač ima pravo da baca 3 puta.",
-        "\u00A0 Osim kada popunjava ručnu kolonu, tada sme da baci samo jednom.",
-        "Pri svakom bacanju odvaja kockice koje mu odgovaraju, a preostale baca ponovo.",
-        "Na kraju trećeg bacanja odvaja 5 kockica koje mu najviše odgovaraju i njihov zbir upisuje u polje.",
-        ]
-    },
-    "objasnjenja_kolona": {
-        title: "OBJAŠNJENJA KOLONA",
-        box: [
-            "Druga kolona se naziva slobodna kolona i može se popunjavati proizvoljnim redosledom.",
-            "\"N\" kolona se naziva najava. Prilikom prvog bacanja igrač odlučuje da li će nešto najaviti, shodno dobijenim kockama. Ukoliko se odluči da najavi, mora odmah da kaže protivniku šta najavljuje. Te kockice odvaja sa strane i tek onda može da baca još dva puta ostale kockice.",
-            "\"R\" kolona se naziva ručna kolona i u nju se upisuje zbir kockica dobijen pri prvom bacanju.",
-            "\u00A0 Preporuka je da se u prvih 6 redova upiše odmah kada se dobije 3 ista broja pri prvom bacanju.",
-            "\"D\" kolona se naziva dojava (odjava) i popunjava se nakon najave protivnika.",
-            "\u00A0 PR: Ako je protivnik najavio šestice, sledeći igrač baca 3 puta i odvaja sve šestice koje dobije. (Moguće je da ne dobije ni jednu šesticu i u tom slučaju upisuje 0 u predviđeno polje.)",
-            "\"O\" kolona se popunjava na samom kraju partije. Redosled popunjavanja je odozgo prema dole.",
-            "\"M\" kolona automatski ažurira najveće brojeve iz svakog reda.",
-            "U žutim poljima se automatski računa zbir po sledećim pravilima:",
-            "\u00A0 Prva suma računa prvih 6 redova. Ovde je važno da zbir u koloni premaši 60 kako bi se dobilo dodatnih 30 poena.",
-            "\u00A0 Druga suma računa razliku MAX i MIN kolone i množi je sa kečevima te kolone.",
-            "\u00A0 Treća suma samo računa zbir kolona bez dodavanja.",
-            ]
-    },
-    "nacin_racunanja": {
-        title: "NAČIN RAČUNANJA",
-        box: [
-            "Kolona 1: Zbir jedinica",
-            "Kolona 2: Zbir dvojki",
-            "Kolona 3: Zbir trojki",
-            "Kolona 4: Zbir četvorki",
-            "Kolona 5: Zbir petica",
-            "Kolona 6: Zbir šestica",
-            "MAX: Zbir 5 kockica sa najvećim brojevima",
-            "MIN: Zbir 5 kockica sa najmanjim brojevima",
-            "KENTA:",
-            "\u00A0 Ako je dobijena iz prvog puta upisuje se 66",
-            "\u00A0 Ako je dobijena iz drugog puta upisuje se 56",
-            "\u00A0 Ako je dobijena iz trećeg puta upisuje se 46",
-            "TRILING: Zbir 3 iste kockice +30",
-            "FUL: Zbir 2 iste i 3 iste kockice +30",
-            "POKER: Zbir 4 iste kockice +40",
-            "YAMB: Zbir 5 istih kockica +50",
-        ]
-    },
-    "smer_popunjavanja": {
-        title: "SMER POPUNJAVANJA",
-        box: [
-            "Red 1: Odozgo na dole",
-            "Red 2: Proizvoljnim redosledom",
-            "Red 3: Odozdo na gore",
-            "Red 4: Proizvoljnim redosledom",
-            "Red 5: Proizvoljnim redosledom",
-            "Red 6: Proizvoljnim redosledom",
-            "Red 7: Od MAX na gore, od MIN na dole",
-            "Red 8: Odozgo do MAX, odozdo do MIN",
-            "Red 9: Odozgo na dole",
-            "Red 10: Ne popunjava se",
-            {
-                link: {
-                    text: "Slika dozvoljenih vrednosti po kolonama",
-                    href: "static/images/YAMB2.png"
-                }
-            },
-        ],
-    },
-    "dozvoljene_vrednosti": {
-        title: "DOZVOLJENE VREDNOSTI",
-        box: [
-            "Kolona 1: 0, 1, 2, 3, 4, 5",
-            "Kolona 2: 0, 2, 4, 6, 8, 10",
-            "Kolona 3: 0, 3, 6, 9, 12, 15",
-            "Kolona 4:  0, 4, 8, 12, 16, 20",
-            "Kolona 5: 0, 5, 10, 15, 20, 25",
-            "Kolona 6: 0, 6, 12, 18, 24, 30",
-            "MAX: 5 - 30",
-            "MIN: 5 - 30",
-            "KENTA: 0, 46, 56, 66",
-            "TRILING: 0, 33, 36, 39, 42, 45, 48",
-            "FUL: 0, 37 - 58",
-            "POKER: 0, 44, 48, 52, 56, 60, 64",
-            "YAMB: 0, 55, 60, 65, 70, 75, 80",
-            {
-                link: {
-                    text: "Slika dozvoljenih vrednosti po kolonama",
-                    href: "static/images/YAMB1.png"
-                }
-            },
-        ],
-    },
-    "funkcionalnosti": {
-        title: "FUNKCIONALNOSTI",
-        box: [
-            "Pritiskom na dugme \"Nova partija\" igrač može da odabere:",
-            "\u00A0 \"Obriši sve\" kako bi započeo novu partiju i obrisao sve vrednosti iz tabele.",
-            "\u00A0 \"Vrati se\" kako bi se vratio bez brisanja vrednosti iz tabele.",
-            "Ukoliko je igrač uneo pogrešan broj ili iz nekog razloga želi da promeni unos, moguće je obrisati staru vrednost i upisati novu, pri čemu će biti upitan da li želi da zameni broj ili odustaje od zamene.",
-            "\u00A0 \"Zameni broj\" će staru vrednost zameniti novom.",
-            "\u00A0 \"Vrati se\" će prekinuti izmenu i vratiti staru vrednost.",
-        ]
-    },
-};
-
 document.querySelectorAll(".button_pravila").forEach(dugme => {
     dugme.addEventListener("click", () => {
 
@@ -763,7 +656,7 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
         boxPravila.classList.add("hidden");
         boxObjasnjenje.textContent = "";
 
-        const pravilo = pravilaTekst[id];
+        const pravilo = prevod[trenutniJezik].pravila[id];
         if (!pravilo)
             return;
 
@@ -822,7 +715,7 @@ document.querySelectorAll(".button_pravila").forEach(dugme => {
 function postaviJezik(jezik) {
     document.querySelectorAll("[data-i18n]").forEach(element => {
         const kljuc = element.dataset.i18n.split(".");
-        let tekst = prevodOsnovnogTeksta[jezik];
+        let tekst = prevod[jezik];
         kljuc.forEach(k => {
             tekst = tekst[k];
         });
@@ -836,15 +729,16 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
             case "srpski": jezik = "sr"; break;
             case "engleski": jezik = "en"; break;
             case "hrvatski": jezik = "hr"; break;
-            case "bosanski": jezik = "ba"; break;
+            case "bosanski": jezik = "bs"; break;
             case "makedonski": jezik = "mk"; break;
-            case "slovenacki": jezik = "si"; break;
+            case "slovenacki": jezik = "sl"; break;
             case "crnogorski": jezik = "me"; break;
         }
         if (jezik) {
             trenutniJezik = jezik;
             localStorage.setItem("jezik", jezik);
             postaviJezik(trenutniJezik);
+            sessionStorage.setItem("promenjenJezik", "true");
             window.history.back();
         }
     });
@@ -858,7 +752,8 @@ function osveziJednom() {
 }
 
 window.addEventListener("pageshow", (event) => {
-    if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+    if (sessionStorage.getItem("promenjenJezik")) {
+        sessionStorage.removeItem("promenjenJezik");
         sessionStorage.removeItem("osvezen");
     }
     osveziJednom();
