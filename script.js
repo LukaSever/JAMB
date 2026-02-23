@@ -850,21 +850,18 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
     });
 });
 
-function reloadOnce() {
-    // Ako stranica nije fresh (first load ili history navigation), reloaduj
-    if (!sessionStorage.getItem("reloaded_on_this_visit")) {
-        sessionStorage.setItem("reloaded_on_this_visit", "true");
+function osveziJednom() {
+    if (!sessionStorage.getItem("osvezen")) {
+        sessionStorage.setItem("osvezen", "true");
         window.location.reload();
     }
 }
 
-// Kada se stranica prikaže
 window.addEventListener("pageshow", (event) => {
-    // Ako je došlo sa back/forward dugmeta, ili prvi dolazak
     if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
-        sessionStorage.removeItem("reloaded_on_this_visit"); // resetuj reload flag
+        sessionStorage.removeItem("osvezen");
     }
-    reloadOnce();
+    osveziJednom();
 });
 
 if ('serviceWorker' in navigator) {
