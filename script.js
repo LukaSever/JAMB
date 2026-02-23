@@ -844,21 +844,19 @@ document.querySelectorAll(".button_jezici").forEach(dugme => {
         if (jezik) {
             trenutniJezik = jezik;
             localStorage.setItem("jezik", jezik);
-            postaviJezik(trenutniJezik);
-            window.location.reload(true);
+            window.location.reload();
         }
     });
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-    if ((window.location.pathname === "/" || window.location.pathname.endsWith("index.html"))
-        && !sessionStorage.getItem("reloaded")) {
-
-        sessionStorage.setItem("reloaded", "true");
-        window.location.reload();
+    // Pri učitavanju stranice postavi sačuvani jezik
+    const sacuvanJezik = localStorage.getItem("jezik");
+    if (sacuvanJezik) {
+        trenutniJezik = sacuvanJezik;
+        postaviJezik(trenutniJezik);
     }
 });
-
 if ('serviceWorker' in navigator) {
     void navigator.serviceWorker.register('./sw.js');
 }
