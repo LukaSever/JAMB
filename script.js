@@ -135,8 +135,25 @@ document.addEventListener("DOMContentLoaded", function () {
         slika(tabela);
         ucitajCelije(tabela);
     }
-
     let trenutniJezik = localStorage.getItem("jezik") || "sr";
+    let dugme = document.getElementById(trenutniJezik);
+    if (dugme)
+        dugme.classList.add("active");
+
+    const boxZastave = document.getElementById("box_zastave");
+    if (boxZastave && dugme)
+        boxZastave.insertBefore(dugme, boxZastave.firstChild);
+
+    document.querySelectorAll(".button_jezici").forEach(dugme => {
+        dugme.addEventListener("click", () => {
+            document.querySelectorAll(".button_jezici").forEach(btn => btn.classList.remove("active"));
+            dugme.classList.add("active");
+            localStorage.setItem("jezik", dugme.id);
+            setTimeout(() => {
+                boxZastave.insertBefore(dugme, boxZastave.firstChild);
+            }, 10);
+        });
+    });
 
     const dugmeZatvoriSliku = document.querySelector(".class_fullscreen_preklapanje .zatvori_sliku");
     const preklapanje = document.getElementById("id_fullscreen_preklapanje");
@@ -724,21 +741,19 @@ function postaviJezik(jezik) {
 }
 document.querySelectorAll(".button_jezici").forEach(dugme => {
     dugme.addEventListener("click", () => {
-        let jezik;
-        switch (dugme.id) {
-            case "srpski": jezik = "sr"; break;
-            case "engleski": jezik = "en"; break;
-            case "hrvatski": jezik = "hr"; break;
-            case "bosanski": jezik = "bs"; break;
-            case "makedonski": jezik = "mk"; break;
-            case "slovenacki": jezik = "sl"; break;
-            case "crnogorski": jezik = "me"; break;
-        }
+        let jezik = dugme.id;
+
         if (jezik) {
             trenutniJezik = jezik;
             localStorage.setItem("jezik", jezik);
-            postaviJezik(trenutniJezik);
             sessionStorage.setItem("promenjenJezik", "true");
+
+            document.querySelectorAll(".button_jezici").forEach(btn => {
+               btn.classList.remove("active");
+            });
+            dugme.classList.add("active");
+            postaviJezik(trenutniJezik);
+
             window.history.back();
         }
     });

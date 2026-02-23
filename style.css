@@ -203,10 +203,27 @@ table tr th:last-child {
 
 #box_zastave {
     display: grid;
+    grid-template-areas:
+    "prvo prvo prvo"
+    "ostalo1 ostalo2 ostalo3"
+    "ostalo4 ostalo5 ostalo6";
     grid-template-columns: repeat(3, 100px);
     justify-content: center;
+    justify-items: center;
     gap: 20px 10px;
 }
+
+#box_zastave .button_jezici:first-child {
+    grid-area: prvo;
+    justify-self: center;
+}
+
+#box_zastave .button_jezici:nth-child(2) { grid-area: ostalo1; }
+#box_zastave .button_jezici:nth-child(3) { grid-area: ostalo2; }
+#box_zastave .button_jezici:nth-child(4) { grid-area: ostalo3; }
+#box_zastave .button_jezici:nth-child(5) { grid-area: ostalo4; }
+#box_zastave .button_jezici:nth-child(6) { grid-area: ostalo5; }
+#box_zastave .button_jezici:nth-child(7) { grid-area: ostalo6; }
 
 .button_jezici {
     padding: 0;
@@ -214,13 +231,13 @@ table tr th:last-child {
     height: 44px;
     border: none;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .slika_zastava {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
 }
 
 .button_podesavanja,
