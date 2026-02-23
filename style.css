@@ -211,6 +211,7 @@ table tr th:last-child {
     justify-content: center;
     justify-items: center;
     gap: 20px 10px;
+    margin-bottom: 25px;
 }
 
 #box_zastave .button_jezici:first-child {
