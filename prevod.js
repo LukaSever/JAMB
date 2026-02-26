@@ -119,7 +119,9 @@ const prevod = {
                     "\u00A0 Kako bi polje ponovo postalo belo, potrebno je uneti ispravnu vrednost u njega ili samo kliknuti na obojeno polje pa kliknuti bilo gde sa strane.",
                     "Ukoliko igrač želi da promeni unos, moguće je obrisati staru vrednost i upisati novu, pri čemu će biti upitan da li želi da zameni broj ili odustaje od zamene.",
                     "\u00A0 \"Zameni broj\" će staru vrednost zameniti novom.",
-                    "\u00A0 \"Odustani\" će prekinuti izmenu i vratiti staru vrednost."
+                    "\u00A0 \"Odustani\" će prekinuti izmenu i vratiti staru vrednost.",
+                    "Da biste zatvorili tastaturu, potrebno je kliknuti na polje u koje nije moguće uneti broj.",
+                    "\u00A0 Preporuka je da to bude pravougaonik ispod dugmeta za podešavanja."
                 ]
             }
         }
@@ -244,7 +246,9 @@ const prevod = {
                     "\u00A0 To make the field white again, the correct value must be entered, or simply click on the colored field and then click anywhere outside.",
                     "If the player wants to change the entry, they can delete the old value and enter a new one, and will be asked whether they want to replace the number or cancel the change.",
                     "\u00A0 \"Replace number\" will replace the old value with the new one.",
-                    "\u00A0 \"Cancel\" will cancel the change and keep the old value."
+                    "\u00A0 \"Cancel\" will cancel the change and keep the old value.",
+                    "To close the keyboard, you need to tap on a field where you cannot enter a number.",
+                    "\u00A0 It is recommended that this be a rectangle below the settings button."
                 ]
             }
         }
@@ -369,7 +373,9 @@ const prevod = {
                     "\u00A0 Da bi polje ponovno postalo bijelo, potrebno je unijeti ispravnu vrijednost u njega ili jednostavno kliknuti na obojeno polje pa zatim bilo gdje sa strane.",
                     "Ako igrač želi promijeniti unos, može obrisati staru vrijednost i upisati novu, pri čemu će biti upitan želi li zamijeniti broj ili odustati od zamjene.",
                     "\u00A0 \"Zamijeni broj\" će zamijeniti staru vrijednost s novom.",
-                    "\u00A0 \"Odustani\" će prekinuti izmjenu i vratiti staru vrijednost."
+                    "\u00A0 \"Odustani\" će prekinuti izmjenu i vratiti staru vrijednost.",
+                    "Da biste zatvorili tipkovnicu, potrebno je kliknuti na polje u koje nije moguće unijeti broj.",
+                    "\u00A0 Preporuka je da to bude pravokutnik ispod gumba za postavke."
                 ]
             }
         }
@@ -494,7 +500,10 @@ const prevod = {
                     "\u00A0 Da bi polje ponovo postalo bijelo, potrebno je unijeti ispravnu vrijednost ili jednostavno kliknuti na obojeno polje, pa potom kliknuti bilo gdje izvan njega.",
                     "Ako igrač želi promijeniti unos, može obrisati staru vrijednost i unijeti novu, pri čemu će biti upitan da li želi zamijeniti broj ili odustati od zamjene.",
                     "\u00A0 \"Zamijeni broj\" će zamijeniti staru vrijednost s novom.",
-                    "\u00A0 \"Odustani\" će prekinuti izmjenu i vratiti staru vrijednost."
+                    "\u00A0 \"Odustani\" će prekinuti izmjenu i vratiti staru vrijednost.",
+                    "Da biste zatvorili tastaturu, potrebno je kliknuti na polje u koje nije moguće unijeti broj.",
+                    "\u00A0 Preporuka je da to bude pravougaonik ispod dugmeta za podešavanja."
+
                 ]
             }
         }
@@ -619,7 +628,9 @@ const prevod = {
                     "\u00A0 Za poleto ponovo da stane belo, potrebno e da se vnese ispravna vrednost ili ednostavno da se klikne na obojenoto pole i potoa da se klikne bilo kade nadvor.",
                     "Ako igračot saka da go promeni vnesot, može da ja izbriše starata vrednost i da vnese nova, pri toa kje bide prašan dali saka da go zameni brojot ili da se otkaže od zamena.",
                     "\u00A0 \"Zameni broj\" ke ja zameni starata vrednost so nova.",
-                    "\u00A0 \"Otkaži\" ke ja prekinе izmenata i ke ja vrati starata vrednost."
+                    "\u00A0 \"Otkaži\" ke ja prekinе izmenata i ke ja vrati starata vrednost.",
+                    "Za da se zatvori tastaturata, potrebno e da se klikne na pole vo koe ne može da se vnese broj.",
+                    "\u00A0 Se preporakuva toa da bide pravoagolnik pod kopčeto za postavki."
                 ]
             }
         }
@@ -744,7 +755,9 @@ const prevod = {
                     "\u00A0 Da bo polje ponovno belo, je treba vnesti pravilno vrednost, ali pa enostavno klikniti na obarvano polje in nato klikniti kjerkoli zunaj.",
                     "Če želi igralec spremeniti vnos, lahko izbriše staro vrednost in vnese novo, pri tem pa bo vprašani, ali želi zamenjati številko ali preklicati zamenjavo.",
                     "\u00A0 \"Zamenjaj številko\" bo staro vrednost zamenjalo z novo.",
-                    "\u00A0 \"Prekliči\" bo prekinilo spremembo in vrnilo staro vrednost."
+                    "\u00A0 \"Prekliči\" bo prekinilo spremembo in vrnilo staro vrednost.",
+                    "Če želite zapreti tipkovnico, morate klikniti na polje, v katerega ni mogoče vnesti številko.",
+                    "\u00A0 Priporočljivo je, da je to pravokotnik pod gumbom za nastavitve."
                 ]
             }
         }
@@ -869,7 +882,9 @@ const prevod = {
                     "\u00A0 Kako bi polje ponovo postalo bijelo, potrebno je unijeti ispravnu vrijednost u njega ili samo kliknuti na obojeno polje pa kliknuti bilo gdje sa strane.",
                     "Ukoliko igrač želi da promijeni unos, moguće je obrisati staru vrijednost i unijeti novu, pri čemu će biti upitan da li želi da zamijeniti broj ili odustati od zamjene.",
                     "\u00A0 \"Zamijeni broj\" će staru vrijednost zamijeniti novom.",
-                    "\u00A0 \"Odustani\" će prekinuti izmjenu i vratiti staru vrijednost."
+                    "\u00A0 \"Odustani\" će prekinuti izmjenu i vratiti staru vrijednost.",
+                    "Da biste zatvorili tastaturu, potrebno je kliknuti na polje u koje nije moguće unijeti broj.",
+                    "\u00A0 Preporuka je da to bude pravougaonik ispod dugmeta za podešavanja."
                 ]
             }
         }

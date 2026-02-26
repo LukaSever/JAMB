@@ -65,7 +65,7 @@ function manipulacijaKolonama(i, j, novaCelija) {
         12: "TRILING",
         13: "FUL",
         14: "POKER",
-        15: "JAMB"
+        15: "YAMB"
     };
     if (j === 0) {
         const zaglavlje = document.createElement("th");
@@ -335,8 +335,8 @@ function suma4(tabela) {
     poeni.textContent = unosZaKonacno ? ukupno : '';
 }
 
-function dodavanjeBrojeva(event) {
-    const celija = event.target;
+function dodavanjeBrojeva(e) {
+    const celija = e.target;
     const red = celija.parentNode;
     if (!proveraPravilaRedosleda(red, celija))
         return;
@@ -416,10 +416,10 @@ function pravilaRedosleda(tabela, kolona, pocetak, kraj) {
 }
 
 function proveraUnosa(celija) {
-    celija.addEventListener('keydown', function (event) {
-        const kljuc = event.key;
+    celija.addEventListener('keydown', function (e) {
+        const kljuc = e.key;
         if (!/^\d$/.test(kljuc) && kljuc !== 'Backspace' && kljuc !== 'Delete')
-            event.preventDefault();
+            e.preventDefault();
     });
 
     celija.addEventListener('beforeinput', function (e) {
