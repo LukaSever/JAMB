@@ -28,7 +28,7 @@ const prevod = {
                 title: "OBJAŠNJENJA KOLONA",
                 box: [
                     "Druga kolona se naziva slobodna kolona i može se popunjavati proizvoljnim redosledom.",
-                    "\"N\" kolona se naziva najava. Prilikom prvog bacanja igrač odlučuje da li će nešto najaviti, shodno dobijenim kockicama. Ukoliko se odluči da najavi, mora odmah da kaže protivniku šta najavljuje. Te kockice odvaja sa strane i tek onda može da baca još dva puta ostale kockice.",
+                    "\"N\" kolona se naziva najava. Prilikom prvog bacanja igrač odlučuje da li će nešto najaviti, shodno dobijenim kockicama. Ako se odluči da najavi, mora odmah da kaže protivniku šta najavljuje. Te kockice odvaja sa strane i tek onda može da baca još dva puta ostale kockice.",
                     "\"R\" kolona se naziva ručna kolona i u nju se upisuje zbir kockica dobijen pri prvom bacanju.",
                     "\u00A0 Preporuka je da se u prvih 6 redova upiše odmah kada se dobiju 3 ista broja pri prvom bacanju.",
                     "\"D\" kolona se naziva dojava (odjava) i popunjava se nakon najave protivnika.",
@@ -112,16 +112,19 @@ const prevod = {
             funkcionalnosti: {
                 title: "FUNKCIONALNOSTI",
                 box: [
+                    "Yamb će čuvati rezultate dok se keš memorija pregledača ne obriše.",
+                    "Da biste zatvorili tastaturu, potrebno je kliknuti na polje u koje nije moguće uneti broj.",
+                    "\u00A0 Preporuka je da to bude pravougaonik ispod dugmeta za podešavanja.",
+                    "Ako se rezultati ne vide odmah, potrebno je kliknuti unutar nekog polja u kojem je dozvoljen unos, a zatim izvan njega.",
                     "Pritiskom na dugme \"Nova partija\" igrač može da odabere:",
                     "\u00A0 \"Obriši sve\" kako bi započeo novu partiju i obrisao sve vrednosti iz tabele.",
                     "\u00A0 \"Odustani\" kako bi se vratio bez brisanja vrednosti iz tabele.",
-                    "Ukoliko je igrač uneo nedozvoljenu vrednost ona će biti obrisana i polje će pocrveneti.",
+                    "Ako je igrač uneo nedozvoljenu vrednost ona će biti obrisana i polje će pocrveneti.",
                     "\u00A0 Kako bi polje ponovo postalo belo, potrebno je uneti ispravnu vrednost u njega ili samo kliknuti na obojeno polje pa kliknuti bilo gde sa strane.",
-                    "Ukoliko igrač želi da promeni unos, moguće je obrisati staru vrednost i upisati novu, pri čemu će biti upitan da li želi da zameni broj ili odustaje od zamene.",
+                    "Ako igrač želi da promeni unos, moguće je obrisati staru vrednost i upisati novu, pri čemu će biti upitan da li želi da zameni broj ili odustaje od zamene.",
                     "\u00A0 \"Zameni broj\" će staru vrednost zameniti novom.",
                     "\u00A0 \"Odustani\" će prekinuti izmenu i vratiti staru vrednost.",
-                    "Da biste zatvorili tastaturu, potrebno je kliknuti na polje u koje nije moguće uneti broj.",
-                    "\u00A0 Preporuka je da to bude pravougaonik ispod dugmeta za podešavanja."
+                    "Prilikom unošenja broja u najavu čuće se zvuk (ako je uključen)."
                 ]
             }
         }
@@ -239,6 +242,10 @@ const prevod = {
             funkcionalnosti: {
                 title: "FUNCTIONALITIES",
                 box: [
+                    "Yamb will store the results until the browser cache is cleared.",
+                    "To close the keyboard, you need to tap on a field where you cannot enter a number.",
+                    "\u00A0 It is recommended that this be a rectangle below the settings button.",
+                    "If the results are not visible immediately, it is necessary to click inside a field where input is allowed, and then outside of it.",
                     "By clicking the \"New Game\" button, the player can choose:",
                     "\u00A0 \"Clear all\" to start a new game and delete all values from the table.",
                     "\u00A0 \"Cancel\" to return without deleting values from the table.",
@@ -247,8 +254,7 @@ const prevod = {
                     "If the player wants to change the entry, they can delete the old value and enter a new one, and will be asked whether they want to replace the number or cancel the change.",
                     "\u00A0 \"Replace number\" will replace the old value with the new one.",
                     "\u00A0 \"Cancel\" will cancel the change and keep the old value.",
-                    "To close the keyboard, you need to tap on a field where you cannot enter a number.",
-                    "\u00A0 It is recommended that this be a rectangle below the settings button."
+                    "When a number is entered in the announcement, a sound will play (if enabled or turned up)."
                 ]
             }
         }
@@ -366,6 +372,10 @@ const prevod = {
             funkcionalnosti: {
                 title: "FUNKCIONALNOSTI",
                 box: [
+                    "Yamb će čuvati rezultate dok se predmemorija preglednika ne izbriše.",
+                    "Da biste zatvorili tipkovnicu, potrebno je kliknuti na polje u koje nije moguće unijeti broj.",
+                    "\u00A0 Preporuka je da to bude pravokutnik ispod gumba za postavke.",
+                    "Ako se rezultati ne vide odmah, potrebno je kliknuti unutar nekog polja u kojem je dopušten unos, a zatim izvan njega.",
                     "Pritiskom na dugme \"Nova igra\" igrač može odabrati:",
                     "\u00A0 \"Obriši sve\" kako bi započeo novu igru i obrisao sve vrijednosti iz tablice.",
                     "\u00A0 \"Odustani\" kako bi se vratio bez brisanja vrijednosti iz tablice.",
@@ -374,8 +384,7 @@ const prevod = {
                     "Ako igrač želi promijeniti unos, može obrisati staru vrijednost i upisati novu, pri čemu će biti upitan želi li zamijeniti broj ili odustati od zamjene.",
                     "\u00A0 \"Zamijeni broj\" će zamijeniti staru vrijednost s novom.",
                     "\u00A0 \"Odustani\" će prekinuti izmjenu i vratiti staru vrijednost.",
-                    "Da biste zatvorili tipkovnicu, potrebno je kliknuti na polje u koje nije moguće unijeti broj.",
-                    "\u00A0 Preporuka je da to bude pravokutnik ispod gumba za postavke."
+                    "Prilikom unošenja broja u najavu čut će se zvuk (ako je uključen)."
                 ]
             }
         }
@@ -493,6 +502,10 @@ const prevod = {
             funkcionalnosti: {
                 title: "FUNKCIONALNOSTI",
                 box: [
+                    "Yamb će čuvati rezultate dok se keš memorija preglednika ne obriše.",
+                    "Da biste zatvorili tastaturu, potrebno je kliknuti na polje u koje nije moguće unijeti broj.",
+                    "\u00A0 Preporuka je da to bude pravougaonik ispod dugmeta za podešavanja.",
+                    "Ako se rezultati ne vide odmah, potrebno je kliknuti unutar nekog polja u kojem je dozvoljen unos, a zatim izvan njega.",
                     "Pritiskom na dugme \"Nova partija\" igrač može odabrati:",
                     "\u00A0 \"Obriši sve\" kako bi započeo novu partiju i obrisao sve vrijednosti iz tabele.",
                     "\u00A0 \"Odustani\" kako bi se vratio bez brisanja vrijednosti iz tabele.",
@@ -501,9 +514,7 @@ const prevod = {
                     "Ako igrač želi promijeniti unos, može obrisati staru vrijednost i unijeti novu, pri čemu će biti upitan da li želi zamijeniti broj ili odustati od zamjene.",
                     "\u00A0 \"Zamijeni broj\" će zamijeniti staru vrijednost s novom.",
                     "\u00A0 \"Odustani\" će prekinuti izmjenu i vratiti staru vrijednost.",
-                    "Da biste zatvorili tastaturu, potrebno je kliknuti na polje u koje nije moguće unijeti broj.",
-                    "\u00A0 Preporuka je da to bude pravougaonik ispod dugmeta za podešavanja."
-
+                    "Prilikom unošenja broja u najavu čut će se zvuk (ako je uključen)."
                 ]
             }
         }
@@ -511,7 +522,7 @@ const prevod = {
     mk: {
         ui: {
             nova_partija: "Nova partija",
-            obrisi_sve: "Izbriši sè",
+            obrisi_sve: "Izbriši se",
             vrati_se: "Otkaži",
             zameni_broj: "Zameni broj",
             podesavanja: "POSTAVKI",
@@ -621,16 +632,19 @@ const prevod = {
             funkcionalnosti: {
                 title: "FUNKCIONALNOSTI",
                 box: [
+                    "Yamb ke gi čuva rezultatite dodeka ne se izbrishe keš memorijata na prebaruvačot.",
+                    "Za da se zatvori tastaturata, potrebno e da se klikne na pole vo koe ne može da se vnese broj.",
+                    "\u00A0 Se preporakuva toa da bide pravoagolnik pod kopčeto za postavki.",
+                    "Ako rezultatite ne se gledaat vednaš, potrebno e da se klikne vnatre vo nekoe pole vo koe e dozvolen vnes, pa potoa nadvor od nego.",
                     "So pritisk na kopčeto \"Nova partija\" igračot može da odabere:",
-                    "\u00A0 \"Izbriši sè\" za da započne nova partija i da gi izbriši site vrednosti od tabelata.",
+                    "\u00A0 \"Izbriši se\" za da započne nova partija i da gi izbriši site vrednosti od tabelata.",
                     "\u00A0 \"Otkaži\" za da se vrati bez da gi izbriši vrednostite od tabelata.",
                     "Ako igračot vnese nedozvolena vrednost, taa kje bide izbrisana i poleto kje stane crveno.",
                     "\u00A0 Za poleto ponovo da stane belo, potrebno e da se vnese ispravna vrednost ili ednostavno da se klikne na obojenoto pole i potoa da se klikne bilo kade nadvor.",
                     "Ako igračot saka da go promeni vnesot, može da ja izbriše starata vrednost i da vnese nova, pri toa kje bide prašan dali saka da go zameni brojot ili da se otkaže od zamena.",
                     "\u00A0 \"Zameni broj\" ke ja zameni starata vrednost so nova.",
                     "\u00A0 \"Otkaži\" ke ja prekinе izmenata i ke ja vrati starata vrednost.",
-                    "Za da se zatvori tastaturata, potrebno e da se klikne na pole vo koe ne može da se vnese broj.",
-                    "\u00A0 Se preporakuva toa da bide pravoagolnik pod kopčeto za postavki."
+                    "Pri vnesuvanje na broj vo najavata, ke se sluša zvuk (ako e vkluchen)."
                 ]
             }
         }
@@ -748,6 +762,10 @@ const prevod = {
             funkcionalnosti: {
                 title: "FUNKCIONALNOSTI",
                 box: [
+                    "Yamb bo shranjeval rezultate, dokler se predpomnilnik brskalnika ne izbriše.",
+                    "Če želite zapreti tipkovnico, morate klikniti na polje, v katerega ni mogoče vnesti številko.",
+                    "\u00A0 Priporočljivo je, da je to pravokotnik pod gumbom za nastavitve.",
+                    "Če se rezultati ne prikažejo takoj, je treba klikniti znotraj polja, kjer je dovoljen vnos, nato pa zunaj njega.",
                     "S pritiskom na gumb \"Nova igra\" lahko igralec izbere:",
                     "\u00A0 \"Izbriši vse\" za začetek nove igre in izbris vseh vrednosti v tabeli.",
                     "\u00A0 \"Prekliči\" za vrnitev brez brisanja vrednosti iz tabele.",
@@ -756,8 +774,7 @@ const prevod = {
                     "Če želi igralec spremeniti vnos, lahko izbriše staro vrednost in vnese novo, pri tem pa bo vprašani, ali želi zamenjati številko ali preklicati zamenjavo.",
                     "\u00A0 \"Zamenjaj številko\" bo staro vrednost zamenjalo z novo.",
                     "\u00A0 \"Prekliči\" bo prekinilo spremembo in vrnilo staro vrednost.",
-                    "Če želite zapreti tipkovnico, morate klikniti na polje, v katerega ni mogoče vnesti številko.",
-                    "\u00A0 Priporočljivo je, da je to pravokotnik pod gumbom za nastavitve."
+                    "Ob vnosu številke v napoved se bo slišal zvok (če je vklopljen)."
                 ]
             }
         }
@@ -791,7 +808,7 @@ const prevod = {
                 title: "OBJAŠNJENJA KOLONA",
                 box: [
                     "Druga kolona se naziva slobodna kolona i može se popunjavati proizvoljnim redosledom.",
-                    "\"N\" kolona se naziva najava. Prilikom prvog bacanja igrač odlučuje da li će nešto najaviti, shodno dobijenim kockicama. Ukoliko se odluči da najavi, mora odmah da kaže protivniku šta najavljuje. Te kockice odvaja sa strane i tek onda može da baca još dva puta ostale kockice.",
+                    "\"N\" kolona se naziva najava. Prilikom prvog bacanja igrač odlučuje da li će nešto najaviti, shodno dobijenim kockicama. Ako se odluči da najavi, mora odmah da kaže protivniku šta najavljuje. Te kockice odvaja sa strane i tek onda može da baca još dva puta ostale kockice.",
                     "\"R\" kolona se naziva ručna kolona i u nju se upisuje zbir kockica dobijen pri prvom bacanju.",
                     "\u00A0 Preporuka je da se u prvih 6 redova upiše odmah kada se dobiju 3 ista broja pri prvom bacanju.",
                     "\"D\" kolona se naziva dojava (odjava) i popunjava se nakon najave protivnika.",
@@ -875,16 +892,19 @@ const prevod = {
             funkcionalnosti: {
                 title: "FUNKCIONALNOSTI",
                 box: [
+                    "Yamb će čuvati rezultate dok se keš memorija pregledača ne obriše.",
+                    "Da biste zatvorili tastaturu, potrebno je kliknuti na polje u koje nije moguće unijeti broj.",
+                    "\u00A0 Preporuka je da to bude pravougaonik ispod dugmeta za podešavanja.",
+                    "Ako se rezultati ne vide odmah, potrebno je kliknuti unutar nekog polja u kojem je dozvoljen unos, a zatim izvan njega.",
                     "Pritiskom na dugme \"Nova partija\" igrač može da odabere:",
                     "\u00A0 \"Obriši sve\" kako bi započeo novu partiju i obrisao sve vrijednosti iz tabele.",
                     "\u00A0 \"Odustani\" kako bi se vratio bez brisanja vrijednosti iz tabele.",
                     "Ako igrač unese nedozvoljenu vrijednost, ona će biti obrisana i polje će postati crveno.",
                     "\u00A0 Kako bi polje ponovo postalo bijelo, potrebno je unijeti ispravnu vrijednost u njega ili samo kliknuti na obojeno polje pa kliknuti bilo gdje sa strane.",
-                    "Ukoliko igrač želi da promijeni unos, moguće je obrisati staru vrijednost i unijeti novu, pri čemu će biti upitan da li želi da zamijeniti broj ili odustati od zamjene.",
+                    "Ako igrač želi da promijeni unos, moguće je obrisati staru vrijednost i unijeti novu, pri čemu će biti upitan da li želi da zamijeniti broj ili odustati od zamjene.",
                     "\u00A0 \"Zamijeni broj\" će staru vrijednost zamijeniti novom.",
                     "\u00A0 \"Odustani\" će prekinuti izmjenu i vratiti staru vrijednost.",
-                    "Da biste zatvorili tastaturu, potrebno je kliknuti na polje u koje nije moguće unijeti broj.",
-                    "\u00A0 Preporuka je da to bude pravougaonik ispod dugmeta za podešavanja."
+                    "Prilikom unošenja broja u najavu čuće se zvuk (ako je uključen)."
                 ]
             }
         }
