@@ -8,6 +8,9 @@ const prevod = {
             podesavanja: "PODEŠAVANJA",
             pravila: "Pravila",
             jezici: "Jezici",
+            kontakt: "Kontakt",
+            poruka: "Unesite svoju poruku...",
+            posalji: "Pošalji",
             izlaz: "Izlaz",
             nazad: "Nazad",
             pravila_igre: "PRAVILA IGRE"
@@ -138,6 +141,9 @@ const prevod = {
             podesavanja: "SETTINGS",
             pravila: "Rules",
             jezici: "Languages",
+            kontakt: "Contact",
+            poruka: "Enter your message...",
+            posalji: "Send",
             izlaz: "Exit",
             nazad: "Back",
             pravila_igre: "GAME RULES"
@@ -268,6 +274,9 @@ const prevod = {
             podesavanja: "POSTAVKE",
             pravila: "Pravila",
             jezici: "Jezici",
+            kontakt: "Kontakt",
+            poruka: "Unesite svoju poruku...",
+            posalji: "Pošalji",
             izlaz: "Izlaz",
             nazad: "Natrag",
             pravila_igre: "PRAVILA IGRE"
@@ -398,6 +407,9 @@ const prevod = {
             podesavanja: "POSTAVKE",
             pravila: "Pravila",
             jezici: "Jezici",
+            kontakt: "Kontakt",
+            poruka: "Unesite svoju poruku...",
+            posalji: "Pošalji",
             izlaz: "Izlaz",
             nazad: "Nazad",
             pravila_igre: "PRAVILA IGRE"
@@ -528,6 +540,9 @@ const prevod = {
             podesavanja: "POSTAVKI",
             pravila: "Pravila",
             jezici: "Jezici",
+            kontakt: "Kontakt",
+            poruka: "Vnesete ja vašata poraka...",
+            posalji: "Isprati",
             izlaz: "Izlez",
             nazad: "Nazad",
             pravila_igre: "PRAVILA NA IGRATA"
@@ -658,6 +673,9 @@ const prevod = {
             podesavanja: "NASTAVITVE",
             pravila: "Pravila",
             jezici: "Jeziki",
+            kontakt: "Kontakt",
+            poruka: "Vnesite svoje sporočilo...",
+            posalji: "Pošlji",
             izlaz: "Izhod",
             nazad: "Nazaj",
             pravila_igre: "PRAVILA IGRE"
@@ -788,6 +806,9 @@ const prevod = {
             podesavanja: "PODEŠAVANJA",
             pravila: "Pravila",
             jezici: "Jezici",
+            kontakt: "Kontakt",
+            poruka: "Unesite svoju poruku...",
+            posalji: "Pošalji",
             izlaz: "Izlaz",
             nazad: "Nazad",
             pravila_igre: "PRAVILA IGRE"

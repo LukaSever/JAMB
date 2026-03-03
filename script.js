@@ -1,6 +1,7 @@
 let trenutniJezik = localStorage.getItem("jezik") || "sr";
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
+let zvuk;
 
 function zaglavlje1(tabela) {
     const novRed = tabela.insertRow();
@@ -119,6 +120,13 @@ function slika(tabela) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    zvuk = document.getElementById("zvuk_najave");
+    if (zvuk) {
+        zvuk.pause();
+        zvuk.currentTime = 0;
+        zvuk.load();
+    }
+
     const div = document.getElementById("igra")
     const tabela = document.createElement("table");
     if (div) {
@@ -135,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slika(tabela);
         ucitajCelije(tabela);
     }
+
     let trenutniJezik = localStorage.getItem("jezik") || "sr";
     let dugme = document.getElementById(trenutniJezik);
     if (dugme)
@@ -478,11 +487,10 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela) {
         celija.style.backgroundColor = "red";
         sacuvajCeliju(red.id, celija.cellIndex, "");
     } else {
-        if (celija.cellIndex === 4 && celija.textContent !== staraVrednost) {
-            const zvuk = document.getElementById("zvuk_najave");
+        if (celija.cellIndex === 4 && celija.textContent !== staraVrednost)
             if (zvuk)
                 zvuk.play().catch(err => console.log('Greška pri puštanju zvuka:', err));
-        }
+
         celija.style.backgroundColor = "white";
         sacuvajCeliju(red.id, celija.cellIndex, unos);
     }
@@ -551,17 +559,12 @@ function novaPartija() {
     potvrdi(function (obrisi) {
         if (!obrisi)
             return;
+
         localStorage.removeItem("jambBaza");
         const tabela = document.querySelector("table");
         for (let i = 1; i < tabela.rows.length; i++)
             for (let j = 1; j < tabela.rows[i].cells.length; j++)
                 tabela.rows[i].cells[j].textContent = "";
-
-        const zvuk = document.getElementById("zvuk_najave");
-        zvuk.play().then(() => {
-            zvuk.pause();
-            zvuk.currentTime = 0;
-        });
 
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistration().then(reg => {
@@ -618,12 +621,15 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
 const boxPodesavanja = document.getElementById("box_podesavanja");
 const dugmePravila = document.getElementById("pravila");
 const dugmeJezici = document.getElementById("jezici");
+const dugmeKontakt = document.getElementById("kontakt");
 const dugmeIzlaz = document.getElementById("izlaz");
 
 const boxPravila = document.getElementById("box_pravila");
 const boxObjasnjenje = document.getElementById("box_objasnjenje");
 const h2Pravila = document.getElementById("h2_pravila");
 const boxJezici = document.getElementById("box_jezici");
+const boxKontakt = document.getElementById("box_kontakt");
+const tekstKontakt = document.getElementById("tekst_kontakt");
 
 if (dugmePravila) {
     dugmePravila.addEventListener("click", () => {
@@ -639,6 +645,17 @@ if (dugmeJezici) {
         boxPodesavanja.classList.add("hidden");
         boxJezici.classList.remove("hidden");
     });
+}
+
+if (dugmeKontakt) {
+    dugmeKontakt.addEventListener("click", () => {
+        boxPodesavanja.classList.add("hidden");
+        boxKontakt.classList.remove("hidden");
+    });
+}
+
+if (tekstKontakt) {
+    tekstKontakt.placeholder = prevod[trenutniJezik].ui.poruka;
 }
 
 if (dugmeIzlaz) {
@@ -662,6 +679,7 @@ dugmeNazadNaPodesavanja.forEach(dugme => {
         boxPravila.classList.add("hidden");
         boxObjasnjenje.classList.add("hidden");
         h2Pravila.classList.add("hidden");
+        boxKontakt.classList.add("hidden");
     });
 });
 
@@ -766,13 +784,28 @@ function osveziJednom() {
     }
 }
 
-window.addEventListener("pageshow", (event) => {
+window.addEventListener("pageshow", () => {
     if (sessionStorage.getItem("promenjenJezik")) {
         sessionStorage.removeItem("promenjenJezik");
         sessionStorage.removeItem("osvezen");
     }
     osveziJednom();
 });
+
+const dugmePosalji = document.getElementById("posalji");
+if (dugmePosalji) {
+    dugmePosalji.addEventListener("click", () => {
+       const poruka = tekstKontakt.value.trim();
+       if (poruka.length < 5)
+           return;
+
+       const email = ['yamb.contact','gmail.com'].join('@');
+       const naslov = "YAMB";
+       const sadrzaj = encodeURIComponent(poruka);
+
+       window.location.href = `mailto:${email}?subject=${encodeURIComponent(naslov)}&body=${sadrzaj}`;
+    });
+}
 
 if ('serviceWorker' in navigator) {
     void navigator.serviceWorker.register('./sw.js');

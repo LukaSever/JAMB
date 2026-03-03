@@ -193,7 +193,8 @@ table tr th:last-child {
 #box_podesavanja,
 #box_jezici,
 #box_pravila,
-#box_objasnjenje {
+#box_objasnjenje,
+#box_kontakt{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -266,7 +267,8 @@ h2 {
     text-align: center;
 }
 
-.opis {
+.opis,
+#tekst_kontakt {
     background-color: white;
     padding: 10px;
     width: 80%;
@@ -276,6 +278,11 @@ h2 {
     border-radius: 5px;
     box-sizing: border-box;
     margin: 0 auto;
+}
+
+#tekst_kontakt {
+    width: 270px;
+    height: 150px;
 }
 
 .uvuceno {
