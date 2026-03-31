@@ -164,6 +164,20 @@ table tr th:last-child {
 }
 
 @media(max-width: 360px) {
+    table tr th:first-child,
+    table tr th:last-child{
+        width: 45px;
+    }
+    table th, table td {
+        font: 10px Arial, sans-serif;
+    }
+    .slika_celija {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media(max-width: 280px) {
     html, #body_igra {
         overflow: auto;
     }
@@ -175,7 +189,7 @@ table tr th:last-child {
     }
 
     table th, table td {
-        min-width: 35px;
+        min-width: 20px;
         min-height: 35px;
         box-sizing: border-box;
     }

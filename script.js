@@ -356,6 +356,12 @@ function dodavanjeBrojeva(e) {
     celija.setAttribute("pattern", "[0-9]*");
     celija.focus();
 
+    const opseg = document.createRange();
+    opseg.selectNodeContents(celija);
+    const selektovanDeo = window.getSelection();
+    selektovanDeo.removeAllRanges();
+    selektovanDeo.addRange(opseg);
+
     proveraUnosa(celija);
 
     if (!celija.hasAttribute("blurOsluskivac")) {
@@ -462,7 +468,7 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela) {
     if (unos === "" || isNaN(unos)) {
         celija.style.backgroundColor = "white";
         celija.setAttribute("contenteditable", "false");
-        sacuvajCeliju(red.id, celija.cellIndex, "");
+        sacuvajCeliju(red.id, celija.cellIndex, "", "white");
         m(tabela);
         suma1(tabela);
         suma2(tabela);
@@ -485,14 +491,14 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela) {
         (red.id === "red-15" && (![0, 55, 60, 65, 70, 75, 80].includes(unos))))) {
         celija.textContent = "";
         celija.style.backgroundColor = "red";
-        sacuvajCeliju(red.id, celija.cellIndex, "");
+        sacuvajCeliju(red.id, celija.cellIndex, "", "red");
     } else {
         if (celija.cellIndex === 4 && celija.textContent !== staraVrednost)
             if (zvuk)
                 zvuk.play().catch(err => console.log('Greška pri puštanju zvuka:', err));
 
         celija.style.backgroundColor = "white";
-        sacuvajCeliju(red.id, celija.cellIndex, unos);
+        sacuvajCeliju(red.id, celija.cellIndex, unos, "white");
     }
     celija.setAttribute("contenteditable", "false");
     m(tabela);
@@ -533,12 +539,18 @@ function dodajOkvir(tabela, redIndeks, kolonaIndeks, ivica) {
     }
 }
 
-function sacuvajCeliju(redID, kolona, vrednost) {
+function sacuvajCeliju(redID, kolona, vrednost, boja) {
     let podaci = JSON.parse(localStorage.getItem("jambBaza")) || {};
     if (!podaci[redID]) {
         podaci[redID] = {};
     }
-    podaci[redID][kolona] = vrednost;
+    podaci[redID][kolona] = {
+        "v": vrednost
+    }
+
+    if (boja === "red")
+        podaci[redID][kolona]["b"] = "red";
+
     localStorage.setItem("jambBaza", JSON.stringify(podaci));
 }
 
@@ -548,8 +560,15 @@ function ucitajCelije(tabela) {
         const redElement = tabela.querySelector(`#${redID}`);
         if (redElement) {
             for (let kolona in podaci[redID]) {
-                if (redElement.cells[kolona])
-                    redElement.cells[kolona].textContent = podaci[redID][kolona];
+                let celija = redElement.cells[kolona];
+                if (celija) {
+                    let podaciCelije = podaci[redID][kolona];
+                    celija.textContent = podaciCelije.v ?? "";
+                    if (podaciCelije.b === "red")
+                        celija.style.backgroundColor = "red";
+                    else
+                        celija.style.backgroundColor = "white";
+                }
             }
         }
     }
@@ -562,9 +581,14 @@ function novaPartija() {
 
         localStorage.removeItem("jambBaza");
         const tabela = document.querySelector("table");
-        for (let i = 1; i < tabela.rows.length; i++)
-            for (let j = 1; j < tabela.rows[i].cells.length; j++)
+        for (let i = 1; i < tabela.rows.length; i++) {
+            for (let j = 1; j < tabela.rows[i].cells.length; j++) {
                 tabela.rows[i].cells[j].textContent = "";
+                if (j >= 1 && j <= 9)
+                    if ((i >= 1 && i <= 6)  || (i >= 8 && i <= 9) || (i >= 11 && i <= 15))
+                        tabela.rows[i].cells[j].style.backgroundColor = "white";
+            }
+        }
 
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistration().then(reg => {
