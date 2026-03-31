@@ -563,7 +563,7 @@ function ucitajCelije(tabela) {
                 let celija = redElement.cells[kolona];
                 if (celija) {
                     let podaciCelije = podaci[redID][kolona];
-                    celija.textContent = podaciCelije.v ?? "";
+                    celija.textContent = (podaciCelije.v !== undefined && podaciCelije.v !== null) ? podaciCelije.v : "";
                     if (podaciCelije.b === "red")
                         celija.style.backgroundColor = "red";
                     else
