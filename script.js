@@ -1,4 +1,11 @@
-let trenutniJezik = localStorage.getItem("jezik") || "sr";
+let trenutniJezik = localStorage.getItem("jezik");
+if (!trenutniJezik) {
+    let jezik = navigator.language || navigator.userLanguage;
+    trenutniJezik = jezik.substring(0, 2);
+    const podrzaniJezici = ["sr", "en", "hr", "bs", "mk", "sl", "me"];
+    if (!podrzaniJezici.includes(trenutniJezik))
+        trenutniJezik = "sr";
+}
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
 let zvuk;
@@ -144,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ucitajCelije(tabela);
     }
 
-    let trenutniJezik = localStorage.getItem("jezik") || "sr";
     let dugme = document.getElementById(trenutniJezik);
     if (dugme)
         dugme.classList.add("active");
@@ -469,6 +475,10 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela) {
         celija.style.backgroundColor = "white";
         celija.setAttribute("contenteditable", "false");
         sacuvajCeliju(red.id, celija.cellIndex, "", "white");
+
+        while (celija.firstChild)
+            celija.removeChild(celija.firstChild);
+
         m(tabela);
         suma1(tabela);
         suma2(tabela);
@@ -486,12 +496,16 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela) {
         (red.id === "red-8" || red.id === "red-9") && (!(unos >= 5 && unos <= 30) || isNaN(unos)) ||
         (red.id === "red-11" && (![0, 46, 56, 66].includes(unos))) ||
         (red.id === "red-12" && (![0, 33, 36, 39, 42, 45, 48].includes(unos))) ||
-        (red.id === "red-13" && (((unos !== 0 && unos < 37) || unos > 58 || isNaN(unos)))) ||
+        (red.id === "red-13" && (((unos !== 0 && unos < 37) || unos > 58 || unos === 40 || unos === 55 || isNaN(unos)))) ||
         (red.id === "red-14" && (![0, 44, 48, 52, 56, 60, 64].includes(unos))) ||
         (red.id === "red-15" && (![0, 55, 60, 65, 70, 75, 80].includes(unos))))) {
-        celija.textContent = "";
+
         celija.style.backgroundColor = "red";
         sacuvajCeliju(red.id, celija.cellIndex, "", "red");
+
+        while (celija.firstChild)
+            celija.removeChild(celija.firstChild);
+
     } else {
         if (celija.cellIndex === 4 && celija.textContent !== staraVrednost)
             if (zvuk)
@@ -499,6 +513,7 @@ function obradaUnosa(celija, unos, red, staraVrednost, tabela) {
 
         celija.style.backgroundColor = "white";
         sacuvajCeliju(red.id, celija.cellIndex, unos, "white");
+        celija.textContent = unos;
     }
     celija.setAttribute("contenteditable", "false");
     m(tabela);
