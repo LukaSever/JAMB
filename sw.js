@@ -1,4 +1,4 @@
-const JAMB_CACHE = 'jamb-cache-v1';
+const JAMB_CACHE = 'jamb-cache-v2';
 const urlsToCache = [
     './',
     './index.html',
