@@ -1,10 +1,10 @@
 let trenutniJezik = localStorage.getItem("jezik");
 if (!trenutniJezik) {
-    let jezik = navigator.language || navigator.userLanguage;
+    let jezik = navigator.language;
     trenutniJezik = jezik.substring(0, 2);
     const podrzaniJezici = ["sr", "en", "hr", "bs", "mk", "sl", "me"];
     if (!podrzaniJezici.includes(trenutniJezik))
-        trenutniJezik = "sr";
+        trenutniJezik = "en";
 }
 const zaglavlja = ["YAMB", "", "", "", "N", "R", "D", "", "", "O", "M", "S"];
 const broj = zaglavlja.length;
