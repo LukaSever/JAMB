@@ -250,7 +250,7 @@ table tr th:last-child {
     }
 }
 
-@media(min-width: 281px) and (max-height: 650px),
+@media(min-width: 281px) and (max-height: 630px),
     (min-width: 580px) and (min-height: 561px) and (max-height: 720px) {
     html,
     #body_igra {
@@ -290,6 +290,15 @@ table tr th:last-child {
 
     .celija_bacanja button {
         min-height: 55px;
+    }
+
+    .celija_kocke {
+        height: 35px;
+    }
+
+    .kockica {
+        max-width: 35px;
+        max-height: 35px;
     }
 }
 
@@ -632,7 +641,7 @@ h2 {
     }
 }
 
-@media(max-height: 650px) {
+@media(max-height: 630px) {
     #body_podesavanja {
         overflow-x: auto;
     }
@@ -659,5 +668,16 @@ h2 {
     #tekst_kontakt,
     #lista_partija {
         min-height: 200px;
+    }
+}
+
+@media(max-height: 670px) {
+    .celija_kocke {
+        height: 35px;
+    }
+
+    .kockica {
+        max-width: 35px;
+        max-height: 35px;
     }
 }

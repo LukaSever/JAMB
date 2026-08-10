@@ -155,6 +155,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     kockeDugmiciVidljivost = localStorage.getItem("kockeDugmiciVidljivost") === "1";
 
+    if (!localStorage.getItem("partijaId"))
+        localStorage.setItem("partijaId", crypto.randomUUID());
+
     const div = document.getElementById("igra")
     const tabela = document.createElement("table");
     if (div) {
@@ -916,7 +919,8 @@ function novaPartija() {
         const partijaJeSacuvana = lista.some(p => p.id === partijaId);
         const vidljivostKockeDugmici = localStorage.getItem("kockeDugmiciVidljivost");
         const vidljivostJePromenjena = vidljivostKockeDugmici !== localStorage.getItem("prethodna_kockeDugmiciVidljivost");
-        if (!partijaJeSacuvana) {
+        const ucitanaSacuvanaPartija = localStorage.getItem("ucitanaSacuvanaPartija") === "true";
+        if (!partijaJeSacuvana && !ucitanaSacuvanaPartija && (jambBaza != null || vidljivostKockeDugmici === "1")) {
             if (jambBaza != null)
                 localStorage.setItem("prethodna_jambBaza", jambBaza);
             else if (vidljivostJePromenjena)
@@ -954,7 +958,7 @@ function novaPartija() {
         poslednjiPotez = [];
         mozeUndo = false;
         localStorage.setItem("partijaId", crypto.randomUUID());
-        if (localStorage.getItem("ucitanaSacuvanaPartija") === "true") {
+        if (ucitanaSacuvanaPartija) {
             const prethodnaVidljivost = localStorage.getItem("prethodna_kockeDugmiciVidljivost");
             localStorage.setItem("kockeDugmiciVidljivost", prethodnaVidljivost);
             if (prethodnaVidljivost === "1")
@@ -1442,7 +1446,7 @@ function jamb(k) {
 }
 
 function mozeInterakcija(red, celija) {
-    return !(celija.textContent !== "" || !proveraPravilaRedosleda(red, celija))
+    return !(bacanjeUToku || celija.textContent !== "" || !proveraPravilaRedosleda(red, celija))
 }
 
 const dugmePrethodnaPartija = document.getElementById("prethodna_partija");
@@ -1469,7 +1473,10 @@ if (dugmePrethodnaPartija) {
             const partijaJeSacuvana = lista.some(p => p.id === trenutnaPartijaId);
             const trenutnaKockeDugmiciVidljivost = localStorage.getItem("kockeDugmiciVidljivost");
             const vidljivostJePromenjena = trenutnaKockeDugmiciVidljivost !== prethodnaKockeDugmiciVidljivost;
-            if (!partijaJeSacuvana) {
+
+            if (lista.some(p => p.id === prethodnaPartijaId))
+                return;
+            if (!partijaJeSacuvana && (trenutnaBaza != null || trenutnaKockeDugmiciVidljivost === "1")) {
                 if (trenutnaBaza != null)
                     localStorage.setItem("prethodna_jambBaza", trenutnaBaza);
                 else if (vidljivostJePromenjena)
@@ -1722,8 +1729,6 @@ function ucitajPartiju(id) {
 
             if (trenutnaBaza != null)
                 localStorage.setItem("prethodna_jambBaza", trenutnaBaza);
-            else
-                localStorage.setItem("prethodna_jambBaza", JSON.stringify([]));
             if (trenutnoStanje != null)
                 localStorage.setItem("prethodno_jambStanje", trenutnoStanje);
             if (trenutniPoslednjiPotez != null)
