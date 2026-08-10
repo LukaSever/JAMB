@@ -1012,6 +1012,8 @@ function potvrdi(odgovor, tekstDugmeta1, tekstDugmeta2, boja) {
         dugme1.dataset.i18n = "ui.prethodna_partija";
     else if (tekstDugmeta1 === "Učitaj partiju")
         dugme1.dataset.i18n = "ui.ucitaj_partiju";
+    else if (tekstDugmeta1 === "Obriši partiju")
+        dugme1.dataset.i18n = "ui.obrisi_partiju";
     dugme1.style.backgroundColor = boja;
 
     const dugme2 = document.createElement("button");
@@ -1691,6 +1693,12 @@ function prikaziPartije() {
         if (p.slika)
             elementSlika.addEventListener("click", () => ucitajPartiju(p.id));
 
+        obrisiPartiju(elementDatum, p.id);
+        obrisiPartiju(elementVreme, p.id);
+        obrisiPartiju(elementPoeni, p.id);
+        if (p.slika)
+            obrisiPartiju(elementSlika, p.id);
+
         div.appendChild(elementDatum);
         div.appendChild(elementVreme);
         div.appendChild(elementPoeni);
@@ -1748,6 +1756,35 @@ function ucitajPartiju(id) {
         sessionStorage.setItem("refres", "true");
         window.history.back();
     }, "Učitaj partiju", "Odustani", "yellow");
+}
+
+function obrisiPartiju(element, id) {
+    let tajmer;
+    function zaustaviTajmer() {
+        if (tajmer) {
+            clearTimeout(tajmer);
+            tajmer = null;
+        }
+    }
+
+    element.addEventListener("pointerdown", () => {
+        tajmer = setTimeout(() => {
+           tajmer = null;
+           potvrdi(function (obrisi) {
+               if (!obrisi)
+                   return;
+
+               let lista = JSON.parse(localStorage.getItem("jambPartije")) || [];
+               lista = lista.filter(p => p.id !== id);
+               localStorage.setItem("jambPartije", JSON.stringify(lista));
+               prikaziPartije();
+           }, "Obriši partiju", "Odustani", "red");
+        }, 300);
+    });
+
+    element.addEventListener("pointerup", zaustaviTajmer);
+    element.addEventListener("pointerleave", zaustaviTajmer);
+    element.addEventListener("pointercancel", zaustaviTajmer);
 }
 
 function centrirajSkrolPodesavanja() {

@@ -17,6 +17,7 @@ const prevod = {
             prethodna_partija: "Prethodna partija",
             pregled_sacuvanih_partija: "Sačuvane partije",
             ucitaj_partiju: "Učitaj partiju",
+            obrisi_partiju: "Obiši partiju",
             datum: "Datum",
             vreme: "Vreme",
             poeni: "Poeni",
@@ -142,6 +143,7 @@ const prevod = {
                     "\u00A0 Zeleno dugme služi za bacanje kockica. Na njemu se nalazi broj bacanja, a kockice se mogu baciti najviše 3 puta, osim pri popunjavanju ručne kolone, kada se mogu baciti samo jednom. Biće bačene samo one kockice koje nisu zadržane klikom (bele kockice).",
                     "\u00A0 Žuto dugme sa strelicom je dugme za poništavanje unosa. Klikom na njega iz polja će biti obrisana uneta vrednost, a kocke i broj bacanja će biti vraćeni na stanje pre unosa. Ukoliko je nakon unosa kliknuto dugme za bacanje kockica, dugme za vraćanje upisa neće moći da vrati prethodno stanje kockica.",
                     "Klikom na dugme \"Prethodna partija\" biće vraćene vrednosti poslednje obrisane partije (ukoliko je bilo prethodne partije).",
+                    "Ako želite obrisati neku sačuvanu partiju, potrebno je duže je zadržati i potvrditi brisanje.",
                     "Prilikom unošenja broja u najavu čuće se zvuk (ako je uključen)."
                 ]
             }
@@ -165,6 +167,7 @@ const prevod = {
             prethodna_partija: "Previous game",
             pregled_sacuvanih_partija: "Saved games",
             ucitaj_partiju: "Load game",
+            obrisi_partiju: "Delete game",
             datum: "Date",
             vreme: "Time",
             poeni: "Points",
@@ -290,6 +293,7 @@ const prevod = {
                     "\u00A0 The green button is used to roll the dice. It displays the number of rolls, and the dice can be rolled up to 3 times, except when filling in the manual column, when they can be rolled only once. Only the dice that are not held (white dice) will be rolled.",
                     "\u00A0 The yellow button with an arrow is the undo input button. By clicking it, the entered value will be cleared from the field, and the dice and the number of rolls will be restored to the state before the input. If the roll button was pressed after entering a value, the undo button will not be able to restore the previous state of the dice.",
                     "By clicking the \"Previous game\" button, the values of the last deleted game will be restored (if there was a previous game).",
+                    "If you want to delete a saved game, you need to press and hold it, then confirm the deletion.",
                     "When a number is entered in the announcement, a sound will play (if enabled or turned up)."
                 ]
             }
@@ -312,7 +316,8 @@ const prevod = {
             kockice_poruka:  "Vidljivost kockica nije moguće promijeniti tijekom igre.\n\nPokrenite novu igru kako biste promijenili ovu postavku.",
             prethodna_partija: "Prethodna igra",
             pregled_sacuvanih_partija: "Spremljene igre",
-            ucitaj_partiju: "Učitaj partiju",
+            ucitaj_partiju: "Učitaj igru",
+            obrisi_partiju: "Obriši igru",
             datum: "Datum",
             vreme: "Vrijeme",
             poeni: "Bodovi",
@@ -438,6 +443,7 @@ const prevod = {
                     "\u00A0 Zeleni gumb služi za bacanje kockica. Na njemu se nalazi broj bacanja, a kockice se mogu baciti najviše 3 puta, osim pri popunjavanju ručne kolone, kada se mogu baciti samo jednom. Bacit će se samo one kockice koje nisu zadržane (bijele kockice).",
                     "\u00A0 Žuti gumb sa strelicom je gumb za poništavanje unosa. Klikom na njega iz polja će se obrisati unesena vrijednost, a kockice i broj bacanja vratit će se na stanje prije unosa. Ako je nakon unosa pritisnut gumb za bacanje kockica, gumb za poništavanje neće moći vratiti prethodno stanje kockica.",
                     "Klikom na gumb \"Prethodna igra\" bit će vraćene vrijednosti posljednje obrisane igre (ako je postojala prethodna igra).",
+                    "Ako želite obrisati neku spremljenu igru, potrebno ju je duže zadržati i potvrditi brisanje.",
                     "Prilikom unošenja broja u najavu čut će se zvuk (ako je uključen)."
                 ]
             }
@@ -461,6 +467,7 @@ const prevod = {
             prethodna_partija: "Prethodna partija",
             pregled_sacuvanih_partija: "Sačuvane partije",
             ucitaj_partiju: "Učitaj partiju",
+            obrisi_partiju: "Obriši partiju",
             datum: "Datum",
             vreme: "Vrijeme",
             poeni: "Bodovi",
@@ -586,6 +593,7 @@ const prevod = {
                     "\u00A0 Zeleno dugme služi za bacanje kockica. Na njemu se nalazi broj bacanja, a kockice se mogu baciti najviše 3 puta, osim pri popunjavanju ručne kolone, kada se mogu baciti samo jednom. Bacit će se samo one kockice koje nisu zadržane (bijele kockice).",
                     "\u00A0 Žuto dugme sa strelicom je dugme za poništavanje unosa. Klikom na njega iz polja će se obrisati unesena vrijednost, a kockice i broj bacanja vratit će se na stanje prije unosa. Ako je nakon unosa pritisnuto dugme za bacanje kockica, dugme za poništavanje neće moći vratiti prethodno stanje kockica.",
                     "Klikom na dugme \"Prethodna partija\" biće vraćene vrijednosti posljednje obrisane partije (ako je postojala prethodna partija).",
+                    "Ako želite obrisati neku sačuvanu partiju, potrebno ju je duže zadržati i potvrditi brisanje.",
                     "Prilikom unošenja broja u najavu čut će se zvuk (ako je uključen)."
                 ]
             }
@@ -609,6 +617,7 @@ const prevod = {
             prethodna_partija: "Prethodna partija",
             pregled_sacuvanih_partija: "Začuvani partii",
             ucitaj_partiju: "Včitaj partija",
+            obrisi_partiju: "Izbriši partija",
             datum: "Datum",
             vreme: "Vreme",
             poeni: "Poeni",
@@ -734,6 +743,7 @@ const prevod = {
                     "\u00A0 Zelenoto kopče služi za frlanje na kockite. Na nego se prikažuva brojot na frlanja, a kockite može da se frlat najmnogu 3 pati, osven pri popolnuvanje na račnata kolona, koga može da se frlat samo ednaš. Ke se frlat samo onie kocki što ne se zadržani (beli kocki).",
                     "\u00A0 Žoltoto kopče so strelka e kopče za poništuvanje na vnesot. So kliknuvanje na nego, vnesenata vrednost ke se izbriše od poleto, a kockite i brojot na frlanja ke se vratat vo sostojbata pred vnesot. Dokolu po vnesot e pritisnato kopčeto za frlanje, kopčeto za poništuvanje nema da može da ja vrati prethodnata sostojba na kockite.",
                     "So klik na kopčeto \"Prethodna partija\" ke bidat vrateni vrednostite od poslednata izbrisana partija (dokolu postoeala prethodna partija).",
+                    "Ako sakate da izbrišete nekoja začuvana partija, potrebno e da ja zadržite podolgo i da go potvrdite brišenjeto.",
                     "Pri vnesuvanje na broj vo najavata, ke se sluša zvuk (ako e vkluchen)."
                 ]
             }
@@ -757,6 +767,7 @@ const prevod = {
             prethodna_partija: "Prejšnja igra",
             pregled_sacuvanih_partija: "Shranjene igre",
             ucitaj_partiju: "Naloži igro",
+            obrisi_partiju: "Izbriši igro",
             datum: "Datum",
             vreme: "Čas",
             poeni: "Točke",
@@ -882,6 +893,7 @@ const prevod = {
                     "\u00A0 Zeleni gumb služi za metanje kock. Na njem je prikazano število metov, kocke pa lahko vržete največ 3-krat, razen pri izpolnjevanju ročnega stolpca, ko jih lahko vržete samo enkrat. Vržejo se samo kocke, ki niso zadržane (bele kocke).",
                     "\u00A0 Rumeni gumb s puščico je gumb za razveljavitev vnosa. S klikom nanj se vnesena vrednost izbriše iz polja, kocke in število metov pa se vrnejo v stanje pred vnosom. Če je bil po vnosu pritisnjen gumb za metanje kock, gumb za razveljavitev ne bo mogel obnoviti prejšnjega stanja kock.",
                     "S klikom na gumb \"Prejšnja igra\" bodo obnovljene vrednosti zadnje izbrisane igre (če je obstajala prejšnja igra).",
+                    "Če želite izbrisati shranjeno igro, jo morate dlje časa zadržati in potrditi brisanje.",
                     "Ob vnosu številke v napoved se bo slišal zvok (če je vklopljen)."
                 ]
             }
@@ -905,6 +917,7 @@ const prevod = {
             prethodna_partija: "Prethodna partija",
             pregled_sacuvanih_partija: "Sačuvane partije",
             ucitaj_partiju: "Učitaj partiju",
+            obrisi_partiju: "Obriši partiju",
             datum: "Datum",
             vreme: "Vrijeme",
             poeni: "Poeni",
@@ -1030,6 +1043,7 @@ const prevod = {
                     "\u00A0 Zeleno dugme služi za bacanje kockica. Na njemu se nalazi broj bacanja, a kockice se mogu baciti najviše 3 puta, osim pri popunjavanju ručne kolone, kada se mogu baciti samo jednom. Baciće se samo one kockice koje nijesu zadržane (bijele kockice).",
                     "\u00A0 Žuto dugme sa strelicom je dugme za poništavanje unosa. Klikom na njega iz polja će biti obrisana unesena vrijednost, a kockice i broj bacanja će biti vraćeni na stanje prije unosa. Ako je nakon unosa pritisnuto dugme za bacanje kockica, dugme za poništavanje neće moći da vrati prethodno stanje kockica.",
                     "Klikom na dugme \"Prethodna partija\" biće vraćene vrijednosti posljednje obrisane partije (ako je postojala prethodna partija).",
+                    "Ako želite obrisati neku sačuvanu partiju, potrebno ju je duže zadržati i potvrditi brisanje.",
                     "Prilikom unošenja broja u najavu čuće se zvuk (ako je uključen)."
                 ]
             }
