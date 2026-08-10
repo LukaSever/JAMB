@@ -1476,7 +1476,7 @@ if (dugmePrethodnaPartija) {
 
             if (lista.some(p => p.id === prethodnaPartijaId))
                 return;
-            if (!partijaJeSacuvana && (trenutnaBaza != null || trenutnaKockeDugmiciVidljivost === "1")) {
+            if (!partijaJeSacuvana && localStorage.getItem("ucitanaSacuvanaPartija") !== "true" && (trenutnaBaza != null || trenutnaKockeDugmiciVidljivost === "1")) {
                 if (trenutnaBaza != null)
                     localStorage.setItem("prethodna_jambBaza", trenutnaBaza);
                 else if (vidljivostJePromenjena)
@@ -1493,8 +1493,6 @@ if (dugmePrethodnaPartija) {
                     localStorage.removeItem("prethodna_partijaId");
                 if (trenutnaKockeDugmiciVidljivost != null)
                     localStorage.setItem("prethodna_kockeDugmiciVidljivost", trenutnaKockeDugmiciVidljivost);
-                else
-                    localStorage.removeItem("prethodna_kockeDugmiciVidljivost");
             }
             localStorage.setItem("jambBaza", prethodnaBaza);
             localStorage.setItem("jambStanje", prethodnoStanje);
@@ -1741,8 +1739,6 @@ function ucitajPartiju(id) {
                 localStorage.removeItem("prethodna_partijaId");
         }
 
-        if (localStorage.getItem("ucitanaSacuvanaPartija") !== "true")
-            localStorage.setItem("prethodna_kockeDugmiciVidljivost", localStorage.getItem("kockeDugmiciVidljivost"));
         localStorage.setItem("ucitanaSacuvanaPartija", "true");
         localStorage.setItem("kockeDugmiciVidljivost", "0");
         localStorage.setItem("jambBaza", partija.polja);
